@@ -1,0 +1,501 @@
+header{
+    z-index: -2;
+    width: 100%;
+    background:white;
+    background-size: 100%;
+    position: relative;
+}
+h1{
+    margin: 0;
+    padding: 0;
+}
+/*!**/
+p{
+    margin: 0;
+    padding: 0;
+}
+
+
+.BlogHeaderContainer1{
+    position: relative;
+    margin:auto;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.BlogHeaderContainer1 div div{
+
+    display: inline-block;
+}
+
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.BlogHeaderContainer1_a{
+    margin-left: 50px;
+}
+
+
+#center{
+    margin: 0;
+    position: relative;
+    right: 7%;
+}
+
+
+.BlogHeaderContainer2{
+    width: 1rem;
+    /*position: relative;*/
+    margin: 25px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.BlogHeaderContainer2 div{
+    margin-bottom: 20px;
+}
+
+.TenNguoiMau{
+    position: absolute;
+    animation-name: textAnimation;
+    animation-duration: 3s;
+    top:210px;
+    left: 170px;
+    font-size: 80px;
+    z-index: 1;
+}
+.TenNguoiMau img{
+    position: relative;
+    left: 60px;
+    /*float: right;*/
+}
+
+.DuoiTenNguoiMau{
+    position: absolute;
+    top:410px;
+    left: 170px;
+    z-index: 1;
+
+}
+
+@keyframes textAnimation {
+    from{left: 2000px}
+    to{left: 170px;}
+}
+
+
+
+.slide5item{
+    /*bottom: 5px;*/
+    animation-duration: 2s;
+    animation-name: DichChuyen;
+    position: relative;
+}
+
+@keyframes DichChuyen {
+    from{right: 2000px}
+    to{right: 0}
+}
+
+.imagebound{
+    /*position: absolute;*/
+    /*left: 228px;*/
+    /*top: 1px;*/
+    margin-left: 228px;
+    background: saddlebrown;
+    width: 800px;
+    height: 580px;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.BlogHeaderBackground{
+    /*width: 800px;*/
+    width: 100%;
+    margin: auto;
+    display: block;
+
+    z-index: -1;
+}
+
+.BlogViewProfile{
+    width: 250px;
+    height: 60px;
+    position: absolute;
+    top:510px;
+    left: 139px;
+}
+
+.BlogViewProfileitem1{
+    display: inline-block;
+    width: 160px;
+    height: 60px;
+    background: #FA8CB5;
+}
+
+.BlogViewProfile p{
+    display: inline-block;
+    color: white;
+    background: #FA8CB5;
+    padding:22px 20px;
+    margin: 0;
+}
+
+
+
+.BlogViewProfileitem2{
+    position: relative;
+    bottom: 22px;
+    right: 10px;
+    width: 60px;
+    height: 63px;
+    display: inline-block;
+    background: white url("../Image/Icon/play.png") center no-repeat;
+    background-size: 20%;
+}
+
+#section3{
+    margin: 0;
+    position: relative;
+    height: 38.125rem;
+    display: flex;
+    z-index: -10;
+    /*justify-content: space-between;*/
+    /*top: 1500px;*/
+    /*animation-duration:  1s;*/
+    /*animation-name: scrollEvent;*/
+}
+
+.slide5Index{
+    display: flex;
+    flex-direction: column;
+    color: gray;
+    position: absolute;
+    top: 400px;
+    left: 1100px;
+}
+
+.slide5button{
+    color: gray;
+}
+
+
+#BlogTab{
+    /*position: relative;*/
+    padding: 3.125rem 0;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+#COMEDIAN{
+    display: none;
+}
+#MUSICIAN{
+    display: none;
+}
+
+#COMEDIAN{
+    display: none;
+}
+#MODEL{
+    display: none;
+}
+
+
+button{
+    margin: auto 20px;
+    background: none;
+    border: none;
+    font-size: 15px;
+    font-family: JosefinSans,serif;
+}
+
+
+.ImageList{
+    /*top: 120px;*/
+    /*position: relative;*/
+    font-size: 0;
+    width: 90%;
+    margin: auto;
+    /*background: black;*/
+    z-index: 0;
+}
+
+.ImageList div{
+    display: inline-block;
+    width: 25%;
+    height: 380px;
+    overflow: hidden;
+    z-index: 1;
+    position: relative;
+    background: black;
+}
+
+.ImageList div p{
+    display: none;
+    width: 70px;
+    height: 50px;
+    z-index: 2;
+    font-size: 40px;
+    color: white;
+    position: absolute;
+    top: 150px;
+    left: 120px;
+}
+
+.ImageList a{
+
+}
+
+
+.ImageList img{
+    display: block;
+    width: 100%;
+    /*width: 25%;*/
+    margin: 0;
+    /*height: 380px;*/
+    z-index: -19999999999999999;
+}
+.ImageList img:hover{
+    opacity: 0.7;
+    z-index: -1;
+}
+.ImageList a:hover p{
+    display: block;
+}
+
+
+.BlogButton{
+    display: block;
+    margin:50px auto;
+    /*position: relative;*/
+    /*top: 200px;*/
+    /*left: 100px;*/
+    background: #FA8CB5;
+    font-size: 12px;
+}
+
+#section1{
+
+    position: relative;
+    /*height: 1200px;*/
+}
+
+#section2 h1{
+    text-align: center;
+}
+
+#section2 hr{
+    width: 200px;
+    /*height: 3px;*/
+    /*display: block;*/
+    margin:auto auto 30px auto;
+}
+.CacBaiViet{
+    width: 90%;
+    margin: auto;
+    display: flex;
+}
+.CacBaiViet img{
+    width: 100%;
+}
+.CacBaiViet div a{
+    font-size: 20px;
+}
+.CacBaiViet div a:hover{
+    color: #FA8CB5;
+}
+
+.CacBaiViet p{
+    color: gray;
+}
+
+.ImageContainer{
+    width: 200px;
+    height: 140px;
+    float: left;
+    margin-right: 20px;
+    overflow: hidden;
+}
+
+
+
+.CacBaiViet2{
+    width: 90%;
+    margin: 40px auto;
+    position: relative;
+    /*margin-top: 40px;*/
+    /*display: grid;*/
+    /*width: 100%;*/
+    height: 750px;
+    overflow: hidden;
+    /*grid-gap: 40px;*/
+}
+.item{
+    /*display: inline-grid;*/
+
+}
+
+.slide5{
+    margin-top: 3.125rem;
+}
+
+#CacBaiViet2item1{
+    position: absolute;
+    width: 66%;
+    height: 400px;
+    /*margin: 40px;*/
+    /*background: url("../Image/1091.jpg") no-repeat  center;*/
+    /*background-size: 100%;*/
+    /*back*/
+    /*background: black;*/
+    /*grid-column-start: 1;*/
+    /*grid-column-end: 3;*/
+    /*overflow: hidden;*/
+}
+
+#CacBaiViet2item1imgContainer{
+    width: 100%;
+    height: 340px;
+    overflow: hidden;
+}
+
+#CacBaiViet2item1 img{
+    width: 100%;
+}
+
+#CacBaiViet2item2{
+    position: absolute;
+    width: 33%;
+    height: 740px;
+    left: 850px;
+    /*grid-column-start: 3;*/
+    /*grid-row-start: 1;*/
+    /*grid-row-end: 3;*/
+    background: white;
+    /*background: url("../Image/temp/14.jpg") no-repeat  center;*/
+    /*background-size: 100% 100%;*/
+    /*overflow: hidden;*/
+}
+#CacBaiViet2item2 img{
+    display: inline-grid;
+    width: 100%;
+    height: 650px;
+}
+/*#CacBaiViet2item2 p{*/
+/*    !*width: 10%;*!*/
+/*    height: 30px;*/
+/*    display: inline-grid;*/
+/*    margin: 0;*/
+/*    !*position: absolute;*!*/
+
+/*}*/
+
+#CacBaiViet2item3{
+    position: absolute;
+    top: 440px;
+
+    width: 31%;
+    height: 300px;
+
+    /*overflow: hidden;*/
+}
+
+#CacBaiViet2item3 img{
+    width: 100%;
+}
+
+
+
+#CacBaiViet2item4{
+    position: absolute;
+    /*background: saddlebrown url("../Image/temp/13.jpg");*/
+    background-size: 100% 100%;
+    width: 32%;
+    top: 440px;
+    left: 415px;
+    height: 300px;
+    /*overflow: hidden;*/
+}
+#CacBaiViet2item4 img{
+    width: 100%;
+}
+
+
+
+.CacBaiViet2 .item img{
+    /*width: 100%;*/
+    /*height: 100%;*/
+}
+
+.item h3{
+    margin: 10px;
+}
+
+.item p{
+    color: gray;
+}
+
+#footer{
+    background: none;
+    top: 50px;
+    width: 90%;
+    margin: auto;
+    height: auto;
+
+}
+
+#footer h1{
+    color: black;
+    text-align: left;
+    top: 0;
+
+}
+
+#footercontainer1{
+    display: flex;
+    justify-content: space-between;
+}
+
+#footercontainer1 div a img{
+    width: 16px;
+    margin: auto 12px;
+    position: relative;
+    top: 2px;
+}
+
+#footercontainer1 div a{
+    position: relative;
+    top: 7px;
+}
+
+#footercontainer2{
+    display: flex;
+    justify-content: space-between;
+}
+
+#footercontainer2 div a{
+    margin:auto 10px;
+}
+
+
+.CacBaiViet2item3ImageContainer{
+    overflow: hidden;
+    width: 381px;
+    height: 205px;
+}
+
+
+
+.CacBaiViet2item4ImageContainer{
+    overflow: hidden;
+    width: 393px;
+    height: 205px;
+}
+

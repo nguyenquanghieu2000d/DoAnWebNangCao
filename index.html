@@ -1,0 +1,1440 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="./css/dungchung.css">
+    <link type="text/css" rel="stylesheet" href="./css/font.css">
+    <link type="text/css" rel="stylesheet" href="./css/main.css?" >
+<!--    <link type="text/css" rel="stylesheet" href="./css/flaticon.css">-->
+    <script type="text/javascript" src="./js/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="./js/event.js"></script>
+    <script defer src="./fontawesome/js/all.js"></script>
+</head>
+<body>
+<form id="form1">
+    <div>
+        <header>
+            <div class="PhanDauTien">
+                <div class="LogoAndClick">
+
+<!--                    <asp:HyperLink class="titlea" ID="HyperLink2" NavigateUrl="~/TrangChu.aspx">HHNStore</asp:HyperLink>-->
+                    <a class="titlea" href="trangChu.html">HHNStore</a>
+                </div>
+                <div id="search_container">
+                    <div class="header-search-form">
+
+                        <input  type="text" placeholder="Nhập để tìm kiếm ...">
+                        <button><img src="Image/Icon/tools-and-utensils.png"></button>
+                    </div>
+                </div>
+                <div id="SignUpAndCreate_item1">
+
+                </div>
+                <div class="header-cart-menu d-flex align-items-center ml-auto">
+                    <!-- Cart Area -->
+                    <div class="cart">
+                        <a onclick="shoppingCartOnclick()" style="cursor:pointer" id="header-cart-btn" target="_blank"><span id="tong_so_hang" class="cart_quantity">0</span><i class="fal fa-shopping-bag" style="font-size:30px; margin:0 0.3rem"></i>Giỏ hàng</a>
+                        <!-- Cart List Area Start -->
+                        <div id="cart-list" class="cart-list" style="border-radius:1rem; padding:1rem">
+                            <div id="itemGioHangContainer">
+                                <div class="itemGioHang_" style="display: flex; cursor:pointer; padding:0.3rem">
+                                    <a style="color: #1b1e21" class="image">
+                                        <img src="Image/AV1811041V-1(1).jpg" class="cart-thumb" /></a>
+                                    <div class="cart-item-desc">
+                                        <a href="#">HelloXinh</a>
+                                        <p style="color: #1b1e21">12 x <span class="price">200000 VND</span></p>
+                                    </div>
+                                    <span class="dropdown-product-remove"><i class="icon-cross"></i></span>
+                                </div>
+                                <br />
+
+                            </div>
+                            <div id="gioHangBottom" class="total" style="padding:1rem; display:flex;flex-direction:column; justify-content:center">
+                                <span style="color: #1b1e21" class="pull-right"><p>Tổng tiền: </p><p style="font-weight: bold" id="tongtien">0</p></span>
+                                <br />
+                                <div>
+                                    <a href="gioHang.aspx" style="border-radius:1rem; background-color: white; padding:1rem">Giỏ hàng</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+<!--                    <%&#45;&#45;<div class="header-right-side-menu ml-15">-->
+<!--                    <a href="#" id="sideMenuBtn"><i class="ti-menu" aria-hidden="true"></i></a>-->
+<!--                </div>&#45;&#45;%>-->
+                </div>
+<!--                <%&#45;&#45;<img class="SignUpAndCreate_item1_item1" src="Image/Icon/business.png" alt="">&#45;&#45;%>-->
+<!--                <%&#45;&#45;<i></i>&#45;&#45;%>-->
+<!--                <%&#45;&#45;<i  class="fal fa-shopping-bag" style="font-size:20px"></i>&#45;&#45;%>-->
+
+<!--                <%&#45;&#45;<a class="SignUpAndCreate_item1_item" href="gioHang.html"> Giỏ hàng</a>&#45;&#45;%>-->
+
+            </div>
+            <nav class="navFull">
+                <div id="container">
+                    <div class="submenu">
+                        <a id="TrangChu" class="TrangChu" href="#">Trang chủ</a>
+                    </div>
+                    <div class="submenu"  id="QuanAo">
+                        <a  class="TrangChu" href="#">Trang phục</a>
+                        <div id="QuanAoUL" class="submenu1">
+                            <div class="submenu1container">
+                                <div id="id" class="submenu1item">
+                                    <a href="#">Áo sơ mi</a>
+                                    <a href="#">Áo thun</a>
+                                    <a href="#">Áo sơ mi</a>
+                                    <a href="#">Áo hai dây & Áo ba lỗ</a>
+                                    <a href="#">Bodysuit</a>
+                                    <a href="#">Bộ thời trang</a>
+                                    <a href="#">Áo len</a>
+                                    <a href="#">Áo nỉ</a>
+                                    <a href="#"><b>Áo khoác & Jacket</b></a>
+                                    <a href="#">Áo khoác</a>
+                                    <a href="#">Áo jacket</a>
+                                    <a href="#">Áo vest</a>
+                                    <a href="#">Đồ thể thao</a>
+
+                                </div>
+                                <div class="submenu1item">
+                                    <a href="#"><b>Quần và váy</b></a>
+                                    <a href="#">Chân váy</a>
+                                    <a href="#">Quần</a>
+                                    <a href="#">Quần short</a>
+                                    <a href="#">Quần Leggings</a>
+                                    <a href="#"><b>Jumpsuit & Set bộ đồ </b></a>
+                                </div>
+                                <div class="submenu1item">
+                                    <a href="#"><b>Đồ bơi</b></a>
+                                    <a href="#">Áo bơi</a>
+                                    <a href="#">Áo choàng</a>
+                                    <a href="#"><b>Denim</b></a>
+                                    <a href="#">Quần jean</a>
+                                    <a href="#">Quần short Denim</a>
+                                    <a href="#"><b>Đồ lót & Đồ mặc nhà</b></a>
+                                    <a href="#">Đồ lót</a>
+                                    <a href="#">Đồ mặc nhà</a>
+                                </div>
+                                <div id="submenu1item2_1" class="submenu1item2">
+                                    <h3>MUA THEO CHỦ ĐỀ</h3>
+                                    <div class="submenu1item2_item">
+                                        <a href="TimKiem.aspx?ma_loai=CT0001"><h3>Dạo phố</h3><img src="Image/navItem/1.jpg"></a>
+                                        <a href="TimKiem.aspx?ma_loai=CT0001"><h3>Ở nhà</h3><img src="Image/navItem/2.jpeg"></a>
+                                        <a href="TimKiem.aspx?ma_loai=CT0001"><h3>Công sở</h3><img src="Image/navItem/3.jpeg"></a>
+                                        <a href="TimKiem.aspx?ma_loai=CT0001"><h3>Đồ ngủ</h3><img src="Image/navItem/5.jpeg"></a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <!--                <ul id="QuanAoUL">-->
+                        <!--                    <li><a href="#">Hoodie</a></li>-->
+                        <!--                    <li><a href="#">Áo sơ mi</a></li>-->
+                        <!--                    <li><a href="#">Quần jean</a></li>-->
+                        <!--                    <li><a href="#"><b>Thêm nữa</b></a></li>-->
+                        <!--                </ul>-->
+                    </div>
+                    <div class="submenu" id="Vay">
+                        <a  class="TrangChu" href="#">Váy & Đầm</a>
+                        <div id="VayUL" class="submenu1">
+                            <div class="submenu1container">
+                                <div class="submenu1item">
+                                    <h3>MUA THEO LOẠI</h3>
+                                    <a href="#">Váy Mini</a>
+                                    <a href="#">Váy Midi</a>
+                                    <a href="#">Váy Maxi</a>
+                                    <a href="#">Chân Váy</a>
+                                    <a href="#">Đầm Hai Dây</a>
+                                    <a href="#">Đầm Sát Nách</a>
+                                    <a href="#">Đầm Dạ Hội</a>
+                                    <a href="#">Đầm Hạ Eo</a>
+                                    <a href="#"><b>Thêm nữa ... </b></a>
+                                </div>
+                                <div id="submenu1item2_2" class="submenu1item2">
+                                    <h3>MUA THEO XU HƯỚNG</h3>
+                                    <div class="submenu1item2_item">
+                                        <a href="#"><h3>Váy Mini</h3><img src="Image/navItem/13.jpeg"></a>
+                                        <a href="#"><h3>Váy Midi</h3><img src="Image/navItem/12.jpeg"></a>
+                                        <a href="#"><h3>Đầm Hai Dây</h3><img src="Image/navItem/hRMdSTy27TLuSbf6AJvE8wbxLCbRUKlCRO084Fv0.jpeg"></a>
+                                        <a href="#"><h3>Đầm Xòe</h3><img src="Image/navItem/16.jpeg"></a>
+                                        <a href="#"><h3>Đầm Hạ Eo</h3><img src="Image/navItem/14.jpeg"></a>
+                                        <a href="#"><h3>Đầm Sát Nách</h3><img src="Image/navItem/10.jpeg"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--                <ul id="VayUL">-->
+                        <!--                    <li><a href="#">Váy suông</a></li>-->
+                        <!--                    <li><a href="#">Váy chữ A</a></li>-->
+                        <!--                    <li><a href="#">Váy ôm</a></li>-->
+                        <!--                    <li><a href="#"><b>Thêm nữa</b></a></li>-->
+                        <!--                </ul>-->
+                    </div>
+                    <div class="submenu" id="DoNgu">
+                        <a  class="TrangChu" href="#">Đồ ngủ</a>
+                        <div id="DoNguUL" class="submenu1">
+                            <div class="submenu1container">
+                                <div class="submenu1item">
+                                    <h3>THƯƠNG HIỆU</h3>
+                                    <a href="#">21SIX Fashion</a>
+                                    <a href="#">Bonbino</a>
+                                    <a href="#">Sexy Forever</a>
+                                    <a href="#">Maay Lingerie</a>
+                                    <a href="#">Hera Homewear</a>
+                                    <a href="#"><b>Thêm nữa ... </b></a>
+                                </div>
+                                <div id="submenu1item2_3" class="submenu1item2">
+                                    <h3>MUA THEO THƯƠNG HIỆU</h3>
+                                    <div class="submenu1item2_item">
+                                        <a href="#"><h3>21SIX Fashion</h3><img src="Image/navItem/PJ06(1).JPG"></a>
+                                        <a href="#"><h3>Bonbino</h3><img src="Image/navItem/frDNyRsqtWpqJrtecX1fEh6RfPZ7YNQrCoNCgXJO.jpeg"></a>
+                                        <a href="#"><h3>Sexy Forever</h3><img src="Image/navItem/4LPUi2aI8sZHtxsfXNiMoTDARa0IIOQkUwq35xnS.jpeg"></a>
+                                        <a href="#"><h3>Maay Lingerie</h3><img src="Image/navItem/Julia(1).jpg"></a>
+                                        <a href="#"><h3>Hera Homewear</h3><img src="Image/navItem/vgDW5cBtcfJ0jY0kB6M6Z0xucWNqY5M3yEVR6WKS.jpeg"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--                <ul id="DoNguUL">-->
+                        <!--                    <li><a href="#">Pyjama</a></li>-->
+                        <!--                    <li><a href="#">Áo lụa</a></li>-->
+                        <!--                    <li><a href="#">Đầm ngủ</a></li>-->
+                        <!--                    <li><a href="#"><b>Thêm nữa</b></a></li>-->
+                        <!--                </ul>-->
+                    </div>
+                    <div class="submenu" id="Giay">
+                        <a  class="TrangChu" href="#">Giày</a>
+                        <div id="GiayUL" class="submenu1">
+                            <div class="submenu1container">
+                                <div class="submenu1item">
+                                    <h3>MUA THEO LOẠI</h3>
+                                    <a href="#">Dép</a>
+                                    <a href="#">Giày xăng đan</a>
+                                    <a href="#">Giày búp bê</a>
+                                    <a href="#">Giày cao gót</a>
+                                    <a href="#">Giày đế xuồng</a>
+                                    <a href="#">Giày thể thao</a>
+                                    <a href="#">Giày Boot</a>
+                                    <a href="#"><b>Thêm nữa ... </b></a>
+                                </div>
+                                <div id="submenu1item2_4" class="submenu1item2">
+                                    <div class="submenu1item2_item">
+                                        <a href="#"><h3>Hàng mới</h3><img src="Image/navItem/15573671702691852556.jpg"></a>
+                                        <a href="#"><h3>Bán chạy</h3><img src="Image/navItem/15573672672502939846.jpg"></a>
+                                        <a href="#"><h3>Khuyến mãi</h3><img src="Image/navItem/15573673161352460799.jpg"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--                <ul id="GiayUL">-->
+                        <!--                    <li><a href="#">Sneaker</a></li>-->
+                        <!--                    <li><a href="#">Giày cao gót</a></li>-->
+                        <!--                    <li><a href="#"><b>Thêm nữa</b></a></li>-->
+                        <!--                </ul>-->
+                    </div>
+                    <div class="submenu" id="PhuKien">
+                        <a  class="TrangChu" href="#">Phụ kiện</a>
+                        <div id="PhuKienUL" class="submenu1">
+                            <div class="submenu1container">
+                                <div class="submenu1item">
+                                    <a href="#"><b>TÚI</b></a>
+                                    <a href="#">Balô</a>
+                                    <a href="#">Túi crossbody</a>
+                                    <a href="#">Túi ly hợp buổi tối</a>
+                                    <a href="#">Ví tiền</a>
+                                    <a href="#">Bộ thời trang</a>
+                                    <a href="#">Túi xách tay</a>
+                                    <a href="#">Túi đeo chéo</a>
+                                    <a href="#">Set bộ túi</a>
+                                    <a href="#">Phụ kiện túi</a>
+                                    <a href="#">Túi vai & Tote</a>
+                                </div>
+                                <div class="submenu1item">
+                                    <a href="#"><b>PHỤ KIỆN</b></a>
+                                    <a href="#">Phụ kiện Tóc</a>
+                                    <a href="#">Vớ & Quần vớ nữ</a>
+                                    <a href="#">Kính râm</a>
+                                    <a href="#">Thắt lưng</a>
+                                    <a href="#">Mũ & Găng tay</a>
+                                    <a href="#">Khăn quàng cổ</a>
+                                    <a href="#">Móc chìa khóa</a>
+                                </div>
+                                <div class="submenu1item">
+                                    <a href="#"><b>ĐỒ TRANG SỨC</b></a>
+                                    <a href="#">Dây chuyền</a>
+                                    <a href="#">Hoa tai</a>
+                                    <a href="#">Vòng tay</a>
+                                    <a href="#">Nhẫn</a>
+                                    <a href="#">Trâm cài</a>
+                                </div>
+                                <div id="submenu1item2_5" class="submenu1item2">
+                                    <div class="submenu1item2_item">
+                                        <a href="#"><h3>Bán chạy</h3><img src="Image/navItem/15573718613386128131.jpg"></a>
+                                        <a href="#"><h3>NEW</h3><img src="Image/navItem/15573718902767655164.jpg"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!--                <ul id="PhuKienUL">-->
+                        <!--                    <li><a href="#">Ví cầm tay</a></li>-->
+                        <!--                    <li><a href="#">Đồng hồ</a></li>-->
+                        <!--                    <li><a href="#">Túi đeo</a></li>-->
+                        <!--                    <li><a href="#"><b>Thêm nữa</b></a></li>-->
+                        <!--                </ul>-->
+                    </div>
+                    <div class="submenu">
+                        <a  class="TrangChu" href="TimKiem.aspx">Tìm kiếm</a>
+                    </div>
+                    <div class="submenu">
+                        <a  class="TrangChu" href="blog.html">Blog</a>
+                    </div>
+                </div>
+            </nav>
+            <nav class="responsiveNav">
+                <button onclick="responsiveNavClick()"><img src="Image/Icon/open-menu%20(2).png"></button>
+            </nav>
+
+            <div class="responsiveNavItem">
+                <a class="TrangChu" href="#">Trang chủ</a>
+                <a  class="TrangChu" href="#">Trang phục</a>
+                <a  class="TrangChu" href="#">Váy & Đầm</a>
+                <a  class="TrangChu" href="#">Đồ ngủ</a>
+                <a  class="TrangChu" href="#">Giày</a>
+                <a  class="TrangChu" href="#">Phụ kiện</a>
+                <a  class="TrangChu" href="shop.html">Tìm kiếm</a>
+                <a  class="TrangChu" href="blog.html">Blog</a>
+            </div>
+        </header>
+
+        <video controls autoplay loop muted>
+            <source src="Image/1122.mp4" type="video/mp4">
+            <!--        <source src="Image/clip_Xop_Tam_Dao_3.mp4" type="video/ogg">-->
+            Your browser does not support the video tag.
+        </video>
+        <section id="section1" class="slideAnh1">
+            <div class="section1" id="img1" >
+                <div></div>
+                <div class="TamgiacContainer">
+                    <div class="Left">
+                        <div class="tamgiac1"></div>
+                        <div class="tamgiac4"></div>
+                    </div>
+                    <div class="Right">
+                        <div class="tamgiac3"></div>
+                        <div class="tamgiac2"></div>
+                    </div>
+                </div>
+
+                <div class="section1_1" >
+                    <div>
+                        <h2>Hàng mới về</h2>
+                        <h1>VÁY HỒNG CHẤM BI</h1>
+                        <p>MỚI NHẤT ĐẾN TỪ ELISE</p>
+                        <a href="#" class="section1_1_btn black">XEM NGAY</a>
+                        <a href="#" class="section1_1_btn white">THÊM VÀO GIỎ ĐỒ</a>
+                    </div>
+                    <div>
+                        <!--                    <img src="Image/Icon/circle-cropped.png" alt="">-->
+                    </div>
+                </div>
+            </div>
+            <div class="section1" id="img2">
+                <div class="TamgiacContainer">
+                    <div class="Left">
+                        <div class="animated tamgiac1"></div>
+                        <div class="animated tamgiac4"></div>
+                    </div>
+                    <div class="Right">
+                        <div class="animated tamgiac3"></div>
+                        <div class="animated tamgiac2"></div>
+                    </div>
+                </div>
+                <div class="section1_1">
+                    <div>
+                        <h2>Hàng mới về</h2>
+                        <h1>T-SHIRT HỒNG CÁ TÍNH</h1>
+                        <p>MỚI NHẤT ĐẾN TỪ SYO FASHION</p>
+                        <a href="#" class="section1_1_btn black">XEM NGAY</a>
+                        <a href="#" class="section1_1_btn white">THÊM VÀO GIỎ ĐỒ</a>
+                    </div>
+                    <div>
+                        <!--                    <img src="Image/Icon/circle-cropped.png">-->
+                    </div>
+                </div>
+            </div>
+            <div class="section1" id="img3">
+                <div class="TamgiacContainer">
+                    <div class="Left">
+                        <div class="tamgiac1"></div>
+                        <div class="tamgiac4"></div>
+                    </div>
+                    <div class="Right">
+                        <div class="tamgiac3"></div>
+                        <div class="tamgiac2"></div>
+                    </div>
+                </div>
+                <div class="section1_1">
+                    <div>
+                        <h2>Hàng mới về</h2>
+                        <h1>JEAN BỘ XANH</h1>
+                        <p>MỚI NHẤT ĐẾN TỪ DE LEAH</p>
+                        <a href="#" class="section1_1_btn black">XEM NGAY</a>
+                        <a href="#" class="section1_1_btn white">THÊM VÀO GIỎ ĐỒ</a>
+                    </div>
+                    <div>
+                        <!--                    <img src="Image/Icon/circle-cropped.png">-->
+                    </div>
+                </div>
+            </div>
+            <div class="section1_2">
+                <!--            <a id="section1_2_pre" href="#"><img src="Image/Icon/arrows.png"></a>-->
+                <a id="bg0" class="dot" onclick="slide1(0)"></a>
+                <a id="bg1" class="dot" onclick="slide1(1)"></a>
+                <a id="bg2" class="dot" onclick="slide1(2)"></a>
+                <!--            <a id="section1_2_nex" href="#"><img src="Image/Icon/multimedia-option.png"></a>-->
+            </div>
+        </section>
+        <section id="section2">
+            <div class="section_title">
+                <h1>
+                    SALE OFF
+                </h1>
+            </div>
+            <div>
+                <div id="slide2_1"  >
+                    <div>
+                        <button class="round okok" onclick="pre1()" >&#8249;</button>
+                    </div>
+                    <div style="cursor:pointer" href="#" id="sanpham1_1_1" class="sanpham saleoff " >
+                        <div class="imagecontainer">
+                            <img class="sanpham_img" src="./Image/product/minidress/mini1.jpg" alt="">
+                        </div>
+                        <div class="sanpham_container_button">
+                            <div class="sanpham_button sale"><p >10%</p></div>
+                            <a class="sanpham_button themsanpham" href="chiTietSanPham.html"></a>
+                            <a class="sanpham_button tim" href="#"></a>
+
+                        </div>
+                        <div class="sanpham_gia">
+                            <p class="p1"><b> ELISE </b>
+                                <br>
+                                Áo Len Xanh Phụ Kiện
+                            </p>
+                            <p class="p2"><strike> 948.000 VND</strike><br>
+                                399.000 VND</p>
+                        </div>
+                    </div>
+                    <div style="cursor:pointer" href="#" id="sanpham1_1_1" class="sanpham saleoff " >
+                        <div class="imagecontainer">
+                            <img class="sanpham_img" src="./Image/product/minidress/mini1.jpg" alt="">
+                        </div>
+                        <div class="sanpham_container_button">
+                            <div class="sanpham_button sale"><p >10%</p></div>
+                            <a class="sanpham_button themsanpham" href="chiTietSanPham.html"></a>
+                            <a class="sanpham_button tim" href="#"></a>
+
+                        </div>
+                        <div class="sanpham_gia">
+                            <p class="p1"><b> ELISE </b>
+                                <br>
+                                Áo Len Xanh Phụ Kiện
+                            </p>
+                            <p class="p2"><strike> 948.000 VND</strike><br>
+                                399.000 VND</p>
+                        </div>
+                    </div>
+                    <div style="cursor:pointer" href="#" id="sanpham1_1_1" class="sanpham saleoff " >
+                        <div class="imagecontainer">
+                            <img class="sanpham_img" src="./Image/product/minidress/mini1.jpg" alt="">
+                        </div>
+                        <div class="sanpham_container_button">
+                            <div class="sanpham_button sale"><p >10%</p></div>
+                            <a class="sanpham_button themsanpham" href="chiTietSanPham.html"></a>
+                            <a class="sanpham_button tim" href="#"></a>
+
+                        </div>
+                        <div class="sanpham_gia">
+                            <p class="p1"><b> ELISE </b>
+                                <br>
+                                Áo Len Xanh Phụ Kiện
+                            </p>
+                            <p class="p2"><strike> 948.000 VND</strike><br>
+                                399.000 VND</p>
+                        </div>
+                    </div>
+                    <div style="cursor:pointer" href="#" id="sanpham1_1_1" class="sanpham saleoff " >
+                        <div class="imagecontainer">
+                            <img class="sanpham_img" src="./Image/product/minidress/mini1.jpg" alt="">
+                        </div>
+                        <div class="sanpham_container_button">
+                            <div class="sanpham_button sale"><p >10%</p></div>
+                            <a class="sanpham_button themsanpham" href="chiTietSanPham.html"></a>
+                            <a class="sanpham_button tim" href="#"></a>
+
+                        </div>
+                        <div class="sanpham_gia">
+                            <p class="p1"><b> ELISE </b>
+                                <br>
+                                Áo Len Xanh Phụ Kiện
+                            </p>
+                            <p class="p2"><strike> 948.000 VND</strike><br>
+                                399.000 VND</p>
+                        </div>
+                    </div>
+                    <div ><button class="round okok" onclick="nex1()">&#8250;</button></div>
+                </div>
+            </div>
+        </section>
+        <section id="section3">
+            <div class="section1shop">
+                <h1>
+                    NHỮNG SẢN PHẨM MỚI NHẤT
+                </h1>
+                <div>
+
+                </div>
+
+            </div>
+            <!--        <div  class="section_title">NHỮNG SẢN PHẨM MỚI NHẤT</div>-->
+            <div id="slide2">
+                <div><button class="round okok" onclick="pre()" >&#8249;</button></div>
+                <div style="cursor:pointer" href="#" id="sanpham1_1_1" class="sanpham new " >
+                    <div class="imagecontainer">
+                        <img class="sanpham_img" src="./Image/product/minidress/mini1.jpg" alt="">
+                    </div>
+                    <div class="sanpham_container_button">
+                        <div class="sanpham_button sale"><p >10%</p></div>
+                        <a class="sanpham_button themsanpham" href="chiTietSanPham.html"></a>
+                        <a class="sanpham_button tim" href="#"></a>
+
+                    </div>
+                    <div class="sanpham_gia">
+                        <p class="p1"><b> ELISE1 </b>
+                            <br>
+                            Áo Len Xanh Phụ Kiện
+                        </p>
+                        <p class="p2"><strike> 948.000 VND</strike><br>
+                            399.000 VND</p>
+                    </div>
+                </div>
+                <div style="cursor:pointer" href="#" id="sanpham1_1_1" class="sanpham new " >
+                    <div class="imagecontainer">
+                        <img class="sanpham_img" src="./Image/product/minidress/mini1.jpg" alt="">
+                    </div>
+                    <div class="sanpham_container_button">
+                        <div class="sanpham_button sale"><p >10%</p></div>
+                        <a class="sanpham_button themsanpham" href="chiTietSanPham.html"></a>
+                        <a class="sanpham_button tim" href="#"></a>
+
+                    </div>
+                    <div class="sanpham_gia">
+                        <p class="p1"><b> ELISE2 </b>
+                            <br>
+                            Áo Len Xanh Phụ Kiện
+                        </p>
+                        <p class="p2"><strike> 948.000 VND</strike><br>
+                            399.000 VND</p>
+                    </div>
+                </div>
+                <div style="cursor:pointer" href="#" id="sanpham1_1_1" class="sanpham new " >
+                    <div class="imagecontainer">
+                        <img class="sanpham_img" src="./Image/product/minidress/mini1.jpg" alt="">
+                    </div>
+                    <div class="sanpham_container_button">
+                        <div class="sanpham_button sale"><p >10%</p></div>
+                        <a class="sanpham_button themsanpham" href="chiTietSanPham.html"></a>
+                        <a class="sanpham_button tim" href="#"></a>
+
+                    </div>
+                    <div class="sanpham_gia">
+                        <p class="p1"><b> ELISE3 </b>
+                            <br>
+                            Áo Len Xanh Phụ Kiện
+                        </p>
+                        <p class="p2"><strike> 948.000 VND</strike><br>
+                            399.000 VND</p>
+                    </div>
+                </div>
+                <div style="cursor:pointer" href="#" id="sanpham1_1_1" class="sanpham new " >
+                    <div class="imagecontainer">
+                        <img class="sanpham_img" src="./Image/product/minidress/mini1.jpg" alt="">
+                    </div>
+                    <div class="sanpham_container_button">
+                        <div class="sanpham_button sale"><p >10%</p></div>
+                        <a class="sanpham_button themsanpham" href="chiTietSanPham.html"></a>
+                        <a class="sanpham_button tim" href="#"></a>
+
+                    </div>
+                    <div class="sanpham_gia">
+                        <p class="p1"><b> ELISE4 </b>
+                            <br>
+                            Áo Len Xanh Phụ Kiện
+                        </p>
+                        <p class="p2"><strike> 948.000 VND</strike><br>
+                            399.000 VND</p>
+                    </div>
+                </div>
+                <div style="cursor:pointer" href="#" id="sanpham1_1_1" class="sanpham new " >
+                    <div class="imagecontainer">
+                        <img class="sanpham_img" src="./Image/product/minidress/mini1.jpg" alt="">
+                    </div>
+                    <div class="sanpham_container_button">
+                        <div class="sanpham_button sale"><p >10%</p></div>
+                        <a class="sanpham_button themsanpham" href="chiTietSanPham.html"></a>
+                        <a class="sanpham_button tim" href="#"></a>
+
+                    </div>
+                    <div class="sanpham_gia">
+                        <p class="p1"><b> ELISE5 </b>
+                            <br>
+                            Áo Len Xanh Phụ Kiện
+                        </p>
+                        <p class="p2"><strike> 948.000 VND</strike><br>
+                            399.000 VND</p>
+                    </div>
+                </div>
+                <div ><button class="round okok" onclick="nex()">&#8250;</button></div>
+            </div>
+        </section>
+        <section id="section4">
+            <div class="showshowcontainer">
+                <div>
+                    <a href="#">
+                        <img src="Image/slider_5_image.png.jpg">
+                        <h3>UP TO 40% OFF NEW COLLECTIONS</h3>
+                        <p>Ưu đãi độc quyền - giảm đến 40% loạt BST mới đến từ các NTK hàng đầu Việt Nam</p>
+                        <h1>MUA NGAY</h1>
+                    </a>
+                    <a href="#">
+                        <img src="Image/sale-123tren-tiki.jpg">
+                        <h3>BEST SELLERS CLEARANCE SALE </h3>
+                        <p>Những items được yêu thích nhất tại HHNStore nay đã được ưu đãi lên đến 80%</p>
+                        <h1>MUA NGAY</h1>
+                    </a>
+                </div>
+                <div>
+
+                    <a href="#">
+                        <img src="Image/64274455_1189417311229093_9078253299605438464_n.jpg">
+                        <h3>ƯU ĐÃI ĐỘC QUYỀN ĐẾN TỪ CHIC-LAND</h3>
+                        <p>Ưu đãi độc quyền được áp dụng với những mẫu thiết kế bán chạy nhất tại thương hiệu CHIC-LAND</p>
+                        <h1>MUA NGAY</h1>
+                    </a>
+                    <a href="#">
+                        <img src="Image/20190831090857_22584.png">
+
+                        <h3>HHNStore 'S BIRTHDAY - 50% OFF ALL ITEMS</h3>
+                        <p>HHNStore tri ân khách hàng nhân dịp sinh nhật lần thứ 4 với ưu đãi nửa giá toàn bộ sản phẩm</p>
+                        <h1>MUA NGAY</h1>
+                    </a>
+                </div>
+
+            </div>
+            <div class="section1shop">
+                <div>
+                </div>
+                <h1>
+                    NHỮNG SẢN PHẨM HÀNG ĐẦU
+                </h1>
+            </div>
+            <div id="DanhMuc">
+                <a class="button_a" href="#"><p>Áo</p></a>
+                <a class="button_a" href="#"><p>Quần jean</p></a>
+                <a class="button_a" href="#"><p>Đi biển</p></a>
+                <a class="button_a" href="#"><p>Váy</p></a>
+                <a class="button_a" href="#"><p>Legging</p></a>
+                <a class="button_a" href="#"><p>Áo khoác</p></a>
+                <a class="button_a" href="#"><p>Nội y</p></a>
+            </div>
+
+            <div id="sanphamcontainer" class="sanphamcontainer">
+                <div style="cursor:pointer" href="#" id="sanpham1_1_1" class="sanpham new " >
+                    <div class="imagecontainer">
+                        <img class="sanpham_img" src="./Image/product/minidress/mini1.jpg" alt="">
+                    </div>
+                    <div class="sanpham_container_button">
+                        <div class="sanpham_button sale"><p >10%</p></div>
+                        <a class="sanpham_button themsanpham" href="chiTietSanPham.html"></a>
+                        <a class="sanpham_button tim" href="#"></a>
+
+                    </div>
+                    <div class="sanpham_gia">
+                        <p class="p1"><b> ELISE </b>
+                            <br>
+                            Áo Len Xanh Phụ Kiện
+                        </p>
+                        <p class="p2"><strike> 948.000 VND</strike><br>
+                            399.000 VND</p>
+                    </div>
+                </div>
+                <div style="cursor:pointer" href="#" id="sanpham1_1_1" class="sanpham new " >
+                    <div class="imagecontainer">
+                        <img class="sanpham_img" src="./Image/product/minidress/mini1.jpg" alt="">
+                    </div>
+                    <div class="sanpham_container_button">
+                        <div class="sanpham_button sale"><p >10%</p></div>
+                        <a class="sanpham_button themsanpham" href="chiTietSanPham.html"></a>
+                        <a class="sanpham_button tim" href="#"></a>
+
+                    </div>
+                    <div class="sanpham_gia">
+                        <p class="p1"><b> ELISE </b>
+                            <br>
+                            Áo Len Xanh Phụ Kiện
+                        </p>
+                        <p class="p2"><strike> 948.000 VND</strike><br>
+                            399.000 VND</p>
+                    </div>
+                </div>
+                <div style="cursor:pointer" href="#" id="sanpham1_1_1" class="sanpham new " >
+                    <div class="imagecontainer">
+                        <img class="sanpham_img" src="./Image/product/minidress/mini1.jpg" alt="">
+                    </div>
+                    <div class="sanpham_container_button">
+                        <div class="sanpham_button sale"><p >10%</p></div>
+                        <a class="sanpham_button themsanpham" href="chiTietSanPham.html"></a>
+                        <a class="sanpham_button tim" href="#"></a>
+
+                    </div>
+                    <div class="sanpham_gia">
+                        <p class="p1"><b> ELISE </b>
+                            <br>
+                            Áo Len Xanh Phụ Kiện
+                        </p>
+                        <p class="p2"><strike> 948.000 VND</strike><br>
+                            399.000 VND</p>
+                    </div>
+                </div>
+                <div style="cursor:pointer" href="#" id="sanpham1_1_1" class="sanpham new " >
+                    <div class="imagecontainer">
+                        <img class="sanpham_img" src="./Image/product/minidress/mini1.jpg" alt="">
+                    </div>
+                    <div class="sanpham_container_button">
+                        <div class="sanpham_button sale"><p >10%</p></div>
+                        <a class="sanpham_button themsanpham" href="chiTietSanPham.html"></a>
+                        <a class="sanpham_button tim" href="#"></a>
+
+                    </div>
+                    <div class="sanpham_gia">
+                        <p class="p1"><b> ELISE </b>
+                            <br>
+                            Áo Len Xanh Phụ Kiện
+                        </p>
+                        <p class="p2"><strike> 948.000 VND</strike><br>
+                            399.000 VND</p>
+                    </div>
+                </div>
+                <div style="cursor:pointer" href="#" id="sanpham1_1_1" class="sanpham new " >
+                    <div class="imagecontainer">
+                        <img class="sanpham_img" src="./Image/product/minidress/mini1.jpg" alt="">
+                    </div>
+                    <div class="sanpham_container_button">
+                        <div class="sanpham_button sale"><p >10%</p></div>
+                        <a class="sanpham_button themsanpham" href="chiTietSanPham.html"></a>
+                        <a class="sanpham_button tim" href="#"></a>
+
+                    </div>
+                    <div class="sanpham_gia">
+                        <p class="p1"><b> ELISE </b>
+                            <br>
+                            Áo Len Xanh Phụ Kiện
+                        </p>
+                        <p class="p2"><strike> 948.000 VND</strike><br>
+                            399.000 VND</p>
+                    </div>
+                </div>
+                <div style="cursor:pointer" href="#" id="sanpham1_1_1" class="sanpham new " >
+                    <div class="imagecontainer">
+                        <img class="sanpham_img" src="./Image/product/minidress/mini1.jpg" alt="">
+                    </div>
+                    <div class="sanpham_container_button">
+                        <div class="sanpham_button sale"><p >10%</p></div>
+                        <a class="sanpham_button themsanpham" href="chiTietSanPham.html"></a>
+                        <a class="sanpham_button tim" href="#"></a>
+
+                    </div>
+                    <div class="sanpham_gia">
+                        <p class="p1"><b> ELISE </b>
+                            <br>
+                            Áo Len Xanh Phụ Kiện
+                        </p>
+                        <p class="p2"><strike> 948.000 VND</strike><br>
+                            399.000 VND</p>
+                    </div>
+                </div>
+                <div style="cursor:pointer" href="#" id="sanpham1_1_1" class="sanpham new " >
+                    <div class="imagecontainer">
+                        <img class="sanpham_img" src="./Image/product/minidress/mini1.jpg" alt="">
+                    </div>
+                    <div class="sanpham_container_button">
+                        <div class="sanpham_button sale"><p >10%</p></div>
+                        <a class="sanpham_button themsanpham" href="chiTietSanPham.html"></a>
+                        <a class="sanpham_button tim" href="#"></a>
+
+                    </div>
+                    <div class="sanpham_gia">
+                        <p class="p1"><b> ELISE </b>
+                            <br>
+                            Áo Len Xanh Phụ Kiện
+                        </p>
+                        <p class="p2"><strike> 948.000 VND</strike><br>
+                            399.000 VND</p>
+                    </div>
+                </div>
+                <div style="cursor:pointer" href="#" id="sanpham1_1_1" class="sanpham new " >
+                    <div class="imagecontainer">
+                        <img class="sanpham_img" src="./Image/product/minidress/mini1.jpg" alt="">
+                    </div>
+                    <div class="sanpham_container_button">
+                        <div class="sanpham_button sale"><p >10%</p></div>
+                        <a class="sanpham_button themsanpham" href="chiTietSanPham.html"></a>
+                        <a class="sanpham_button tim" href="#"></a>
+
+                    </div>
+                    <div class="sanpham_gia">
+                        <p class="p1"><b> ELISE </b>
+                            <br>
+                            Áo Len Xanh Phụ Kiện
+                        </p>
+                        <p class="p2"><strike> 948.000 VND</strike><br>
+                            399.000 VND</p>
+                    </div>
+                </div>
+            </div>
+            <div id="ButtonThemNua">
+                <a class="button_a" href="#"><p>THÊM NỮA NHÉ</p></a>
+            </div>
+        </section>
+        <section id="section6">
+            <div class="section1shop">
+                <h1>
+                    PHONG CÁCH
+                </h1>
+                <div>
+
+                </div>
+            </div>
+            <div class="sanphamcontainer">
+
+                <div class="sanpham hot">
+                    <div class="imagecontainer">
+                        <img class="sanpham_img" src="Image/DRE11292-1(1).jpg" alt="">
+                    </div>
+                    <div class="sanpham_gia">
+                        <p class="p1"><b>TIỆC TÙNG</b>
+                        </p>
+                    </div>
+                </div>
+                <div class="sanpham hot">
+                    <div class="imagecontainer">
+                        <img class="sanpham_img" src="Image/product/80.jpg" alt="">
+                    </div>
+                    <div class="sanpham_gia">
+                        <p class="p1"><b>DẠO PHỐ</b>
+                        </p>
+                    </div>
+                </div>
+                <div class="sanpham hot">
+                    <div class="imagecontainer">
+                        <img class="sanpham_img" src="Image/product/81.jpg" alt="">
+                    </div>
+                    <div class="sanpham_gia">
+                        <p class="p1"><b>DU LỊCH</b>
+                        </p>
+                    </div>
+                </div>
+                <div class="sanpham hot">
+                    <div class="imagecontainer">
+                        <img class="sanpham_img" src="Image/do-tap-gym-cho-nu-652x1024.jpg" alt="">
+                    </div>
+                    <div class="sanpham_gia">
+                        <p class="p1"><b>THỂ THAO</b>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="sanpham hot">
+                    <div class="imagecontainer">
+                        <img class="sanpham_img" src="Image/EvQD49FYDMSxU7hUdhNvq3UqZ4nbZnjnOhRLsP6p.jpeg" alt="">
+                    </div>
+                    <div class="sanpham_gia">
+                        <p class="p1"><b>MẶC NHÀ</b>
+                        </p>
+                    </div>
+                </div>
+                <div class="sanpham hot">
+                    <div class="imagecontainer">
+                        <img class="sanpham_img" src="Image/AV1811041V-1(1).jpg" alt="">
+                    </div>
+                    <div class="sanpham_gia">
+                        <p class="p1"><b>CÔNG SỞ</b>
+                        </p>
+                    </div>
+                </div>
+                <div class="sanpham hot">
+                    <div class="imagecontainer">
+                        <img class="sanpham_img" src="Image/65.1-copy.jpg" alt="">
+                    </div>
+                    <div class="sanpham_gia">
+                        <p class="p1"><b>ĐI HỌC</b>
+                        </p>
+                    </div>
+                </div>
+                <div class="sanpham hot">
+                    <div class="imagecontainer">
+                        <img class="sanpham_img" src="Image/product/87.jpeg" alt="">
+                    </div>
+                    <div class="sanpham_gia">
+                        <p class="p1"><b>HẸN HÒ</b>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="section6container">
+                <a href="#"><img src="Image/summer-party-5ee09fb6a291e.jpg"></a>
+                <a href="#"><img src="Image/summer-office-5ed46ef01ee60.jpg"></a>
+                <a href="#"><img src="Image/summer-heels-5ed8638521a25.jpg"></a>
+            </div>
+            <div class="section1shop">
+                <h1>
+                    CÁC SẢN PHẨM KHÁC
+                </h1>
+                <div>
+
+                </div>
+            </div>
+            <div class="sanphamcontainer">
+                <div class="sanpham hot">
+                    <div class="imagecontainer">
+                        <img class="sanpham_img" src="Image/p1-5ecbae63e6cc2.jpeg" alt="">
+                    </div>
+                    <div class="sanpham_gia">
+                        <p class="p1"><b>GIÀY DÉP</b>
+                        </p>
+                    </div>
+                </div>
+                <div class="sanpham hot">
+                    <div class="imagecontainer">
+                        <img class="sanpham_img" src="Image/p3-5ecbb4e1f3b58.jpeg" alt="">
+                    </div>
+                    <div class="sanpham_gia">
+                        <p class="p1"><b>TÚI XÁCH</b>
+                        </p>
+                    </div>
+                </div>
+                <div class="sanpham hot">
+                    <div class="imagecontainer">
+                        <img class="sanpham_img" src="Image/p4-5ecbb0bfb6189.jpeg" alt="">
+                    </div>
+                    <div class="sanpham_gia">
+                        <p class="p1"><b>MĨ PHẨM</b>
+                        </p>
+                    </div>
+                </div>
+                <div class="sanpham hot">
+                    <div class="imagecontainer">
+                        <img class="sanpham_img" src="Image/p5-5ecbb5e79ad47.jpeg" alt="">
+                    </div>
+                    <div class="sanpham_gia">
+                        <p class="p1"><b>PHỤ KIỆN</b>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="showshowcontainer2" class="showshowcontainer">
+                <div>
+                    <a href="#">
+                        <img src="Image/1200x630-3.jpg">
+                        <h3>MỪNG SINH NHẬT - TRAO TRI ÂN</h3>
+                        <p>Mừng tuổi lên 4 (10/6/2016 - 10/6/2020), HHNStore quyết định dành cả tháng 6 này để "chơi lớn" và ăn mừng bữa tiệc sinh nhật...</p>
+                        <h1>Xem thêm</h1>
+                    </a>
+                    <a href="#">
+                        <img src="Image/1200x630-2.jpg">
+                        <h3>MỪNG CHẶNG ĐƯỜNG 4 NĂM CỦA HHNStore </h3>
+                        <p>Tháng 6 này, HHNStore hạnh phúc chào đón cột mốc tuổi lên 4 của mình với nhiều những câu chuyện thành - bại, xúc cảm...</p>
+                        <h1>Xem thêm</h1>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section id="section5">
+            <div class="section5_container">
+                <!--            <div ><button class="section4button previous round">&#8249;</button></div>-->
+                <img id="brand1" class="brandImage" src="Image/Brand/fila.png" alt="">
+                <img id="brand2" class="brandImage" src="Image/Brand/0.jpg">
+                <img id="brand3" class="brandImage" src="Image/Brand/00000001542.png">
+                <img id="brand4" class="brandImage" src="Image/Brand/Gucci-Logo-500x300.png">
+                <img id="brand5" class="brandImage" src="Image/Brand/How-brand-licensing-hurt-the-Calvin-Klein-brand.jpg">
+                <img id="brand6" class="brandImage" src="Image/Brand/louis-vuitton-1-1200x643.jpg">
+                <img id="brand7" class="brandImage" src="Image/Brand/unnamed.jpg">
+                <img id="brand8" class="brandImage" src="Image/Brand/VS.jpg">
+                <!--            <div ><button class="section4button round next">&#8250;</button></div>-->
+            </div>
+
+            <div id="DangKyEmail">
+                <h1>
+                    ĐĂNG KÝ VỚI HHNStore
+                </h1>
+                <h2>
+                    Cập nhật thông tin các mặt hàng chất lượng mỗi ngày nhé
+                </h2>
+                <div class="fromDangKy">
+                    <input class="input_1" type="text" placeholder="Nhập email tại đây nhé !!">
+                    <button>Subcribe</button>
+                </div>
+            </div>
+
+
+        </section>
+        <script>
+            var url = "https://localhost:44319";
+
+            var x = 1000;
+            x = x.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
+            //alert(x);
+        </script>
+        <script>
+
+            function tien(number) {
+
+                return number.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
+            }
+
+
+            // function ChuyenTrangChiTiet(ma_hang) {
+                // window.location = "./ChiTietSanPham.aspx?ma_hang=" + ma_hang;
+            // }
+
+            // function thietLapSlideSaleOff() {
+                // let data = TaiThongTinHang("CT0001");
+                // $("#slide2_1").empty();
+                // //alert(JSON.stringify(data));
+                // $.each(data, function (index, value) {
+                //     $("#slide2_1").append(`
+                //     <div style="cursor:pointer" href="#" id="sanpham1_1_1" onclick="ChuyenTrangChiTiet('` + value['ma_hang'] + `')" class="saleoff sanpham " >
+                //         <div class="imagecontainer">
+                //             <img class="sanpham_img" src="`+ value['hinh_dai_dien'] + `" alt="">
+                //         </div>
+                //         <div class="sanpham_container_button">
+                //             <div class="sanpham_button sale"><p >`+ (((value['gia_cu'] - value['gia_moi']) / value['gia_cu']) * 100).toFixed(0) + `%</p></div>
+                //             <a class="sanpham_button tim" href="#"></a>
+                //
+                //         </div>
+                //         <div class="sanpham_gia">
+                //             <p class="p1"><b>` + value['thuong_hieu'] + `</b>
+                //                 <br>
+                //                     `+ value['ten_hang'] + `
+                //             </p>
+                //                 <p class="p2"><strike>`+ tien(value['gia_cu']) + `</strike><br>
+                //                     `+ tien(value['gia_moi']) + `</p>
+                //         </div>
+                //     </div>`);
+                // });
+            // }
+
+            // function thietLapSlideHot() {
+            //     let data = TaiThongTinHang("CT0001");
+            //     $("#sanphamcontainer").empty();
+            //     //alert(JSON.stringify(data));
+            //     $.each(data, function (index, value) {
+            //         $("#sanphamcontainer").append(`
+            //         <div style="cursor:pointer" onclick="ChuyenTrangChiTiet('` + value['ma_hang'] + `')" href="#" id="sanpham1_1_1" class="hot sanpham " >
+            //         <div class="imagecontainer">
+            //             <img class="sanpham_img" src="`+ value['hinh_dai_dien'] + `" alt="">
+            //             </div>
+            //             <div class="sanpham_container_button">
+            //                 <div class="sanpham_button sale"><p >`+ (((value['gia_cu'] - value['gia_moi']) / value['gia_cu']) * 100).toFixed(0) + `%</p></div>
+            //                 <a class="sanpham_button tim" href="#"></a>
+            //
+            //             </div>
+            //             <div class="sanpham_gia">
+            //                 <p class="p1"><b>` + value['thuong_hieu'] + `</b>
+            //                     <br>
+            //                         `+ value['ten_hang'] + `
+            //                 </p>
+            //                     <p class="p2"><strike>`+ tien(value['gia_cu']) + `</strike><br>
+            //                         `+ tien(value['gia_moi']) + `</p>
+            //             </div>
+            //         </div>`);
+            //     });
+            // }
+            //
+            // function TaiThongTinHang(category) {
+            //     let data;
+            //     $.ajax({
+            //         url: url + '/getHangByCategory?category=' + category,
+            //         type: 'GET',
+            //         datatype: "json",
+            //         contentType: "Application/json;charset=utf-8",
+            //         async: false,
+            //         success: function (response) {
+            //             data = response;
+            //         }
+            //     });
+            //     return data;
+            // }
+            //
+            // function thietLapSlideNew() {
+            //     let data = TaiThongTinHang("CT0001");
+            //     $("#slide2").empty();
+            //     //alert(JSON.stringify(data));
+            //     $.each(data, function (index, value) {
+            //         $("#slide2").append(`
+            //         <div style="cursor:pointer" onclick="ChuyenTrangChiTiet('` + value['ma_hang'] + `')" href="#" id="sanpham1_1_1" class="new sanpham " >
+            //         <div class="imagecontainer">
+            //             <img class="sanpham_img" src="`+ value['hinh_dai_dien'] + `" alt="">
+            //             </div>
+            //             <div class="sanpham_container_button">
+            //                 <div class="sanpham_button sale"><p >`+ (((value['gia_cu'] - value['gia_moi']) / value['gia_cu']) * 100).toFixed(0) + `%</p></div>
+            //                 <a class="sanpham_button tim" href="#"></a>
+            //
+            //             </div>
+            //             <div class="sanpham_gia">
+            //                 <p class="p1"><b>` + value['thuong_hieu'] + `</b>
+            //                     <br>
+            //                         `+ value['ten_hang'] + `
+            //                 </p>
+            //                     <p class="p2"><strike>`+ tien(value['gia_cu']) + `</strike><br>
+            //                         `+ tien(value['gia_moi']) + `</p>
+            //             </div>
+            //         </div>`);
+            //     });
+            // }
+            // thietLapSlideSaleOff();
+            // thietLapSlideNew();
+            // thietLapSlideHot();
+            // slideToDungActive();
+            // loadTaiKhoanVaoMain();
+        </script>
+
+        <script>
+            index2= 0;
+            slides2_1 = document.getElementsByClassName("saleoff");
+            // alert(slides2.length);
+            var slide2html_1 = [];
+            for(var i = 0;i<slides2_1.length;i++){
+                slides2_1[i].style.display = "block";
+                slide2html_1.push(slides2_1[i].outerHTML);
+                // slides2[i].style.display = "none";
+            }
+            var container1 = document.getElementById("slide2_1");
+            container1.innerHTML = "";
+            // console.log(container.innerHTML);
+            // alert(slide2html[1]);
+            let timeOut = 10000;
+            hamham2();
+            setInterval(hamham2, timeOut);
+            var x1 = 0;
+
+            function hamham2() {
+                // alert(index);
+                // index2++;
+                if(x1 === 0) index2++;
+                else x1 = 0;
+                container1 = document.getElementById("slide2_1");
+                container1.innerHTML = "";
+                container1.innerHTML += "<div><button class=\" round okok\"  onclick=\"pre1()\">&#8249;</button></div>";
+                for(let i=index2;i<index2+3;i++){
+                    // console.log(i % (slide2html_1.length));
+                    // console.log(slides2.length);
+                    container1.innerHTML  += slide2html_1[i % (slide2html_1.length)];
+                }
+
+                console.log("\n");
+                container1.innerHTML += "<div><button  class=\"round okok\" onclick='nex1()'>&#8250;</button></div>";
+
+                timeOut = 10000;
+            }
+        </script>
+
+        <script>
+            function pre1() {
+                index2--;
+                if(index2<0) index2 = slide2html_1.length-1;
+                x1 = 1;
+                // alert("OK");
+                hamham2();
+            }
+
+            function nex1() {
+                // alert(index2);
+                hamham2();
+            }
+        </script>
+
+        <script>
+            index = 0;
+            slides2 = document.getElementsByClassName("new");
+            var slide2html = [];
+            for(var i = 0;i<slides2.length;i++){
+                slides2[i].style.display = "block";
+                slide2html.push(slides2[i].outerHTML);
+
+            }
+            container = document.getElementById("slide2");
+            container.innerHTML = "";
+            console.log(container.innerHTML);
+            // alert(slide2html[1]);
+            // let timeOut = 5000;
+            hamham();
+            setInterval(hamham, timeOut);
+            var x = 0;
+            function hamham() {
+                // alert(index);
+                if(x === 0) index++;
+                else x = 0;
+                container = document.getElementById("slide2");
+                // alert(container);
+                container.innerHTML = "";
+                container.innerHTML += "<div><button class=\"round okok\" onclick=\"pre()\" >&#8249;</button></div>";
+                for(let i=index;i<index+4;i++){
+                    console.log(i % (slide2html.length));
+                    // console.log(slides2.length);
+                    container.innerHTML  += slide2html[i % (slide2html.length)];
+                }
+
+                console.log("\n");
+                container.innerHTML += "<div><button  class=\"round okok\" onclick='nex()'>&#8250;</button></div>";
+
+                timeOut = 10000;
+            }
+
+        </script>
+
+        <script>
+            function pre() {
+                index--;
+                // alert(index);
+                if(index<0) index = slide2html.length-1;
+                x = 1;
+
+                hamham();
+
+            }
+
+            function nex() {
+                hamham();
+            }
+        </script>
+
+        <script>
+            slides3 = document.getElementsByClassName("brandImage");
+            index1 = 0;
+            hamham1();
+            function hamham1() {
+
+                // slides2[index -1].style.animationName = "slide2end";
+                // slides2[index -1].style.animationDuration = "2s";
+                for(let i =0;i<slides3.length;i++){
+                    slides3[i].style.display = "none";
+                }
+                for(let i=index1;i<index1+4;i++){
+                    // alert("OKOK")
+                    slides3[i].style.display = "block";
+                }
+                index1++;
+                if(index1 > slides3.length-4) index1 = 0;
+                setTimeout(hamham1, 10000); // Change image every 2 seconds
+            }
+        </script>
+        <!--    <script>-->
+        <!--        const a = document.getElementById("section2");-->
+        <!--        $(document).ready(function(){-->
+        <!--            $("*").scroll(function(){-->
+        <!--                alert("1234567");-->
+        <!--                a.style.animationDuration = "10s";-->
+        <!--                a.style.animationName = "scrollEvent";-->
+        <!--            });-->
+        <!--        });-->
+        <!--    </script>-->
+        <script>
+            document.addEventListener("DOMContentLoaded",function() {
+                const a = document.getElementById("section3");
+                window.addEventListener("scroll",function(){
+                    const x = pageYOffset;
+                    if(x > 300){
+                        a.style.animationDuration = "5s";
+                        a.style.animationName = "scrollEvent";
+                    }
+                })
+            })
+        </script>
+        <script>
+            function convertRemToPixels(rem) {
+                return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+            }
+            document.addEventListener("DOMContentLoaded",function() {
+                const asd = document.getElementsByTagName("NAV")[0];
+                const video = document.getElementsByTagName("VIDEO")[0];
+                const header = document.getElementsByTagName("HEADER")[0];
+                const slideToDung = document.getElementsByClassName("slideAnh1")[0];
+                // alert(slideToDung.innerHTML);
+                // video.play();
+                // alert(asd.toString());
+                window.addEventListener("scroll",function(){
+                    const x = pageYOffset;
+                    if(x > 1){
+                        asd.style.position = "fixed";
+                        asd.style.top = "0";
+                        // header.style.opacity = "0.8";
+                        video.style.display = "none";
+                        // asd.style.color = "#fff";
+                        asd.style.background = "#282828";
+                        // a.style.animationName = "scrollEvent";
+                        slideToDung.style.position = "fixed";
+                        slideToDung.style.top = "0";
+                        slideToDung.style.zIndex = "999";
+                    }
+                    else{
+                        asd.style.position = "relative";
+                        // header.style.opacity = "0.1";
+                        asd.style.background = "none";
+                        video.style.display = "block";
+                        slideToDung.style.position = "static";
+                        // slideToDung.style.top = "0";
+                        // slideToDung.style.zIndex = "999";
+                    }
+                    // alert((convertRemToPixels(21.875)));
+                    if(x > convertRemToPixels(21.875)){
+                        slideToDung.style.position = "relative";
+                    }
+                })
+            })
+        </script>
+
+
+
+
+
+
+
+
+        <footer style="background-color:#282828">
+            <h1>HHNStore</h1>
+            <div class="footerfirst">
+                <h4 style="text-align: center; color: white"><b>NGƯỜI THỰC HIỆN</b></h4>
+                <div id="footer1" style="display: flex; justify-content: space-around">
+
+                    <div>
+                        <p>Nguyễn Quang Hiếu</p>
+                        <p>D13CNPM7</p>
+                        <div id="QuanHieuImageContainer"><img id="helloooo" src="Image/2019-12-03-12-40-50-538.jpg" alt=""></div>
+                    </div>
+
+
+
+                </div>
+                <div id="footer_container">
+
+                    <div class="footer2">
+                        <h4><b>CÂU HỎI</b></h4>
+                        <a href="#">Ship hàng</a>
+                        <a href="#">Tuyển nhân viên</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Giấy phép bán hàng</a>
+                    </div>
+                    <div class="footer2">
+                        <h4><b>HỖ TRỢ KHÁCH HÀNG</b></h4>
+                        <a href="#">Phí Vận Chuyển</a>
+                        <a href="#">Trả Lại</a>
+                        <a href="#">Làm Thế Nào Để Theo Dõi</a>
+                        <a href="#">Hướng Dẫn Kích Thước</a>
+                    </div>
+                    <div class="footer2">
+                        <h4><b>DỊCH VỤ KHÁCH HÀNG</b></h4>
+                        <a href="#">Liên hệ chúng tôi</a>
+                        <a href="#">Phương Thức Thanh Toán</a>
+                        <a href="#">Điểm Thưởng</a>
+                    </div>
+                    <div id="footer3">
+                        <h4><b>BLOG</b></h4>
+                        <div>
+                            <img src="Image/Footer/unnamed.jpg">
+                            <a class="footer3title" href="#">HOT TREND NĂM NAY</a>
+                            <p>10/03/2020</p>
+                            <a class="readmore" href="#" >Read more</a>
+                        </div>
+
+                        <div>
+                            <img src="Image/Footer/unnamed.jpg">
+                            <a class="footer3title" href="#">LỜI KHUYÊN CHO CHỊ EM</a>
+                            <p>10/03/2020</p>
+                            <a class="readmore" href="#" >Read more</a>
+                        </div>
+
+                        <div>
+                            <img src="Image/Footer/unnamed.jpg">
+                            <a class="footer3title" href="#">THỜI TRANG SINH VIÊN</a>
+                            <p>10/03/2020</p>
+                            <a class="readmore" href="#" >Read more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footersecond">
+                <h1>LIÊN HỆ</h1>
+                <div class="footersecondcontainer">
+                    <a href="#"><img class="imagefootergray" src="Image/Icon/grayIcon/facebook.png"> <img class="imagefootercolor" src="Image/Icon/colorIcon/facebook.png"></a>
+                    <a href="#"><img class="imagefootergray" src="Image/Icon/grayIcon/youtube.png"><img class="imagefootercolor" src="Image/Icon/colorIcon/youtube.png"></a>
+                    <a href="#"><img class="imagefootergray" src="Image/Icon/grayIcon/tumblr.png"><img class="imagefootercolor" src="Image/Icon/colorIcon/tumblr.png"></a>
+                    <a href="#"><img class="imagefootergray" src="Image/Icon/grayIcon/twitter.png"><img class="imagefootercolor" src="Image/Icon/colorIcon/twitter.png"></a>
+                    <a href="#"><img class="imagefootergray" src="Image/Icon/grayIcon/instagram.png"><img class="imagefootercolor" src="Image/Icon/colorIcon/instagram.png"></a>
+                    <a href="#"><img class="imagefootergray" src="Image/Icon/grayIcon/pinterest.png"><img class="imagefootercolor" src="Image/Icon/colorIcon/pinterest.png"></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</form>
+<script>
+
+    function shoppingCartOnclick() {
+        var getShopingcart = document.getElementById("cart-list");
+        if (a === 0) {
+            //alert(a);
+            a = 1;
+            getShopingcart.style.display = "block";
+        }
+        else {
+            //alert(a);
+            a = 0;
+            getShopingcart.style.display = "none";
+        }
+
+    }
+    $("#123123").append("Hello");
+</script>
+<script>
+
+    function display(var1, var2) {
+        var now = new Date();
+        var time = now.getTime();
+        var expireTime = time + 1000 * 36000;
+        now.setTime(expireTime);
+        var tempExp = 'Wed, 31 Oct 2012 08:50:17 GMT';
+        // document.cookie = 'cookie=ok;expires='+now.toUTCString()+';path=/';
+        document.cookie = var1 + '=' + var2 + ';expires=' + now.toGMTString() + ';path=/';
+        //console.log(document.cookie);
+    }
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

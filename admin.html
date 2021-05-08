@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="css/font.css">
+    <link type="text/css" rel="stylesheet" href="css/container.css">
+    <link type="text/css" rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<header>
+    <div class="PhanDauTien">
+
+        <a class="titlea" href="trangChu.html">
+            <!--                    <img id="LogoImage" src="Image/logo.png">-->QHieuStore
+        </a>
+
+        <div id="search_container">
+            <form class="header-search-form">
+                <input  type="text" placeholder="Nhập để tìm kiếm ...">
+                <button><img src="Image/Icon/tools-and-utensils.png"></button>
+            </form>
+        </div>
+
+        <div id="SignUpAndCreate_item1">
+            <img class="SignUpAndCreate_item1_item1" src="Image/Icon/login.png" alt="">
+            <p class="SignUpAndCreate_item1_item" style="color: black">Xin chào, </p>
+            <a class="SignUpAndCreate_item1_item" href="dangKy.html">Admin</a>
+        </div>
+    </div>
+</header>
+<nav>
+    <a  href="#QuanLyKhachHang"><img class="imageItem" src="Image/Icon/login.png"> Quản lý khách hàng</a>
+    <a href="#QuanLyHang"><img class="imageItem" src="Image/Icon/business.png"> Quản lý hàng</a>
+    <a href="#QuanLyDonHang"><img class="imageItem" src="Image/Icon/portable-document-format.png"> Quản lý đơn hàng</a>
+    <a href="#Thongke"><img class="imageItem" src="Image/Icon/business-and-finance.png"> Thống kê</a>
+</nav>
+<br>
+<section class="section11">
+    <div class="section1item2">
+        <h1>TỔNG QUAN</h1>
+        <div class="ThongKe">
+            <div class="thongkea songonline">
+                <h3>1038</h3>
+                <p>Người đang online</p>
+            </div>
+            <div class="thongkea tongsoitemban">
+                <h3>330</h3>
+                <p>Hàng đã bán</p>
+            </div>
+            <div class="thongkea itembantrongtuan">
+                <h3>330</h3>
+                <p>Hàng đã bán trong tuần</p>
+            </div>
+            <div class="thongkea doanhthutrongthang">
+                <h3>20.000.000 VND</h3>
+                <p>Doanh thu tuần</p>
+            </div>
+        </div>
+            <h1  id="Thongke">THỐNG KÊ LƯỢNG KHÁCH ONLINE</h1>
+        <div class="ThongKe">
+            <div class="thongkeb1">
+                <h3>Nhập thời gian:</h3>
+                <input type="date">
+                <button>Thông kê theo ngày</button>
+                <button>Thông kê theo tháng</button>
+                <button>Thông kê theo năm</button>
+
+
+            </div>
+            <div class="thongkeb2">
+                <img src="Image/bar_chart.png">
+            </div>
+        </div>
+        <h1>THỐNG KÊ DOANH THU</h1>
+        <div class="ThongKe">
+            <div class="thongkeb1">
+                <h3>Nhập thời gian:</h3>
+                <input type="date">
+                <button>Thông kê theo ngày</button>
+                <button>Thông kê theo tháng</button>
+                <button>Thông kê theo năm</button>
+
+
+            </div>
+            <div class="thongkeb2">
+                <img src="Image/bar_chart.png">
+            </div>
+        </div>
+        <h1>THỐNG KÊ KHÁCH ĐẾN CỬA HÀNG</h1>
+        <div class="ThongKe">
+            <div class="thongkeb1">
+                <h3>Nhập thời gian:</h3>
+                <input type="date">
+                <button>Thông kê theo ngày</button>
+                <button>Thông kê theo tháng</button>
+                <button>Thông kê theo năm</button>
+
+
+            </div>
+            <div class="thongkeb2">
+                <img src="Image/bar_chart.png">
+            </div>
+        </div>
+        <div id="QuanLyHang"> </div>
+        <h1 >QUẢN LÝ HÀNG</h1>
+        <div  class="quanlyhangcontainer">
+            <div class="tablecontainer">
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="product-th">Mã hàng</th>
+                        <th class="quy-th">Ảnh</th>
+                        <th class="size-th">Tên hàng</th>
+                        <th class="kichco size-th">Đơn giá</th>
+                        <th class="dongia size-th">Số lượng</th>
+                        <th class="total-th size-th">Trạng thái</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="tdadmin">
+                            <a href="#">H0001</a>
+                        </td>
+                        <td class="quy-col">
+                            <p class="ThanhCongTruSo"><img src="Image/product/minidress/mini2.jpg"></p>
+                        </td>
+                        <td>
+                            <p>Váy hồng cá tính</p>
+                        </td>
+                        <td>
+                            <p>100.000 VND</p>
+                        </td>
+                        <td class="size-col"><p>20</p></td>
+                        <td class="total-col"><p style="color: green">Còn hàng</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tdadmin">
+                            <a href="#">H0001</a>
+                        </td>
+                        <td class="quy-col">
+                            <p class="ThanhCongTruSo"><img src="Image/product/minidress/mini2.jpg"></p>
+                        </td>
+                        <td>
+                            <p>Váy hồng cá tính</p>
+                        </td>
+                        <td>
+                            <p>100.000 VND</p>
+                        </td>
+                        <td class="size-col"><p>20</p></td>
+                        <td class="total-col"><p style="color: green">Còn hàng</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tdadmin">
+                            <a href="#">H0001</a>
+                        </td>
+                        <td class="quy-col">
+                            <p class="ThanhCongTruSo"><img src="Image/product/minidress/mini2.jpg"></p>
+                        </td>
+                        <td>
+                            <p>Váy hồng cá tính</p>
+                        </td>
+                        <td>
+                            <p>100.000 VND</p>
+                        </td>
+                        <td class="size-col"><p>20</p></td>
+                        <td class="total-col"><p style="color: green">Còn hàng</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tdadmin">
+                            <a href="#">H0001</a>
+                        </td>
+                        <td class="quy-col">
+                            <p class="ThanhCongTruSo"><img src="Image/product/minidress/mini2.jpg"></p>
+                        </td>
+                        <td>
+                            <p>Váy hồng cá tính</p>
+                        </td>
+                        <td>
+                            <p>100.000 VND</p>
+                        </td>
+                        <td class="size-col"><p>20</p></td>
+                        <td class="total-col"><p style="color: green">Còn hàng</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tdadmin">
+                            <a href="#">H0001</a>
+                        </td>
+                        <td class="quy-col">
+                            <p class="ThanhCongTruSo"><img src="Image/product/minidress/mini2.jpg"></p>
+                        </td>
+                        <td>
+                            <p>Váy hồng cá tính</p>
+                        </td>
+                        <td>
+                            <p>100.000 VND</p>
+                        </td>
+                        <td class="size-col"><p>20</p></td>
+                        <td class="total-col"><p style="color: green">Còn hàng</p></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="themsuaxoa">
+                <h3>Ảnh: <input type="file"></h3>
+                <h3>Tên thương hiệu: <input type="text"></h3>
+                <h3>Tên hàng: <input type="text"></h3>
+                <h3>Đơn giá: <input type="text"></h3>
+                <h3>Số lượng: <input type="text"></h3>
+                <h3>Trạng thái: <input type="text"></h3>
+                <div class="thongkec1 thongkeb1">
+                    <button>Thêm hàng</button>
+                    <button>Sửa hàng</button>
+                    <button>Xóa hàng</button>
+                </div>
+            </div>
+        </div>
+        <div id="QuanLyDonHang"> </div>
+        <h1>QUẢN LÝ ĐƠN HÀNG</h1>
+        <h2>Đơn hàng</h2>
+        <div class="quanlyhangcontainer">
+            <div class="tablecontainer">
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="product-th">Đơn hàng</th>
+                        <th class="quy-th">Ngày</th>
+                        <th class="size-th">Địa chỉ</th>
+                        <th class="kichco size-th">Giá trị đơn hàng</th>
+                        <th class="dongia size-th">Trạng thái thanh toán</th>
+                        <th class="total-th size-th">Trạng thái đơn hàng</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <a href="#">HD0001</a>
+                        </td>
+                        <td class="quy-col">
+                            <p class="ThanhCongTruSo">10/02/2020</p>
+                        </td>
+                        <td>
+                            <p>Số 19 Xuân Đỉnh Bắc Từ Liêm</p>
+                        </td>
+                        <td>
+                            <p>1.000.000 VND</p>
+                        </td>
+                        <td class="size-col"><p style="color: darkred">Chưa thanh toán</p></td>
+                        <td class="total-col"><p style="color: green">Đã giao</p></td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <a href="#">HD0002</a>
+                        </td>
+                        <td class="quy-col">
+                            <p class="ThanhCongTruSo">10/02/2020</p>
+                        </td>
+                        <td>
+                            <p>Số 19 Xuân Đỉnh Bắc Từ Liêm</p>
+                        </td>
+                        <td>
+                            <p>1.000.000 VND</p>
+                        </td>
+                        <td class="size-col"><p style="color: green">Đã thanh toán</p></td>
+                        <td class="total-col"><p style="color: green">Đã giao</p></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">HD0003</a>
+                        </td>
+                        <td class="quy-col">
+                            <p class="ThanhCongTruSo">10/02/2020</p>
+                        </td>
+                        <td>
+                            <p>Số 19 Xuân Đỉnh Bắc Từ Liêm</p>
+                        </td>
+                        <td>
+                            <p>1.000.000 VND</p>
+                        </td>
+                        <td class="size-col"><p style="color: green">Đã thanh toán</p></td>
+                        <td class="total-col"><p style="color: darkred">Chưa giao</p></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">HD0004</a>
+                        </td>
+                        <td class="quy-col">
+                            <p class="ThanhCongTruSo">10/02/2020</p>
+                        </td>
+                        <td>
+                            <p>Số 19 Xuân Đỉnh Bắc Từ Liêm</p>
+                        </td>
+                        <td>
+                            <p>1.000.000 VND</p>
+                        </td>
+                        <td class="size-col"><p style="color: darkred">Chưa thanh toán</p></td>
+                        <td class="total-col"><p style="color: green">Đã giao</p></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">HD0005</a>
+                        </td>
+                        <td class="quy-col">
+                            <p class="ThanhCongTruSo">10/02/2020</p>
+                        </td>
+                        <td>
+                            <p>Số 19 Xuân Đỉnh Bắc Từ Liêm</p>
+                        </td>
+                        <td>
+                            <p>1.000.000 VND</p>
+                        </td>
+                        <td class="size-col"><p style="color: green">Đã thanh toán</p></td>
+                        <td class="total-col"><p style="color: darkred">Chưa giao</p></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">HD0006</a>
+                        </td>
+                        <td class="quy-col">
+                            <p class="ThanhCongTruSo">10/02/2020</p>
+                        </td>
+                        <td>
+                            <p>Số 19 Xuân Đỉnh Bắc Từ Liêm</p>
+                        </td>
+                        <td>
+                            <p>1.000.000 VND</p>
+                        </td>
+                        <td class="size-col"><p style="color: green">Đã thanh toán</p></td>
+                        <td class="total-col"><p style="color: green">Đã giao</p></td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="themsuaxoa">
+<!--                <h3>Ảnh: <input type="file"></h3>-->
+                <h3>Ngày: <input type="date"></h3>
+                <h3>Địa chỉ: <input type="text"></h3>
+                <div class="thongkec1 thongkeb1">
+                    <button>Thêm đơn hàng</button>
+                    <button>Sửa đơn hàng</button>
+                    <button>Xóa đơn hàng</button>
+                </div>
+            </div>
+        </div>
+        <h2>Chi tiết đơn hàng</h2>
+        <div class="quanlyhangcontainer">
+            <div class="tablecontainer">
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="product-th">Mã hàng</th>
+                        <th class="quy-th">Ảnh</th>
+                        <th class="size-th">Tên hàng</th>
+                        <th class="kichco size-th">Đơn giá</th>
+                        <th class="dongia size-th">Số lượng</th>
+                        <th class="total-th size-th">Trạng thái</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="tdadmin">
+                            <a href="#">H0001</a>
+                        </td>
+                        <td class="quy-col">
+                            <p class="ThanhCongTruSo"><img src="Image/product/minidress/mini2.jpg"></p>
+                        </td>
+                        <td>
+                            <p>Váy hồng cá tính</p>
+                        </td>
+                        <td>
+                            <p>100.000 VND</p>
+                        </td>
+                        <td class="size-col"><p>20</p></td>
+                        <td class="total-col"><p style="color: green">Còn hàng</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tdadmin">
+                            <a href="#">H0001</a>
+                        </td>
+                        <td class="quy-col">
+                            <p class="ThanhCongTruSo"><img src="Image/product/minidress/mini2.jpg"></p>
+                        </td>
+                        <td>
+                            <p>Váy hồng cá tính</p>
+                        </td>
+                        <td>
+                            <p>100.000 VND</p>
+                        </td>
+                        <td class="size-col"><p>20</p></td>
+                        <td class="total-col"><p style="color: green">Còn hàng</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tdadmin">
+                            <a href="#">H0001</a>
+                        </td>
+                        <td class="quy-col">
+                            <p class="ThanhCongTruSo"><img src="Image/product/minidress/mini2.jpg"></p>
+                        </td>
+                        <td>
+                            <p>Váy hồng cá tính</p>
+                        </td>
+                        <td>
+                            <p>100.000 VND</p>
+                        </td>
+                        <td class="size-col"><p>20</p></td>
+                        <td class="total-col"><p style="color: green">Còn hàng</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tdadmin">
+                            <a href="#">H0001</a>
+                        </td>
+                        <td class="quy-col">
+                            <p class="ThanhCongTruSo"><img src="Image/product/minidress/mini2.jpg"></p>
+                        </td>
+                        <td>
+                            <p>Váy hồng cá tính</p>
+                        </td>
+                        <td>
+                            <p>100.000 VND</p>
+                        </td>
+                        <td class="size-col"><p>20</p></td>
+                        <td class="total-col"><p style="color: green">Còn hàng</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tdadmin">
+                            <a href="#">H0001</a>
+                        </td>
+                        <td class="quy-col">
+                            <p class="ThanhCongTruSo"><img src="Image/product/minidress/mini2.jpg"></p>
+                        </td>
+                        <td>
+                            <p>Váy hồng cá tính</p>
+                        </td>
+                        <td>
+                            <p>100.000 VND</p>
+                        </td>
+                        <td class="size-col"><p>20</p></td>
+                        <td class="total-col"><p style="color: green">Còn hàng</p></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="themsuaxoa">
+                <div class="thongkec1 thongkeb1">
+                    <button>Thêm hàng</button>
+                    <button>Sửa hàng</button>
+                    <button>Xóa hàng</button>
+                </div>
+            </div>
+        </div>
+        <div id="QuanLyKhachHang"></div>
+        <h1>QUẢN LÝ KHÁCH HÀNG</h1>
+        <div class="quanlyhangcontainer">
+            <div class="tablecontainer">
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="product-th">Mã khách hàng</th>
+                        <th class="quy-th">Tài khoản</th>
+                        <th class="size-th">Mật khẩu</th>
+                        <th class="kichco size-th">Tên khách hàng</th>
+                        <th class="dongia size-th">Số điện thoại</th>
+                        <th class="total-th size-th">Địa chỉ</th>
+                        <th class="total-th size-th">Loại khách hàng</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="tdadmin">
+                                <a href="#">KH0001</a>
+                            </td>
+                            <td class="quy-col">
+                                <p class="ThanhCongTruSo">hieu123</p>
+                            </td>
+                            <td>
+                                <p>quanghieu123</p>
+                            </td>
+                            <td>
+                                <p>Nguyễn Quang Hiếu</p>
+                            </td>
+                            <td class="size-col"><p>09234234324</p></td>
+                            <td class="total-col"><p style="color: green">19 Xuân Đỉnh Hà Nội</p></td>
+                            <td ><p style="color: darkred">VIP</p></td>
+                        </tr>
+                       <tr>
+                            <td class="tdadmin">
+                                <a href="#">KH0001</a>
+                            </td>
+                            <td class="quy-col">
+                                <p class="ThanhCongTruSo">hieu123</p>
+                            </td>
+                            <td>
+                                <p>quanghieu123</p>
+                            </td>
+                            <td>
+                                <p>Nguyễn Quang Hiếu</p>
+                            </td>
+                            <td class="size-col"><p>09234234324</p></td>
+                            <td class="total-col"><p style="color: green">19 Xuân Đỉnh Hà Nội</p></td>
+                            <td ><p style="color: darkred">VIP</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tdadmin">
+                                <a href="#">KH0001</a>
+                            </td>
+                            <td class="quy-col">
+                                <p class="ThanhCongTruSo">hieu123</p>
+                            </td>
+                            <td>
+                                <p>quanghieu123</p>
+                            </td>
+                            <td>
+                                <p>Nguyễn Quang Hiếu</p>
+                            </td>
+                            <td class="size-col"><p>09234234324</p></td>
+                            <td class="total-col"><p style="color: green">19 Xuân Đỉnh Hà Nội</p></td>
+                            <td ><p style="color: darkred">VIP</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tdadmin">
+                                <a href="#">KH0001</a>
+                            </td>
+                            <td class="quy-col">
+                                <p class="ThanhCongTruSo">hieu123</p>
+                            </td>
+                            <td>
+                                <p>quanghieu123</p>
+                            </td>
+                            <td>
+                                <p>Nguyễn Quang Hiếu</p>
+                            </td>
+                            <td class="size-col"><p>09234234324</p></td>
+                            <td class="total-col"><p style="color: green">19 Xuân Đỉnh Hà Nội</p></td>
+                            <td ><p style="color: darkred">VIP</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tdadmin">
+                                <a href="#">KH0001</a>
+                            </td>
+                            <td class="quy-col">
+                                <p class="ThanhCongTruSo">hieu123</p>
+                            </td>
+                            <td>
+                                <p>quanghieu123</p>
+                            </td>
+                            <td>
+                                <p>Nguyễn Quang Hiếu</p>
+                            </td>
+                            <td class="size-col"><p>09234234324</p></td>
+                            <td class="total-col"><p style="color: green">19 Xuân Đỉnh Hà Nội</p></td>
+                            <td ><p style="color: darkred">VIP</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tdadmin">
+                                <a href="#">KH0001</a>
+                            </td>
+                            <td class="quy-col">
+                                <p class="ThanhCongTruSo">hieu123</p>
+                            </td>
+                            <td>
+                                <p>quanghieu123</p>
+                            </td>
+                            <td>
+                                <p>Nguyễn Quang Hiếu</p>
+                            </td>
+                            <td class="size-col"><p>09234234324</p></td>
+                            <td class="total-col"><p style="color: green">19 Xuân Đỉnh Hà Nội</p></td>
+                            <td ><p style="color: darkred">VIP</p></td>
+                        </tr>
+                        <tr>
+                            <td class="tdadmin">
+                                <a href="#">KH0001</a>
+                            </td>
+                            <td class="quy-col">
+                                <p class="ThanhCongTruSo">hieu123</p>
+                            </td>
+                            <td>
+                                <p>quanghieu123</p>
+                            </td>
+                            <td>
+                                <p>Nguyễn Quang Hiếu</p>
+                            </td>
+                            <td class="size-col"><p>09234234324</p></td>
+                            <td class="total-col"><p style="color: green">19 Xuân Đỉnh Hà Nội</p></td>
+                            <td ><p style="color: darkred">VIP</p></td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="themsuaxoa">
+                <h3>Ảnh: <input type="file"></h3>
+                <h3>Tài khoản: <input type="text"></h3>
+                <h3>Mật khẩu: <input type="text"></h3>
+                <h3>Tên khách hàng: <input type="text"></h3>
+                <h3>Số điện thoại: <input type="text"></h3>
+                <h3>Địa chỉ: <input type="text"></h3>
+                <h3>Loại khách hàng: <input type="text"></h3>
+                <div class="thongkec1 thongkeb1">
+                    <button>Thêm khách hàng</button>
+                    <button>Sửa khách hàng</button>
+                    <button>Xóa khách hàng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
