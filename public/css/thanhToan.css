@@ -1,0 +1,175 @@
+.pos1{
+    /*margin: 3.125rem auto;*/
+
+}
+
+.mainPage{
+    width: 80%;
+    background: #f0f0f0;
+    margin: 3.125rem auto;
+    padding: 3.125rem;
+}
+
+.mainPage h1{
+    text-align: center;
+    padding: 0;
+    margin: 0 0 3.125rem 0;
+}
+
+.mainPageDoc{
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.mainPageDoc2{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.mainPageDoc2 div{
+    margin: 0.5rem 0;
+}
+
+.mainPageDoc div{
+    margin: 0.5rem 0;
+}
+
+.mainPageNgang{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*flex-direction: column;*/
+}
+
+.mainPageNgang p{
+    width: 10%;
+    /*flex-direction: column;*/
+}
+
+.mainPageNgang label{
+    width: 50%;
+    /*flex-direction: column;*/
+}
+
+.mainPageNgang label input{
+    width: 100%
+    /*flex-direction: column;*/
+}
+
+.mainPageNgang label select{
+    width: 100%
+    /*flex-direction: column;*/
+}
+
+.input{
+    font-family: JosefinSans, serif;
+    border-radius: 0.3rem;
+    border-style: solid;
+    border-width: 0.01rem;
+    border-color: #282828;
+    background: none;
+    height: 2.75rem;
+    text-align: center;
+    display: block;
+}
+
+.input::placeholder{
+    font-size: 0.7rem;
+}
+
+
+select{
+    /*font-family: JosefinSans,serif;*/
+    /*width: 3.75rem;*/
+    /*height: 1.875rem;*/
+    border-radius: 0.2rem;
+    border: 0.0625rem solid gray;
+    /*-moz-appearance: none;*/
+    /*-webkit-appearance: none;*/
+    padding: 0.5rem;
+    font-family: JosefinSans,serif;
+    font-size: 1rem;
+}
+option{
+    /*padding-top: 0.5rem;*/
+    /*position: static;*/
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    /*padding: 1rem;*/
+}
+
+.pos2{
+    margin: 0 auto 1rem auto;
+}
+
+
+.mainPageNgang2{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    /*flex-direction: column;*/
+}
+table{
+    margin: 1rem auto;
+    background: none;
+
+}
+
+table td{
+    text-align: left;
+}
+
+
+
+.labell{
+    width: 100%;
+    height: 2rem;
+    display: flex;
+}
+
+
+
+.mainPageItem{
+    background: #D8D8D8;
+    padding: 1rem;
+    width: 50%;
+}
+
+.mainPageItem input{
+    border: none;
+    width: 70%;
+    /*height: 2rem;*/
+}
+
+.mainPageItem input::placeholder{
+    font-family: JosefinSans,serif;
+    /*height: 2rem;*/
+}
+
+.apdung{
+    /*height: 2rem;*/
+    width: 30%;
+    height: 2rem;
+    border: none;
+    font-family: JosefinSans,serif;
+}
+
+#ThanhToan{
+    display: none;
+}
+
+.pos3{
+    width: 50%;
+
+    font-size: 1rem;
+    height: 2rem;
+}
+
+#ThanhToanThanhCong{
+    text-align: center;
+    display: none;
+}

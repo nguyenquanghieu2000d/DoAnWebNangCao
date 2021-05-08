@@ -1,0 +1,158 @@
+header {
+    z-index: 3;
+}
+
+header ul {
+    z-index: 3;
+}
+
+.TrangChu {
+    color: white;
+}
+
+#section1shop {
+    margin: 0;
+}
+
+
+#section2shop {
+    display: flex;
+    height: auto;
+}
+
+#section2shopcontainer {
+    position: relative;
+    /*top:3.125rem;*/
+    margin: 3.125rem auto;
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#section2shop h1 {
+    text-align: center;
+}
+
+#section2shop_item1 {
+    line-height: 1.875rem;
+    width: 20%;
+    overflow: hidden;
+    /*height: 9000px;*/
+}
+
+#section2shop_item1 ul li p {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.section2shop_item1_ {
+    cursor: pointer;
+}
+
+.section2shop_item1_ {
+}
+
+.section2shop_item1_ ul {
+    display: none;
+}
+
+.section2shop_item1_:hover ul {
+    display: block;
+}
+
+ul li a {
+    color: #282828;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    color: #F970A3;
+    text-decoration: none;
+}
+
+.shopsanpham {
+    margin: 2rem 0;
+    position: static;
+}
+
+
+#gia {
+    width: 100%;
+    display: inline-block;
+}
+
+#gia label {
+    width: 48%;
+    display: inline-block;
+}
+
+#gia label input {
+    width: 90%;
+}
+
+.color {
+    margin-left: 1.25rem;
+    border-style: none;
+    border-width: 0;
+    border-radius: 3.125rem;
+    padding: 0px;
+}
+
+
+select {
+    /*font-family: JosefinSans,serif;*/
+    /*width: 3.75rem;*/
+    /*height: 1.875rem;*/
+    border-radius: 0.2rem;
+    border: 0.0625rem solid gray;
+    /*-moz-appearance: none;*/
+    /*-webkit-appearance: none;*/
+    padding: 0.5rem;
+    font-family: JosefinSans,serif;
+    font-size: 1rem;
+}
+
+.themnua {
+    height: 5rem;
+}
+ul {
+    list-style-type: none;
+}
+.section2shop_item1_ div {
+
+    display:none;
+}
+.section2shop_item1_:hover div {
+    display: block;
+}
+
+
+#section2shop_item2 {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    position: static;
+    /*overflow: hidden;*/
+}
+
+@media (max-width: 800px) {
+    #section2shopcontainer {
+        flex-direction: column;
+    }
+
+    #section2shop_item1 {
+        width: 100%;
+    }
+
+    #section2shop_item2 {
+        width: 100%;
+    }
+
+    .resItem {
+        display: none;
+    }
+
+    .new {
+        width: 48%;
+        /*height: 25rem;*/
+    }
+}

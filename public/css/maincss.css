@@ -1,0 +1,348 @@
+
+header {
+    z-index: 9;
+    background: none;
+    /*background: #ffffff;*/
+    width: 100%;
+    height: 7.875rem;
+    color: white;
+}
+
+
+#PhanDauTien a{
+    color: white;
+}
+
+nav{
+
+    background: none;
+}
+
+#section1{
+    width: 100vw;
+    /*height: 100vh;*/
+    background: white;
+    height: 100vh;
+}
+
+/* SLIDE TO DUNG IMAGE */
+#img1{
+    background-image: url("../Image/17161.jpg");
+    background-size: 100%;
+}
+
+#img2{
+    background-image: url("../Image/18873.jpg");
+    background-size: 100%;
+    display: none;
+}
+
+#img3{
+    background-image: url("../Image/1091.jpg");
+    background-size: 100%;
+    display: none;
+}
+
+.titlea{
+    color: white;
+}
+
+#SignUpAndCreate_item1{
+    color: white;
+}
+
+
+.SignUpAndCreate_item1_item{
+    color: white;
+    /*color: #282828;*/
+    /*position: relative;*/
+    /*bottom: 0.125rem;*/
+    font-family: JosefinSans, serif;
+    font-size: 1rem;
+    text-decoration: none;
+    margin: 0.3rem;
+    /*display: inline-block;*/
+
+
+    text-shadow: 0px 0px 6px rgba(255,255,255,0.7);
+}
+
+/* SLIDE TO DUNG IMAGE */
+
+.section_title{
+    /*display: flex;*/
+    /*align-items: center;*/
+    text-align: center;
+    color: #111111;
+    /*font-weight: 600;*/
+    font-size: 2.5rem;
+    font-family: JosefinSans,serif;
+    margin-bottom: 3.125rem;
+}
+
+#slide2{
+
+    width: 100%;
+    font-family: JosefinSans,serif;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sanphamcontainer {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    margin: auto;
+    width: 85%;
+    height: auto;
+}
+
+
+
+
+.saleoff{
+    width: 18.75rem;
+    height: auto;
+    position: relative;
+    /*right: 35px;*/
+}
+
+
+.saleoff img{
+    width: 100%;
+    height: auto;
+    position: relative;
+    /*right: 35px;*/
+}
+
+.sanpham p{
+    display: inline-block;
+}
+
+#sanpham5{
+    display: none;
+
+}
+
+#sanpham6{
+    display: none;
+}
+#sanpham7{
+    display: none;
+}
+#sanpham8{
+    display: none;
+}
+#sanpham9{
+    display: none;
+}
+
+
+/*animation-name: h2hienra;*/
+/*animation-duration: 2.5s;*/
+
+@keyframes slide2end {
+    from{width: 23.125rem}
+    to{width: 0}
+}
+
+@keyframes slide2start {
+    from{ opacity: 0.5}
+    to{ opacity: 1}
+}
+
+
+
+#section3{
+    margin: 0;
+    position: relative;
+    /*top: 1500px;*/
+    /*animation-duration:  1s;*/
+    /*animation-name: scrollEvent;*/
+}
+
+#section6{
+    width: 100%;
+    text-align: center;
+    margin: 6.25rem 0;
+    position: relative;
+    /*top: 1500px;*/
+    /*animation-duration:  1s;*/
+    /*animation-name: scrollEvent;*/
+
+}
+
+.section6container{
+    width: 85%;
+    margin: auto;
+}
+
+.section6container img{
+    width: 100%;
+}
+
+
+
+
+
+@keyframes scrollEvent {
+    from{left: 125rem}
+    to{left: 0}
+}
+.showshowcontainer{
+    z-index: 1;
+    width: 85%;
+    /*display: flex;*/
+    margin:3.125rem auto auto auto;
+}
+
+.showshowcontainer div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.showshowcontainer a{
+    display: block;
+    width: 48%;
+    overflow: hidden;
+
+}
+
+.showshowcontainer img{
+    width: 100%;
+}
+
+#showshowcontainer2{
+    text-align: left;
+}
+
+#section5{
+    width: 100%;
+    /*background: #282828;*/
+    /*height: 12.5rem;*/
+}
+
+.section5_container{
+    background: #282828;
+    height: 12.5rem;
+    display: flex;
+    justify-content: space-evenly;
+    font-family: JosefinSans,serif;
+}
+
+
+.section5button{
+    margin: 4.6875rem 1.875rem auto 1.875rem;
+}
+
+.brandImage{
+    width: 15rem;
+    height: 9.5rem;
+    background: white;
+    position: relative;
+    top: 1.56rem;
+    display: inline-block;
+    /*margin: auto;*/
+}
+
+#brand5{
+    display: none;
+}
+
+#brand6{
+    display: none;
+}
+
+#brand7{
+    display: none;
+}
+#brand8{
+    display: none;
+}
+
+
+
+
+#DangKyEmail{
+    font-family: JosefinSans,serif;
+    /*position: relative;*/
+    /*top: 13.125rem;*/
+    /*background: white;*/
+    margin: 3.125rem auto;
+    text-align: center;
+}
+
+.fromDangKy{
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*padding: 0 0.625rem;*/
+    font-family: JosefinSans, serif;
+    height: 2.75rem;
+}
+
+.fromDangKy input{
+    /*margin: 1.25rem auto;*/
+    padding: 0 1.1875rem;
+    height: 2.75rem;
+    width: 25rem;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.fromDangKy input::placeholder{
+    font-size: 1rem;
+    font-family: JosefinSans, serif;
+}
+
+.fromDangKy button{
+    /*position: absolute;*/
+    height: 100%;
+    top: 0;
+    font-size: 1.625rem;
+    color: #000;
+    background: #ebebeb;
+    border: none;
+    border-top-right-radius: 3.125rem;
+    border-bottom-right-radius: 3.125rem;
+    width: 13.125rem;
+
+    font-family: JosefinSans,serif;
+    /*right: 40.625rem;*/
+}
+
+.fromDangKy button:hover{
+    /*position: absolute;*/
+    height: 100%;
+    top: 0;
+    font-size: 1.625rem;
+    border: none;
+    border-top-right-radius: 3.125rem;
+    border-bottom-right-radius: 3.125rem;
+    width: 13.125rem;
+    font-family: JosefinSans,serif;
+    /*right: 40.625rem;*/
+    background: #282828;
+    color: white;
+}
+
+
+
+
+
+
+#helloooo{
+   position: relative;
+    width: 100%;
+    /*animation-duration: 30s;*/
+    /*animation-name: hello;*/
+}
+
+@keyframes hello {
+    from{ bottom: 5000px;
+            width: 1000px;}
+    to{bottom: 0;}
+}
+
+
