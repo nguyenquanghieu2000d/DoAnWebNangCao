@@ -9,7 +9,7 @@ function ProductItem(props) {
         <div className="slide2ItemContainer center_child">
             <div style={{cursor: 'pointer'}} id="sanpham1_1_1" className="sanpham new ">
                 <div className="imagecontainer">
-                    <img className="sanpham_img" src="./Image/product/minidress/mini1.jpg" alt=""/>
+                    <img className="sanpham_img" src={data.hinh_dai_dien} alt=""/>
                 </div>
                 <div className="sanpham_container_button">
                     <div className="sanpham_button sale"><p>10%</p></div>

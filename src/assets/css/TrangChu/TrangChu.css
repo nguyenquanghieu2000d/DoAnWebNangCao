@@ -1,23 +1,23 @@
 
-header {
-    z-index: 9;
-    background: none;
-    /*background: #ffffff;*/
-    width: 100%;
-    height: 7.875rem;
-    color: white;
-}
+/*header {*/
+/*    z-index: 9;*/
+/*    !*background: none;*!*/
+/*    !*background: #ffffff;*!*/
+/*    width: 100%;*/
+/*    height: 7.875rem;*/
+/*    color: white;*/
+/*}*/
 
 
-#PhanDauTien a {
-    color: white;
-}
+/*#PhanDauTien a {*/
+/*    color: white;*/
+/*}*/
 
-nav {
-    background: none;
-}
+/*nav {*/
+/*    background: none;*/
+/*}*/
 
-#section1 {
+#TrangChusection1 {
     width: 100vw;
     /*height: 100vh;*/
     background: white;
@@ -28,34 +28,34 @@ nav {
 /*    color: #282828;*/
 /*}*/
 /* SLIDE TO DUNG IMAGE */
-#img1 {
+#img1_slide1 {
     background-image: url("../../Image/17161.jpg");
     background-size: 100%;
 }
 
-#img2 {
+#img2_slide1 {
     background-image: url("../../Image/18873.jpg");
     background-size: 100%;
     /*display: none;*/
 }
 
-#img3 {
+#img3_slide1 {
     background-image: url("../../Image/1091.jpg");
     background-size: 100%;
     /*display: none;*/
 }
 
-.titlea {
-    color: white;
-}
+/*.titlea {*/
+/*    color: white;*/
+/*}*/
 
 #SignUpAndCreate_item1 {
-    color: white;
+    /*color: white;*/
 }
 
 
 .SignUpAndCreate_item1_item {
-    color: white;
+    /*color: white;*/
     /*color: #282828;*/
     /*position: relative;*/
     /*bottom: 0.125rem;*/
@@ -67,8 +67,12 @@ nav {
     text-shadow: 0px 0px 6px rgba(255,255,255,0.7);
 }
 
+#DangXuatQuanLy{
+    z-index: 1;
+}
+
 #header-cart-btn {
-    color: white;
+    /*color: white;*/
     cursor: pointer;
 }
 /* SLIDE TO DUNG IMAGE */
@@ -92,14 +96,16 @@ nav {
 }
 
 .sanphamcontainer {
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    margin: auto;
-    width: 85%;
-    height: auto;
+
+
 }
 
-
+.ListSanPhamHangDauContainer{
+    width: 85%;
+    margin: auto;
+    /*width: 85%;*/
+    height: auto;
+}
 
 
 .saleoff {
