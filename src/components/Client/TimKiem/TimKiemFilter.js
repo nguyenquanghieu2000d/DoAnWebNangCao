@@ -69,7 +69,7 @@ function TimKiemFilter() {
 
     const _handleKeyDown = (e) => {
         if (e.key === 'Enter') {
-            alert(tbTenHang)
+            // alert(tbTenHang)
             const temp = filterTrangPhuc;
             temp.ten_hang = tbTenHang
 
