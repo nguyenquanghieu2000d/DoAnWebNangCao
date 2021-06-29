@@ -452,8 +452,7 @@ ul {
 
 
 .divhover {
-    display: none;
-    font-size: 1rem;
+    /*display: none;*/
     /*background-color: red;*/
     /*color: #F970A3;*/
 }

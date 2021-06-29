@@ -6,7 +6,9 @@ import test from "./test";
 import listGiohang from "./listGiohang";
 import reRenderGiohang from "./reRenderGiohang";
 import tongTienThanhToan from "./tongTienThanhToan";
+import reRenderFilterTimKiem from "./reRenderFilterTimKiem"
+
 const myReducer = combineReducers({
-    userProfile,filterTrangPhuc, filterListProduct,test, listGiohang, reRenderGiohang, tongTienThanhToan
+    userProfile,filterTrangPhuc, filterListProduct,test, listGiohang, reRenderGiohang, tongTienThanhToan,reRenderFilterTimKiem
 });
 export default myReducer;

@@ -11,17 +11,34 @@ import ListChip from "./ListChip";
 function TimKiemFilter() {
 
     const [min, setMin] = useState(0)
-    const [max, setMax] = useState(900000000)
-
+    const [max, setMax] = useState(1000000)
+    const [tbTenHang, setTbTenHang] = useState("")
 
     const filterTrangPhuc = useSelector(state => state.filterTrangPhuc)
+    const reRenderFilterTK = useSelector(state => state.reRenderFilterTimKiem)
     const dispatch = useDispatch()
+    
     const [value, setValue] = React.useState([0, 1000000]);
 
+
+    const onChangetbUsername = (event) => {
+        onChange(event, setTbTenHang)
+    }
+
+    const onChange = (event, setFunction) => {
+        event.preventDefault();
+        const target = event.target;
+        const name = target.name;
+        const value = target.value;
+        setFunction(value)
+    }
+    
+    
     const handleChange = (event, newValue) => {
         setMin(newValue[0])
         setMax(newValue[1])
         setValue(newValue);
+        // alert("Hello")
     };
 
     function valuetext(value) {
@@ -33,8 +50,10 @@ function TimKiemFilter() {
         let temp = filterTrangPhuc
         temp.gia_cu = parseInt(max);
         temp.gia_moi = parseInt(min);
-        dispatch({type: actions.FILTER_TRANG_PHUC, data: ""})
+        // dispatch({type: actions.FILTER_TRANG_PHUC, data: ""})
         dispatch({type: actions.FILTER_TRANG_PHUC, data: temp})
+        dispatch({type: actions.RE_RENDER_FILTER_TK, data: !reRenderFilterTK})
+        window.scrollTo(0,0)
         // getListHangFilter(filterTrangPhuc, dispatch)
     }
 
@@ -50,7 +69,13 @@ function TimKiemFilter() {
 
     const _handleKeyDown = (e) => {
         if (e.key === 'Enter') {
-            alert("hello")
+            alert(tbTenHang)
+            const temp = filterTrangPhuc;
+            temp.ten_hang = tbTenHang
+
+            dispatch({type: actions.FILTER_TRANG_PHUC, data: ""})
+            dispatch({type: actions.FILTER_TRANG_PHUC, data: temp})
+            dispatch({type: actions.RE_RENDER_FILTER_TK, data: !reRenderFilterTK})
         }
     }
 
@@ -59,9 +84,12 @@ function TimKiemFilter() {
             <h1>
                 TÌM KIẾM
             </h1>
-            <ListChip data={filterTrangPhuc}/>
+
+
+
+            <ListChip/>
             <br/>
-            <TextField onKeyDown={_handleKeyDown} id="outlined-search" label="Nhập để tìm kiếm" type="search" variant="outlined" />
+            <TextField onKeyDown={_handleKeyDown} onChange={onChangetbUsername} id="outlined-search" label="Nhập để tìm kiếm" type="search" variant="outlined" />
             <h1 style={{padding:'2rem'}}>
                 DANH MỤC
             </h1>

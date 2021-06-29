@@ -7,6 +7,7 @@ import {FormControl, InputLabel, MenuItem, Select} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 import Loading from "../../DungChung/Loading";
 import {useLocation, useNavigate} from "react-router-dom";
+import reRenderFilterTimKiem from "../../../reducers/reRenderFilterTimKiem";
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -26,7 +27,9 @@ function ListSanPhamFilter(props) {
     const location = useLocation()
     const params = new URLSearchParams(location.search)
     const navigate = useNavigate();
+
     //
+    const reRenderFilterTK = useSelector(state => state.reRenderFilterTimKiem)
     const filterTrangPhuc = useSelector(state => state.filterTrangPhuc)
     const filterListProduct = useSelector(state => state.filterListProduct)
     const dispatch = useDispatch()
@@ -60,6 +63,7 @@ function ListSanPhamFilter(props) {
         temp.order = parseInt(event.target.value)
         dispatch({type: actions.FILTER_TRANG_PHUC, data: ""})
         dispatch({type: actions.FILTER_TRANG_PHUC, data: temp})
+        dispatch({type: actions.RE_RENDER_FILTER_TK, data: !reRenderFilterTK})
 
     };
 
