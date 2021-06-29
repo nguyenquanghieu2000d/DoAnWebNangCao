@@ -79,7 +79,7 @@ export default function ListChip(props) {
             temp.push(ele3)
         }
         else if (flrTp.order === 2 ){
-            let ele3 = ["order"+ "Giá từ cao đến thấp"]
+            let ele3 = ["order", "Giá từ cao đến thấp"]
             temp.push(ele3)
         }
 

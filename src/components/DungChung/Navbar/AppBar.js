@@ -3,27 +3,69 @@ import LoginOrSignOut from "./LoginOrSignOut";
 import $ from "jquery"
 import {Link, useNavigate} from "react-router-dom";
 import {HangAPI} from "../../../api/hangAPI";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import Loading from "../Loading";
 import {convertToVND} from "../../../assets/js/tools";
 import Box from "@material-ui/core/Box";
 import {DonHangAPI} from "../../../api/donhangApi";
 import Button from "@material-ui/core/Button";
-import {Divider, Drawer, List, ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
-
+import {
+    Divider,
+    Drawer,
+    List,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+    makeStyles,
+    TextField,
+    withStyles
+} from "@material-ui/core";
+import Autocomplete from '@material-ui/lab/Autocomplete';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import * as actions from "../../../constants/ActionTypes";
+
+
+
 
 function AppBar() {
+
     const [listHang, setListHang] = useState("")
     const [tongTien, setTongTien] = useState(0)
     const [tongSohang, settongSohang] = useState(0)
+    // const
     const localstorage = window.localStorage;
     const user = localstorage.getItem(process.env.REACT_APP_USER_PROFILE)
-
-    const reRenderGioHang = useSelector(state => state.reRenderGiohang)
+    const [options, setOptions] = useState("")
     const navigate = useNavigate();
 
+
+    const [ListhangFilter, setListhangFilter] = useState([]);
+    const filterTrangPhuc = useSelector(state => state.filterTrangPhuc)
+    const reRenderFilterTK = useSelector(state => state.reRenderFilterTimKiem)
+    const dispatch = useDispatch()
+    const reRenderGioHang = useSelector(state => state.reRenderGiohang)
+
+
+
+
+
+    const ValidationTextField = withStyles({
+        root: {
+            '& input:valid + fieldset': {
+                borderColor: 'green',
+                borderWidth: 2,
+            },
+            '& input:invalid + fieldset': {
+                borderColor: 'red',
+                borderWidth: 2,
+            },
+            '& input:valid:focus + fieldset': {
+                borderLeftWidth: 6,
+                padding: '4px !important', // override inline-style
+            },
+        },
+    })(TextField);
 
     function shoppingCartOnclick() {
         $("#cart-list").toggle()
@@ -143,6 +185,53 @@ function AppBar() {
             </div>
         </div>
     );
+    const [searchValue, setSearchValue] = useState("")
+    const [value, setValue] = useState("")
+    const InputValueChange = (e,newvalue) => {
+
+        setSearchValue(newvalue)
+    }
+
+    const InputAutoChange = (e, value) =>{
+        // alert(JSON.stringify(value))
+        if(value)
+            navigate("/app/chitietsanpham?id=" + value.ma_hang)
+
+    }
+
+
+
+
+    const GetHangByCategory = async () => {
+        const data = "CT"
+        const response = await HangAPI.getHangByCategory(
+            data
+        );
+        const temp = response.map((option) => {
+            const firstLetter = option.ten_hang[0].toUpperCase();
+            return {
+                firstLetter: /[0-9]/.test(firstLetter) ? '0-9' : firstLetter,
+                ...option,
+            };
+        });
+        setOptions(temp)
+    }
+    useEffect(() => {
+        GetHangByCategory()
+    }, [])
+
+    const _handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            const temp = filterTrangPhuc;
+            temp.ten_hang = searchValue
+
+            dispatch({type: actions.FILTER_TRANG_PHUC, data: ""})
+            dispatch({type: actions.FILTER_TRANG_PHUC, data: temp})
+            dispatch({type: actions.RE_RENDER_FILTER_TK, data: !reRenderFilterTK})
+            navigate("/app/timkiem")
+
+        }
+    }
 
     return (
         <div className="PhanDauTien">
@@ -151,10 +240,30 @@ function AppBar() {
                 <Link id="navlogo" className="titlea" to="/app/trangchu">HHNStore</Link>
             </div>
             <div id="search_container">
-                <div className="header-search-form">
-                    <input type="text" placeholder="Nhập để tìm kiếm ..."/>
-                    <button><img src="Image/Icon/tools-and-utensils.png"/></button>
-                </div>
+                {
+                    options ?<Autocomplete
+                        // className="header-search-form"
+                        noOptionsText={"Chưa có kết quả hiển thị"}
+                        id="grouped-demo"
+                        options={options.sort((a, b) => -b.firstLetter.localeCompare(a.firstLetter))}
+                        groupBy={(option) => option.firstLetter}
+                        getOptionLabel={(option) => option.ten_hang}
+                        onInputChange={InputValueChange}
+                        onChange={(event,value) => {InputAutoChange(event,value)}}
+                        style={{ width: "100%", }}
+                        onKeyDown={_handleKeyDown}
+                        value={value}
+                        inputValue={searchValue}
+                        renderInput={(params) => <TextField
+                            // style={{borderRadius:'2rem', backgroundColor:'red'}}
+                                                            {...params} label="Tìm kiếm sản phẩm ở đây" variant="outlined" />}
+                    />:<Loading/>
+                }
+                {/*<div >*/}
+                {/*    */}
+                {/*    <input type="text" placeholder="Nhập để tìm kiếm ..."/>*/}
+                {/*    <button><img src="Image/Icon/tools-and-utensils.png"/></button>*/}
+                {/*</div>*/}
             </div>
 
             <div id="SignUpAndCreate_item1">

@@ -401,7 +401,9 @@ form input::placeholder {
 }
 
 #search_container {
-    display: flex;
+    width: 50%;
+    margin-left: 1rem;
+    margin-right: 1rem;
     align-items: center;
 }
 
