@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="quanlybanhangModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="hoten" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="auth">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ct_the_loai">
+    <Key>
+      <PropertyRef Name="ma_loai" />
+    </Key>
+    <Property Name="ma_loai" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ma_the_loai" Type="nvarchar" MaxLength="50" />
+    <Property Name="ten_ct_the_loai" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="ctdonhang">
+    <Key>
+      <PropertyRef Name="ma_don_hang" />
+      <PropertyRef Name="ma_hang" />
+    </Key>
+    <Property Name="ma_don_hang" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ma_hang" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="so_luong" Type="int" />
+    <Property Name="thanh_tien" Type="int" />
+  </EntityType>
+  <EntityType Name="donhang">
+    <Key>
+      <PropertyRef Name="ma_don_hang" />
+    </Key>
+    <Property Name="ma_don_hang" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" />
+    <Property Name="dia_chi" Type="nvarchar" MaxLength="1000" />
+    <Property Name="thanhtien" Type="int" />
+    <Property Name="tinhtrangthanhtoan" Type="int" />
+    <Property Name="hoten_dh" Type="nvarchar" MaxLength="1000" />
+    <Property Name="sdt_dh" Type="nvarchar" MaxLength="1000" />
+    <Property Name="ngay_thanh_toan" Type="datetime" />
+    <Property Name="email_dh" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="hang">
+    <Key>
+      <PropertyRef Name="ma_hang" />
+    </Key>
+    <Property Name="ma_hang" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ten_hang" Type="nvarchar" MaxLength="500" />
+    <Property Name="gia_cu" Type="int" />
+    <Property Name="gia_moi" Type="int" />
+    <Property Name="thuong_hieu" Type="nvarchar" MaxLength="200" />
+    <Property Name="hinh_dai_dien" Type="nvarchar" MaxLength="1000" />
+    <Property Name="trang_thai" Type="int" />
+    <Property Name="mo_ta" Type="nvarchar" MaxLength="1000" />
+    <Property Name="ma_loai" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="hinh_anh_mo_ta">
+    <Key>
+      <PropertyRef Name="ma_danh_sach_anh" />
+      <PropertyRef Name="ma_hang" />
+    </Key>
+    <Property Name="ma_danh_sach_anh" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ma_hang" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="hinh_dai_dien" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="taikhoan">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="hoten" Type="nvarchar" MaxLength="50" />
+    <Property Name="gioitinh" Type="nvarchar" MaxLength="50" />
+    <Property Name="diachi" Type="nvarchar" MaxLength="50" />
+    <Property Name="sdt" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="theloai">
+    <Key>
+      <PropertyRef Name="ma_the_loai" />
+    </Key>
+    <Property Name="ma_the_loai" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ten_loai" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_ct_the_loai_theloai">
+    <End Role="theloai" Type="Self.theloai" Multiplicity="0..1" />
+    <End Role="ct_the_loai" Type="Self.ct_the_loai" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="theloai">
+        <PropertyRef Name="ma_the_loai" />
+      </Principal>
+      <Dependent Role="ct_the_loai">
+        <PropertyRef Name="ma_the_loai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ctdonhang_donhang">
+    <End Role="donhang" Type="Self.donhang" Multiplicity="1" />
+    <End Role="ctdonhang" Type="Self.ctdonhang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="donhang">
+        <PropertyRef Name="ma_don_hang" />
+      </Principal>
+      <Dependent Role="ctdonhang">
+        <PropertyRef Name="ma_don_hang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ctdonhang_hang">
+    <End Role="hang" Type="Self.hang" Multiplicity="1" />
+    <End Role="ctdonhang" Type="Self.ctdonhang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hang">
+        <PropertyRef Name="ma_hang" />
+      </Principal>
+      <Dependent Role="ctdonhang">
+        <PropertyRef Name="ma_hang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_donhang_taikhoan">
+    <End Role="taikhoan" Type="Self.taikhoan" Multiplicity="0..1" />
+    <End Role="donhang" Type="Self.donhang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="taikhoan">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="donhang">
+        <PropertyRef Name="username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hang_ct_the_loai">
+    <End Role="ct_the_loai" Type="Self.ct_the_loai" Multiplicity="0..1" />
+    <End Role="hang" Type="Self.hang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ct_the_loai">
+        <PropertyRef Name="ma_loai" />
+      </Principal>
+      <Dependent Role="hang">
+        <PropertyRef Name="ma_loai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hinh_anh_mo_ta_hang">
+    <End Role="hang" Type="Self.hang" Multiplicity="1" />
+    <End Role="hinh_anh_mo_ta" Type="Self.hinh_anh_mo_ta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hang">
+        <PropertyRef Name="ma_hang" />
+      </Principal>
+      <Dependent Role="hinh_anh_mo_ta">
+        <PropertyRef Name="ma_hang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="p_capnhatthanhtien_donhang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ma_don_hang" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="p_ct_the_loai" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="p_donhang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="p_hang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="p_theloai" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="s_donhang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar" />
+  <Function Name="s_hang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar" />
+  <Function Name="s_hinh_anh_mo_ta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar" />
+  <Function Name="s_theloai" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="quanlybanhangModelStoreContainer">
+    <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="auth" EntityType="Self.auth" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ct_the_loai" EntityType="Self.ct_the_loai" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ctdonhang" EntityType="Self.ctdonhang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="donhang" EntityType="Self.donhang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hang" EntityType="Self.hang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hinh_anh_mo_ta" EntityType="Self.hinh_anh_mo_ta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="taikhoan" EntityType="Self.taikhoan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="theloai" EntityType="Self.theloai" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ct_the_loai_theloai" Association="Self.FK_ct_the_loai_theloai">
+      <End Role="theloai" EntitySet="theloai" />
+      <End Role="ct_the_loai" EntitySet="ct_the_loai" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ctdonhang_donhang" Association="Self.FK_ctdonhang_donhang">
+      <End Role="donhang" EntitySet="donhang" />
+      <End Role="ctdonhang" EntitySet="ctdonhang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ctdonhang_hang" Association="Self.FK_ctdonhang_hang">
+      <End Role="hang" EntitySet="hang" />
+      <End Role="ctdonhang" EntitySet="ctdonhang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_donhang_taikhoan" Association="Self.FK_donhang_taikhoan">
+      <End Role="taikhoan" EntitySet="taikhoan" />
+      <End Role="donhang" EntitySet="donhang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hang_ct_the_loai" Association="Self.FK_hang_ct_the_loai">
+      <End Role="ct_the_loai" EntitySet="ct_the_loai" />
+      <End Role="hang" EntitySet="hang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hinh_anh_mo_ta_hang" Association="Self.FK_hinh_anh_mo_ta_hang">
+      <End Role="hang" EntitySet="hang" />
+      <End Role="hinh_anh_mo_ta" EntitySet="hinh_anh_mo_ta" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

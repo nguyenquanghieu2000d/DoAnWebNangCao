@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b98bf35cd0ca4c4bb669cbd6882ee7e5" Name="Diagram1">
+        <EntityTypeShape EntityType="quanlybanhangModel.admin" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="quanlybanhangModel.ct_the_loai" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="quanlybanhangModel.ctdonhang" Width="1.5" PointX="7.5" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="quanlybanhangModel.donhang" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="quanlybanhangModel.hang" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="quanlybanhangModel.hinh_anh_mo_ta" Width="1.5" PointX="7.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="quanlybanhangModel.sysdiagram" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="quanlybanhangModel.taikhoan" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="quanlybanhangModel.theloai" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <AssociationConnector Association="quanlybanhangModel.FK_ct_the_loai_theloai" ManuallyRouted="false" />
+        <AssociationConnector Association="quanlybanhangModel.FK_hang_ct_the_loai" ManuallyRouted="false" />
+        <AssociationConnector Association="quanlybanhangModel.FK_ctdonhang_donhang" ManuallyRouted="false" />
+        <AssociationConnector Association="quanlybanhangModel.FK_ctdonhang_hang" ManuallyRouted="false" />
+        <AssociationConnector Association="quanlybanhangModel.FK_donhang_taikhoan" ManuallyRouted="false" />
+        <AssociationConnector Association="quanlybanhangModel.FK_hinh_anh_mo_ta_hang" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="quanlybanhangModel.auth" Width="1.5" PointX="2.625" PointY="5.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

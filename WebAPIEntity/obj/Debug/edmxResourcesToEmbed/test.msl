@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="testApiModelStoreContainer" CdmEntityContainer="testApiEntities">
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="testApiModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

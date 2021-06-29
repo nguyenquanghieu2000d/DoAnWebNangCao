@@ -1,0 +1,534 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{220EF306-2AEE-463F-AAB6-B09FC016517D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebAPIEntity</RootNamespace>
+    <AssemblyName>WebAPIEntity</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44319</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\Image\1091.jpg" />
+    <Content Include="Data\Image\1122.mp4" />
+    <Content Include="Data\Image\1200x630-2.jpg" />
+    <Content Include="Data\Image\1200x630-3.jpg" />
+    <Content Include="Data\Image\17161.jpg" />
+    <Content Include="Data\Image\18873.jpg" />
+    <Content Include="Data\Image\2019-12-03-12-40-50-538.jpg" />
+    <Content Include="Data\Image\20190831090857_22584.png" />
+    <Content Include="Data\Image\20191023091015_76972.png" />
+    <Content Include="Data\Image\20191023091026_31643.png" />
+    <Content Include="Data\Image\20200225150200_42782.png" />
+    <Content Include="Data\Image\20200225150244_97819.png" />
+    <Content Include="Data\Image\20200225150252_14792.png" />
+    <Content Include="Data\Image\27e2f1d2dd136821c6bf19666eeb63ee.jpg" />
+    <Content Include="Data\Image\64274455_1189417311229093_9078253299605438464_n.jpg" />
+    <Content Include="Data\Image\65.1-copy.jpg" />
+    <Content Include="Data\Image\67189586_2719846078043936_6952819592796307456_n.jpg" />
+    <Content Include="Data\Image\71091682_2421028544684477_650039542153216000_n%281%29.jpg" />
+    <Content Include="Data\Image\798443.jpg" />
+    <Content Include="Data\Image\ao\ao_nam\ao_thun\ao_thun01\0017371e1e94.jpg" />
+    <Content Include="Data\Image\ao\ao_nam\ao_thun\ao_thun01\0017371e2b39.jpg" />
+    <Content Include="Data\Image\ao\ao_nam\ao_thun\ao_thun01\0017371e363f.jpg" />
+    <Content Include="Data\Image\ao\ao_nam\ao_thun\ao_thun02\zaidep01.jpg" />
+    <Content Include="Data\Image\ao\ao_nam\ao_thun\ao_thun02\zaidep02.jpg" />
+    <Content Include="Data\Image\ao\ao_nam\ao_thun\ao_thun02\zaidep03.jpg" />
+    <Content Include="Data\Image\ao\ao_nam\ao_thun\ao_thun03\zai_nhieu_rau01.jpg" />
+    <Content Include="Data\Image\ao\ao_nam\ao_thun\ao_thun03\zai_nhieu_rau02.jpg" />
+    <Content Include="Data\Image\ao\ao_nam\ao_thun\ao_thun03\zai_nhieu_rau03.jpg" />
+    <Content Include="Data\Image\ao\ao_nam\so_mi_\so_mi_ke\caro01.jpg" />
+    <Content Include="Data\Image\ao\ao_nam\so_mi_\so_mi_ke\caro02.jpg" />
+    <Content Include="Data\Image\ao\ao_nam\so_mi_\so_mi_ke\caro03.jpg" />
+    <Content Include="Data\Image\ao\ao_nam\so_mi_\so_mi_trang\somitrang.jpg" />
+    <Content Include="Data\Image\ao\ao_nam\so_mi_\so_mi_trang\trang01.jpg" />
+    <Content Include="Data\Image\ao\ao_nam\so_mi_\so_mi_trang\trang02.jpg" />
+    <Content Include="Data\Image\ao\ao_nam\so_mi_\so_mi_xanh\somixanh.jpg" />
+    <Content Include="Data\Image\ao\ao_nam\so_mi_\so_mi_xanh\xanh01.jpg" />
+    <Content Include="Data\Image\ao\ao_nam\so_mi_\so_mi_xanh\xanh02.jpg" />
+    <Content Include="Data\Image\ao\ao_nu\ao_thun1\IMG_6428.jpg" />
+    <Content Include="Data\Image\ao\ao_nu\ao_thun1\IMG_6429.jpg" />
+    <Content Include="Data\Image\ao\ao_nu\ao_thun1\IMG_6433.jpg" />
+    <Content Include="Data\Image\ao\ao_nu\ao_thun2\co-tron-1.png" />
+    <Content Include="Data\Image\ao\ao_nu\ao_thun2\co-tron-3.png" />
+    <Content Include="Data\Image\ao\ao_nu\ao_thun2\co-tron-4.png" />
+    <Content Include="Data\Image\ao\ao_nu\ao_thun3\Croptop-tay-ngan-1.png" />
+    <Content Include="Data\Image\ao\ao_nu\ao_thun3\Croptop-tay-ngan-2.png" />
+    <Content Include="Data\Image\ao\ao_nu\ao_thun3\Croptop-tay-ngan-4.png" />
+    <Content Include="Data\Image\ao\ao_nu\ao_thun4\ngan-co-tron-1.png" />
+    <Content Include="Data\Image\ao\ao_nu\ao_thun4\ngan-co-tron-2.png" />
+    <Content Include="Data\Image\ao\ao_nu\ao_thun4\ngan-co-tron-3.png" />
+    <Content Include="Data\Image\bgdot.png" />
+    <Content Include="Data\Image\black-dress-girl-sitting-road-side-p5-3840x2400 %281%29.jpg" />
+    <Content Include="Data\Image\Brand\0.jpg" />
+    <Content Include="Data\Image\Brand\00000001542.png" />
+    <Content Include="Data\Image\Brand\fila.png" />
+    <Content Include="Data\Image\Brand\Gucci-Logo-500x300.png" />
+    <Content Include="Data\Image\Brand\How-brand-licensing-hurt-the-Calvin-Klein-brand.jpg" />
+    <Content Include="Data\Image\Brand\louis-vuitton-1-1200x643.jpg" />
+    <Content Include="Data\Image\Brand\unnamed.jpg" />
+    <Content Include="Data\Image\Brand\VS.jpg" />
+    <Content Include="Data\Image\CategoryImage\1.jpeg" />
+    <Content Include="Data\Image\CategoryImage\2.jpeg" />
+    <Content Include="Data\Image\CategoryImage\3.jpeg" />
+    <Content Include="Data\Image\CategoryImage\4.jpeg" />
+    <Content Include="Data\Image\clara-new-5ec4845698ac7.jpg" />
+    <Content Include="Data\Image\clearance-ngang-5edd2305b6d86%281%29.jpg" />
+    <Content Include="Data\Image\clearance-ngang-5edd2305b6d86.jpg" />
+    <Content Include="Data\Image\cream-pixels.png" />
+    <Content Include="Data\Image\cropped-1920-720-650319.jpg" />
+    <Content Include="Data\Image\cropped-1920-720-798443.jpg" />
+    <Content Include="Data\Image\do-tap-gym-cho-nu-652x1024.jpg" />
+    <Content Include="Data\Image\doutzen-kroes-hunkemoller-only-spring-campaign-2020-1m-2880x1800.jpg" />
+    <Content Include="Data\Image\do_boi\doboi.jpg" />
+    <Content Include="Data\Image\do_boi\doboi1.jpg" />
+    <Content Include="Data\Image\do_boi\doboi2.jpg" />
+    <Content Include="Data\Image\do_ngu\dongu.jpg" />
+    <Content Include="Data\Image\do_ngu\dongu1.jpg" />
+    <Content Include="Data\Image\do_ngu\dongu2.jpg" />
+    <Content Include="Data\Image\DRE11292-1%281%29.jpg" />
+    <Content Include="Data\Image\e8c836b19531b8167d162aa96dce40a4.png" />
+    <Content Include="Data\Image\elise-ngang-5ee2ec357f80e.jpg" />
+    <Content Include="Data\Image\EvQD49FYDMSxU7hUdhNvq3UqZ4nbZnjnOhRLsP6p.jpeg" />
+    <Content Include="Data\Image\exclusive-ngang-5edd220fdd396.jpg" />
+    <Content Include="Data\Image\Footer\unnamed.jpg" />
+    <Content Include="Data\Image\girl-street-photography-5k-er-2880x1800.jpg" />
+    <Content Include="Data\Image\girl-street-photography-5k-er-3840x2400.jpg" />
+    <Content Include="Data\Image\gracy-5eb0f0fa749d4.jpg" />
+    <Content Include="Data\Image\HEADER.png" />
+    <Content Include="Data\Image\hera-slide-5ecf6f680335a.jpg" />
+    <Content Include="Data\Image\Icon\103145166-shopping-bag-icon-linear-thin-outline-white-icon-with-shadow-on-transparent-background.jpg" />
+    <Content Include="Data\Image\Icon\16px-logo-facebook.png" />
+    <Content Include="Data\Image\Icon\16px-logo-instagram.png" />
+    <Content Include="Data\Image\Icon\16px-logo-twitter.png" />
+    <Content Include="Data\Image\Icon\16px-logo-youtube.png" />
+    <Content Include="Data\Image\Icon\600px-Facebook-icon-1.png" />
+    <Content Include="Data\Image\Icon\adobe-illustrator-heart-heart-background.jpg" />
+    <Content Include="Data\Image\Icon\arrows.png" />
+    <Content Include="Data\Image\Icon\business-and-finance.png" />
+    <Content Include="Data\Image\Icon\business.png" />
+    <Content Include="Data\Image\Icon\circle-cropped.png" />
+    <Content Include="Data\Image\Icon\colorIcon\facebook.png" />
+    <Content Include="Data\Image\Icon\colorIcon\instagram.png" />
+    <Content Include="Data\Image\Icon\colorIcon\pinterest.png" />
+    <Content Include="Data\Image\Icon\colorIcon\tumblr.png" />
+    <Content Include="Data\Image\Icon\colorIcon\twitter.png" />
+    <Content Include="Data\Image\Icon\colorIcon\youtube.png" />
+    <Content Include="Data\Image\Icon\dbd3fcb0ef6fdbe197dea72fa7414c6d.jpg" />
+    <Content Include="Data\Image\Icon\facebook-social-media-icon-design-template-vector-png_127003.jpg" />
+    <Content Include="Data\Image\Icon\giaohangdoitra\dp.png" />
+    <Content Include="Data\Image\Icon\giaohangdoitra\dp2.png" />
+    <Content Include="Data\Image\Icon\giaohangdoitra\dp3.png" />
+    <Content Include="Data\Image\Icon\grayIcon\facebook.png" />
+    <Content Include="Data\Image\Icon\grayIcon\instagram.png" />
+    <Content Include="Data\Image\Icon\grayIcon\pinterest.png" />
+    <Content Include="Data\Image\Icon\grayIcon\tumblr.png" />
+    <Content Include="Data\Image\Icon\grayIcon\twitter.png" />
+    <Content Include="Data\Image\Icon\grayIcon\youtube.png" />
+    <Content Include="Data\Image\Icon\instagram-1946323-1646407.jpg" />
+    <Content Include="Data\Image\Icon\instagram.png" />
+    <Content Include="Data\Image\Icon\line.png" />
+    <Content Include="Data\Image\Icon\line.svg" />
+    <Content Include="Data\Image\Icon\login %281%29.png" />
+    <Content Include="Data\Image\Icon\login.png" />
+    <Content Include="Data\Image\Icon\love-and-romance.png" />
+    <Content Include="Data\Image\Icon\mail.png" />
+    <Content Include="Data\Image\Icon\menu icon.png" />
+    <Content Include="Data\Image\Icon\multimedia-option.png" />
+    <Content Include="Data\Image\Icon\open-menu %281%29.png" />
+    <Content Include="Data\Image\Icon\open-menu %282%29.png" />
+    <Content Include="Data\Image\Icon\open-menu.png" />
+    <Content Include="Data\Image\Icon\play.png" />
+    <Content Include="Data\Image\Icon\png-twitter-logo-twitter-in-png-2500.png" />
+    <Content Include="Data\Image\Icon\portable-document-format.png" />
+    <Content Include="Data\Image\Icon\search.png" />
+    <Content Include="Data\Image\Icon\shopping-bag.png" />
+    <Content Include="Data\Image\Icon\skip.png" />
+    <Content Include="Data\Image\Icon\social-media-instagram-login-photography-ig.jpg" />
+    <Content Include="Data\Image\Icon\stargold.png" />
+    <Content Include="Data\Image\Icon\stargray.png" />
+    <Content Include="Data\Image\Icon\symbols.png" />
+    <Content Include="Data\Image\Icon\tools-and-utensils.png" />
+    <Content Include="Data\Image\korean-asian-girl-film-wallpaper-preview.jpg" />
+    <Content Include="Data\Image\login\attractive-beautiful-beautiful-girl-beauty-458766.jpg" />
+    <Content Include="Data\Image\login\lauren-fleischmann-R2aodqJn3b8-unsplash.jpg" />
+    <Content Include="Data\Image\login\micheile-henderson-FpPcoOAk5PI-unsplash.jpg" />
+    <Content Include="Data\Image\login\photo-of-iphone-on-shirt-near-sunglasses-934063.jpg" />
+    <Content Include="Data\Image\login\priscilla-du-preez-dlxLGIy-2VU-unsplash.jpg" />
+    <Content Include="Data\Image\login\shallow-focus-photography-of-assorted-color-clothes-hanged-1078958.jpg" />
+    <Content Include="Data\Image\login\woman-wearing-blue-and-white-striped-dress-with-brown-rattan-1103511.jpg" />
+    <Content Include="Data\Image\login\woman-wearing-pink-printed-crew-neck-t-shirt-and-blue-faded-704974.jpg" />
+    <Content Include="Data\Image\logo-light.png" />
+    <Content Include="Data\Image\logo.png" />
+    <Content Include="Data\Image\ms_banner_img1.jpg" />
+    <Content Include="Data\Image\navItem\1.jpg" />
+    <Content Include="Data\Image\navItem\10.jpeg" />
+    <Content Include="Data\Image\navItem\106112135_779235199279271_7491193808366531479_n.jpg" />
+    <Content Include="Data\Image\navItem\11.jpeg" />
+    <Content Include="Data\Image\navItem\12.jpeg" />
+    <Content Include="Data\Image\navItem\13.jpeg" />
+    <Content Include="Data\Image\navItem\14.jpeg" />
+    <Content Include="Data\Image\navItem\15573671702691852556.jpg" />
+    <Content Include="Data\Image\navItem\15573672672502939846.jpg" />
+    <Content Include="Data\Image\navItem\15573673161352460799.jpg" />
+    <Content Include="Data\Image\navItem\15573718613386128131.jpg" />
+    <Content Include="Data\Image\navItem\15573718902767655164.jpg" />
+    <Content Include="Data\Image\navItem\16.jpeg" />
+    <Content Include="Data\Image\navItem\2.jpeg" />
+    <Content Include="Data\Image\navItem\3.jpeg" />
+    <Content Include="Data\Image\navItem\4.jpeg" />
+    <Content Include="Data\Image\navItem\4LPUi2aI8sZHtxsfXNiMoTDARa0IIOQkUwq35xnS.jpeg" />
+    <Content Include="Data\Image\navItem\5.jpeg" />
+    <Content Include="Data\Image\navItem\51398321_343335676267036_6715516464939401216_n.jpg" />
+    <Content Include="Data\Image\navItem\575632_123658504497957_1597128205_n.jpg" />
+    <Content Include="Data\Image\navItem\6.jpeg" />
+    <Content Include="Data\Image\navItem\7.jpeg" />
+    <Content Include="Data\Image\navItem\7ZvhPa5CqHKoZKF1D2B2cWYHyFA0kvv9uC4WZVrk.jpeg" />
+    <Content Include="Data\Image\navItem\8.jpeg" />
+    <Content Include="Data\Image\navItem\936589_1582581438728950_369219465124968113_n.jpg" />
+    <Content Include="Data\Image\navItem\Cez5HzLz7R4QL5Z6MMvv2pwSjLg7ijLGGsDq1BZk.jpeg" />
+    <Content Include="Data\Image\navItem\dam-ha-eo-that-no-ad180011-60-6042.jpg" />
+    <Content Include="Data\Image\navItem\DyGnTuDYGscEkszb7txumlRR4apNcDAy47DkbEJp.jpeg" />
+    <Content Include="Data\Image\navItem\frDNyRsqtWpqJrtecX1fEh6RfPZ7YNQrCoNCgXJO.jpeg" />
+    <Content Include="Data\Image\navItem\hRMdSTy27TLuSbf6AJvE8wbxLCbRUKlCRO084Fv0.jpeg" />
+    <Content Include="Data\Image\navItem\Julia%281%29.jpg" />
+    <Content Include="Data\Image\navItem\PJ06%281%29.JPG" />
+    <Content Include="Data\Image\navItem\vgDW5cBtcfJ0jY0kB6M6Z0xucWNqY5M3yEVR6WKS.jpeg" />
+    <Content Include="Data\Image\nua-gia-ngang-5edf52b7ee477.jpg" />
+    <Content Include="Data\Image\pexels-photo-1021693.jpeg" />
+    <Content Include="Data\Image\phu-kien-99k-5ee2ebd72b135.jpg" />
+    <Content Include="Data\Image\product\minidress\mini1.jpg" />
+    <Content Include="Data\Image\product\minidress\mini2.jpg" />
+    <Content Include="Data\Image\product\minidress\mini3.jpg" />
+    <Content Include="Data\Image\product\minidress\mini4.JPG" />
+    <Content Include="Data\Image\product\minidress\mini5.JPG" />
+    <Content Include="Data\Image\product\minidress\mini6.jpg" />
+    <Content Include="Data\Image\product\minidress\mini7.jpg" />
+    <Content Include="Data\Image\product\minidress\mini8.jpg" />
+    <Content Include="Data\Image\product\minidress\mini9.JPG" />
+    <Content Include="Data\Image\product\productdetail\mini4\1.JPG" />
+    <Content Include="Data\Image\product\productdetail\mini4\10.JPG" />
+    <Content Include="Data\Image\product\productdetail\mini4\2.JPG" />
+    <Content Include="Data\Image\product\productdetail\mini4\3.JPG" />
+    <Content Include="Data\Image\product\productdetail\mini4\4.JPG" />
+    <Content Include="Data\Image\product\productdetail\mini4\5.JPG" />
+    <Content Include="Data\Image\product\productdetail\mini4\6.JPG" />
+    <Content Include="Data\Image\product\productdetail\mini4\7.JPG" />
+    <Content Include="Data\Image\product\productdetail\mini4\8.JPG" />
+    <Content Include="Data\Image\product\productdetail\mini4\9.JPG" />
+    <Content Include="Data\Image\quan\quan_nam\quan_dai\dai1.jpg" />
+    <Content Include="Data\Image\quan\quan_nam\quan_dai\dai2.jpg" />
+    <Content Include="Data\Image\quan\quan_nam\quan_dai\quandai.jpg" />
+    <Content Include="Data\Image\quan\quan_nam\quan_lung\lung1.jpg" />
+    <Content Include="Data\Image\quan\quan_nam\quan_lung\lung2.jpg" />
+    <Content Include="Data\Image\quan\quan_nam\quan_lung\quanlung.jpg" />
+    <Content Include="Data\Image\quan\quan_nu\quan_bo\bo1.jpg" />
+    <Content Include="Data\Image\quan\quan_nu\quan_bo\bo2.jpg" />
+    <Content Include="Data\Image\quan\quan_nu\quan_bo\quanbo.jpg" />
+    <Content Include="Data\Image\quan\quan_nu\quan_dui\dui1.jpg" />
+    <Content Include="Data\Image\quan\quan_nu\quan_dui\dui2.jpg" />
+    <Content Include="Data\Image\quan\quan_nu\quan_dui\quandui.jpg" />
+    <Content Include="Data\Image\quan\quan_nu\quan_jeen\jean.jpg" />
+    <Content Include="Data\Image\quan\quan_nu\quan_jeen\jean1.jpg" />
+    <Content Include="Data\Image\quan\quan_nu\quan_jeen\jean2.jpg" />
+    <Content Include="Data\Image\sale-123tren-tiki.jpg" />
+    <Content Include="Data\Image\short-girl-golden-hairs-girl-4k-er-3840x2400 %281%29.jpg" />
+    <Content Include="Data\Image\slideImage\slide5\mini1.jpg" />
+    <Content Include="Data\Image\slideImage\slide5\mini2.jpg" />
+    <Content Include="Data\Image\slideImage\slide5\mini3.jpg" />
+    <Content Include="Data\Image\slideImage\slide5\mini5.JPG" />
+    <Content Include="Data\Image\slider-item1.jpg" />
+    <Content Include="Data\Image\slider-item2.jpg" />
+    <Content Include="Data\Image\slider-item3.jpg" />
+    <Content Include="Data\Image\slider-item4.jpg" />
+    <Content Include="Data\Image\slider_5_image.png.jpg" />
+    <Content Include="Data\Image\Stitched-Wool-White-Seamless-Textures-For-Website-Background.jpg" />
+    <Content Include="Data\Image\summer-heels-5ed8638521a25.jpg" />
+    <Content Include="Data\Image\summer-office-5ed46ef01ee60.jpg" />
+    <Content Include="Data\Image\summer-party-5ee09fb6a291e.jpg" />
+    <Content Include="Data\Image\summer-skincare-1170-5edfc68bb27e8.jpg" />
+    <Content Include="Data\Image\temp\00ab52cdf790e09f66c040b5a136a7df.jpg" />
+    <Content Include="Data\Image\temp\26.jpg" />
+    <Content Include="Data\Image\temp\31.jpg" />
+    <Content Include="Data\Image\temp\32.jpg" />
+    <Content Include="Data\Image\temp\36.jpg" />
+    <Content Include="Data\Image\temp\39.jpg" />
+    <Content Include="Data\Image\temp\41.jpg" />
+    <Content Include="Data\Image\temp\Homepage_1.jpg" />
+    <Content Include="Data\Image\temp\thethao.jpg" />
+    <Content Include="Data\Image\temp\thethao1.jpg" />
+    <Content Include="Data\Image\temp\ththao2.jpg" />
+    <Content Include="Data\Image\the_thao\thethao.jpg" />
+    <Content Include="Data\Image\the_thao\thethao1.jpg" />
+    <Content Include="Data\Image\the_thao\ththao2.jpg" />
+    <Content Include="Data\Image\vay\chan_vay\chan_vay_but_chi\butchi.jpg" />
+    <Content Include="Data\Image\vay\chan_vay\chan_vay_but_chi\butchi1.jpg" />
+    <Content Include="Data\Image\vay\chan_vay\chan_vay_but_chi\butchi2.jpg" />
+    <Content Include="Data\Image\vay\chan_vay\chan_vay_jean\jean.jpg" />
+    <Content Include="Data\Image\vay\chan_vay\chan_vay_jean\jean1.jpg" />
+    <Content Include="Data\Image\vay\chan_vay\chan_vay_jean\jean2.jpg" />
+    <Content Include="Data\Image\vay\chan_vay\chan_vay_ngan\vayngan.jpg" />
+    <Content Include="Data\Image\vay\chan_vay\chan_vay_ngan\vayngan1.jpg" />
+    <Content Include="Data\Image\vay\chan_vay\chan_vay_ngan\vayngan2.jpg" />
+    <Content Include="Data\Image\vay\chan_vay\chan_vay_xoe\xoe.jpg" />
+    <Content Include="Data\Image\vay\chan_vay\chan_vay_xoe\xoe1.jpg" />
+    <Content Include="Data\Image\vay\chan_vay\chan_vay_xoe\xoe2.jpg" />
+    <Content Include="Data\Image\vay\dam_nu\dam_co_yem\yem.jpg" />
+    <Content Include="Data\Image\vay\dam_nu\dam_co_yem\yem1.jpg" />
+    <Content Include="Data\Image\vay\dam_nu\dam_co_yem\yem2.jpg" />
+    <Content Include="Data\Image\vay\dam_nu\dam_dang_xoe\damxoe.jpg" />
+    <Content Include="Data\Image\vay\dam_nu\dam_dang_xoe\damxoe1.jpg" />
+    <Content Include="Data\Image\vay\dam_nu\dam_dang_xoe\damxoe2.jpg" />
+    <Content Include="Data\Image\vay\dam_nu\dam_dang_xuong\suong.jpg" />
+    <Content Include="Data\Image\vay\dam_nu\dam_dang_xuong\suong1.jpg" />
+    <Content Include="Data\Image\vay\dam_nu\dam_dang_xuong\suong2.jpg" />
+    <Content Include="Data\Image\vay\dam_nu\dam_maxi\maxi.jpg" />
+    <Content Include="Data\Image\vay\dam_nu\dam_maxi\maxi1.jpg" />
+    <Content Include="Data\Image\vay\dam_nu\dam_maxi\maxi2.jpg" />
+    <Content Include="Data\Image\vay\dam_nu\dam_om\damom.jpg" />
+    <Content Include="Data\Image\vay\dam_nu\dam_om\damom1.jpg" />
+    <Content Include="Data\Image\vay\dam_nu\dam_om\damom2.jpg" />
+    <Content Include="Data\Image\vay\dam_nu\dam_ren\ren.jpg" />
+    <Content Include="Data\Image\vay\dam_nu\dam_ren\ren1.jpg" />
+    <Content Include="Data\Image\vay\dam_nu\dam_ren\ren2.jpg" />
+    <Content Include="Data\Image\vay\THREE LAYER FRILLED ONNIDRESS\HP_JS1_3373copy_700x.jpg" />
+    <Content Include="Data\Image\vay\Vay Hoa\HP_JS1_3340copy_900x.jpg" />
+    <Content Include="Data\Image\vay\Vay Hoa\HP_JS1_3393copy_900x.jpg" />
+    <Content Include="Data\Image\vay\Vay Hoa\HP_JS1_3441copy_900x.jpg" />
+    <Content Include="Data\Image\white-paint-texture-indoor-white-texture-paint-for-canvas.jpg" />
+    <Content Include="Global.asax" />
+    <Content Include="quanlybanhang.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>quanlybanhang.edmx</DependentUpon>
+      <LastGenOutput>quanlybanhang.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="quanlybanhang.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>quanlybanhang.edmx</DependentUpon>
+      <LastGenOutput>quanlybanhang.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="admin.cs">
+      <DependentUpon>quanlybanhang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="auth.cs">
+      <DependentUpon>quanlybanhang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\adminsController.cs" />
+    <Compile Include="Controllers\ctdonhangsController.cs" />
+    <Compile Include="Controllers\ct_the_loaiController.cs" />
+    <Compile Include="Controllers\donhangsController.cs" />
+    <Compile Include="Controllers\hangsController.cs" />
+    <Compile Include="Controllers\hinh_anh_mo_taController.cs" />
+    <Compile Include="Controllers\taikhoansController.cs" />
+    <Compile Include="Controllers\theloaisController.cs" />
+    <Compile Include="Controllers\TimeController.cs" />
+    <Compile Include="ctdonhang.cs">
+      <DependentUpon>quanlybanhang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ct_the_loai.cs">
+      <DependentUpon>quanlybanhang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="donhang.cs">
+      <DependentUpon>quanlybanhang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="hang.cs">
+      <DependentUpon>quanlybanhang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="hinh_anh_mo_ta.cs">
+      <DependentUpon>quanlybanhang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="quanlybanhang.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>quanlybanhang.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="quanlybanhang.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>quanlybanhang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="quanlybanhang.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>quanlybanhang.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>quanlybanhang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>quanlybanhang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>quanlybanhang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="taikhoan.cs">
+      <DependentUpon>quanlybanhang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="theloai.cs">
+      <DependentUpon>quanlybanhang.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controllers\dvhcvn.json" />
+    <Content Include="Data\Image\ms_banner_img1.webp" />
+    <Content Include="Data\Image\ms_banner_img2.webp" />
+    <Content Include="Data\Image\ms_banner_img3.webp" />
+    <Content Include="Data\Image\ms_banner_img5.webp" />
+    <Content Include="Data\Image\ms_banner_iwmg2.webp" />
+    <Content Include="Data\Image\pexels-photo-1126993.webp" />
+    <Content Include="Data\Image\slideshoww_3.webp" />
+    <Content Include="Data\Image\slideshow_3.webp" />
+    <None Include="packages.config" />
+    <EntityDeploy Include="quanlybanhang.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>quanlybanhang.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="quanlybanhang.edmx.diagram">
+      <DependentUpon>quanlybanhang.edmx</DependentUpon>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60534</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44319/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

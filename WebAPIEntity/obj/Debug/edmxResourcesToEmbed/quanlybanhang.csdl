@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="quanlybanhangModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hoten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ct_the_loai">
+    <Key>
+      <PropertyRef Name="ma_loai" />
+    </Key>
+    <Property Name="ma_loai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_the_loai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ten_ct_the_loai" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="theloai" Relationship="Self.FK_ct_the_loai_theloai" FromRole="ct_the_loai" ToRole="theloai" />
+    <NavigationProperty Name="hangs" Relationship="Self.FK_hang_ct_the_loai" FromRole="ct_the_loai" ToRole="hang" />
+  </EntityType>
+  <EntityType Name="ctdonhang">
+    <Key>
+      <PropertyRef Name="ma_don_hang" />
+      <PropertyRef Name="ma_hang" />
+    </Key>
+    <Property Name="ma_don_hang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_hang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="so_luong" Type="Int32" />
+    <Property Name="thanh_tien" Type="Int32" />
+    <NavigationProperty Name="donhang" Relationship="Self.FK_ctdonhang_donhang" FromRole="ctdonhang" ToRole="donhang" />
+    <NavigationProperty Name="hang" Relationship="Self.FK_ctdonhang_hang" FromRole="ctdonhang" ToRole="hang" />
+  </EntityType>
+  <EntityType Name="donhang">
+    <Key>
+      <PropertyRef Name="ma_don_hang" />
+    </Key>
+    <Property Name="ma_don_hang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dia_chi" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="thanhtien" Type="Int32" />
+    <Property Name="tinhtrangthanhtoan" Type="Int32" />
+    <Property Name="hoten_dh" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="sdt_dh" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ctdonhangs" Relationship="Self.FK_ctdonhang_donhang" FromRole="donhang" ToRole="ctdonhang" />
+    <NavigationProperty Name="taikhoan" Relationship="Self.FK_donhang_taikhoan" FromRole="donhang" ToRole="taikhoan" />
+    <Property Name="ngay_thanh_toan" Type="DateTime" Precision="3" />
+    <Property Name="email_dh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="hang">
+    <Key>
+      <PropertyRef Name="ma_hang" />
+    </Key>
+    <Property Name="ma_hang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ten_hang" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="gia_cu" Type="Int32" />
+    <Property Name="gia_moi" Type="Int32" />
+    <Property Name="thuong_hieu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="hinh_dai_dien" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="trang_thai" Type="Int32" />
+    <Property Name="mo_ta" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="ma_loai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ct_the_loai" Relationship="Self.FK_hang_ct_the_loai" FromRole="hang" ToRole="ct_the_loai" />
+    <NavigationProperty Name="ctdonhangs" Relationship="Self.FK_ctdonhang_hang" FromRole="hang" ToRole="ctdonhang" />
+    <NavigationProperty Name="hinh_anh_mo_ta" Relationship="Self.FK_hinh_anh_mo_ta_hang" FromRole="hang" ToRole="hinh_anh_mo_ta" />
+  </EntityType>
+  <EntityType Name="hinh_anh_mo_ta">
+    <Key>
+      <PropertyRef Name="ma_danh_sach_anh" />
+      <PropertyRef Name="ma_hang" />
+    </Key>
+    <Property Name="ma_danh_sach_anh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ma_hang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="hinh_dai_dien" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="hang" Relationship="Self.FK_hinh_anh_mo_ta_hang" FromRole="hinh_anh_mo_ta" ToRole="hang" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="taikhoan">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hoten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="gioitinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sdt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="donhangs" Relationship="Self.FK_donhang_taikhoan" FromRole="taikhoan" ToRole="donhang" />
+  </EntityType>
+  <EntityType Name="theloai">
+    <Key>
+      <PropertyRef Name="ma_the_loai" />
+    </Key>
+    <Property Name="ma_the_loai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ten_loai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ct_the_loai" Relationship="Self.FK_ct_the_loai_theloai" FromRole="theloai" ToRole="ct_the_loai" />
+  </EntityType>
+  <Association Name="FK_ct_the_loai_theloai">
+    <End Role="theloai" Type="Self.theloai" Multiplicity="0..1" />
+    <End Role="ct_the_loai" Type="Self.ct_the_loai" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="theloai">
+        <PropertyRef Name="ma_the_loai" />
+      </Principal>
+      <Dependent Role="ct_the_loai">
+        <PropertyRef Name="ma_the_loai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hang_ct_the_loai">
+    <End Role="ct_the_loai" Type="Self.ct_the_loai" Multiplicity="0..1" />
+    <End Role="hang" Type="Self.hang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ct_the_loai">
+        <PropertyRef Name="ma_loai" />
+      </Principal>
+      <Dependent Role="hang">
+        <PropertyRef Name="ma_loai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ctdonhang_donhang">
+    <End Role="donhang" Type="Self.donhang" Multiplicity="1" />
+    <End Role="ctdonhang" Type="Self.ctdonhang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="donhang">
+        <PropertyRef Name="ma_don_hang" />
+      </Principal>
+      <Dependent Role="ctdonhang">
+        <PropertyRef Name="ma_don_hang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ctdonhang_hang">
+    <End Role="hang" Type="Self.hang" Multiplicity="1" />
+    <End Role="ctdonhang" Type="Self.ctdonhang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hang">
+        <PropertyRef Name="ma_hang" />
+      </Principal>
+      <Dependent Role="ctdonhang">
+        <PropertyRef Name="ma_hang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_donhang_taikhoan">
+    <End Role="taikhoan" Type="Self.taikhoan" Multiplicity="0..1" />
+    <End Role="donhang" Type="Self.donhang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="taikhoan">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="donhang">
+        <PropertyRef Name="username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hinh_anh_mo_ta_hang">
+    <End Role="hang" Type="Self.hang" Multiplicity="1" />
+    <End Role="hinh_anh_mo_ta" Type="Self.hinh_anh_mo_ta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hang">
+        <PropertyRef Name="ma_hang" />
+      </Principal>
+      <Dependent Role="hinh_anh_mo_ta">
+        <PropertyRef Name="ma_hang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="quanlybanhangEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="admins" EntityType="Self.admin" />
+    <EntitySet Name="ct_the_loai" EntityType="Self.ct_the_loai" />
+    <EntitySet Name="ctdonhangs" EntityType="Self.ctdonhang" />
+    <EntitySet Name="donhangs" EntityType="Self.donhang" />
+    <EntitySet Name="hangs" EntityType="Self.hang" />
+    <EntitySet Name="hinh_anh_mo_ta" EntityType="Self.hinh_anh_mo_ta" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="taikhoans" EntityType="Self.taikhoan" />
+    <EntitySet Name="theloais" EntityType="Self.theloai" />
+    <AssociationSet Name="FK_ct_the_loai_theloai" Association="Self.FK_ct_the_loai_theloai">
+      <End Role="theloai" EntitySet="theloais" />
+      <End Role="ct_the_loai" EntitySet="ct_the_loai" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hang_ct_the_loai" Association="Self.FK_hang_ct_the_loai">
+      <End Role="ct_the_loai" EntitySet="ct_the_loai" />
+      <End Role="hang" EntitySet="hangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ctdonhang_donhang" Association="Self.FK_ctdonhang_donhang">
+      <End Role="donhang" EntitySet="donhangs" />
+      <End Role="ctdonhang" EntitySet="ctdonhangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ctdonhang_hang" Association="Self.FK_ctdonhang_hang">
+      <End Role="hang" EntitySet="hangs" />
+      <End Role="ctdonhang" EntitySet="ctdonhangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_donhang_taikhoan" Association="Self.FK_donhang_taikhoan">
+      <End Role="taikhoan" EntitySet="taikhoans" />
+      <End Role="donhang" EntitySet="donhangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hinh_anh_mo_ta_hang" Association="Self.FK_hinh_anh_mo_ta_hang">
+      <End Role="hang" EntitySet="hangs" />
+      <End Role="hinh_anh_mo_ta" EntitySet="hinh_anh_mo_ta" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(quanlybanhangModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(quanlybanhangModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="p_donhang" ReturnType="Collection(String)" />
+    <FunctionImport Name="p_capnhatthanhtien_donhang">
+      <Parameter Name="ma_don_hang" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="p_hang" ReturnType="Collection(String)" />
+    <FunctionImport Name="p_theloai" ReturnType="Collection(String)" />
+    <FunctionImport Name="p_ct_the_loai" ReturnType="Collection(String)" />
+    <EntitySet Name="auths" EntityType="quanlybanhangModel.auth" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="auth">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>
