@@ -243,6 +243,7 @@ function AppBar() {
                 {
                     options ?<Autocomplete
                         // className="header-search-form"
+                        freeSolo
                         noOptionsText={"Chưa có kết quả hiển thị"}
                         id="grouped-demo"
                         options={options.sort((a, b) => -b.firstLetter.localeCompare(a.firstLetter))}
