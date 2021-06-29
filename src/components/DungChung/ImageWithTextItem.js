@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../assets/css/TrangChu/Slide2Item.css'
+import '../../assets/css/Client/TrangChu/Slide2Item.css'
 import {convertToVND} from "../../assets/js/tools";
 
 function ImageWithTextItem(props) {

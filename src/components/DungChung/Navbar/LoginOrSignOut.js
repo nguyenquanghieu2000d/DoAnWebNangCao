@@ -1,14 +1,11 @@
-import AppBar from "./AppBar";
 import React from 'react';
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
 import {useNavigate} from "react-router";
-import {useSelector} from "react-redux";
-import BannerItem from "../../TrangChu/Banner/BannerItem";
-import {Badge, IconButton, Menu, MenuItem} from "@material-ui/core";
-import AccountCircle from '@material-ui/icons/AccountCircle';
+import {useDispatch, useSelector} from "react-redux";
+import {Menu, MenuItem} from "@material-ui/core";
 import $ from "jquery"
 import {Link} from "react-router-dom";
+import * as actions from "../../../constants/ActionTypes";
+
 // import
 
 
@@ -18,13 +15,13 @@ function LoginOrSignOut() {
     const isMenuOpen = Boolean(anchorEl);
 
     const navigate = useNavigate()
+    const reRenderGioHang = useSelector(state => state.reRenderGiohang)
     const Userprofile = useSelector(state => state.userProfile)
-
-
+    const dispatch = useDispatch()
+    const localstorage = window.localStorage;
     const handleProfileMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
     };
-
 
 
     const handleMenuClose = () => {
@@ -40,11 +37,13 @@ function LoginOrSignOut() {
     const diDenDangKy = (event) => {
         event.preventDefault();
         navigate("/app/dangky")
+        DangXuatQuanLyToggle()
     }
 
     const diDenThongTinCaNhan = (event) => {
         event.preventDefault();
         navigate("/app/thongtincanhan")
+        DangXuatQuanLyToggle()
     }
 
     function DangXuatQuanLyToggle() {
@@ -57,10 +56,10 @@ function LoginOrSignOut() {
     const renderMenu = (
         <Menu
             anchorEl={anchorEl}
-            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+            anchorOrigin={{vertical: 'top', horizontal: 'right'}}
             id={menuId}
             keepMounted
-            transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+            transformOrigin={{vertical: 'top', horizontal: 'right'}}
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
@@ -71,39 +70,41 @@ function LoginOrSignOut() {
 
 
     return (
-        <div style={{display:"flex", justifyContent:"center", alignItem:"center"}}>
+        <div style={{display: "flex", justifyContent: "center", alignItem: "center"}}>
             {Userprofile ? <>
                 <div className="SignUpAndCreate_item1_item_container">
                     <p>Xin chào, </p>
-                    <p style={{cursor: 'pointer'}} className="SignUpAndCreate_item1_item" onClick={()=>DangXuatQuanLyToggle()}>
+                    <p style={{cursor: 'pointer'}} className="SignUpAndCreate_item1_item"
+                       onClick={(e) => diDenThongTinCaNhan(e)}>
                         {Userprofile.hoten}
                     </p>
-                    <div id="DangXuatQuanLy" style={{
-                        display: 'none',
-                        position: 'absolute',
-                        zIndex: 999,
-                        top: '3rem',
-                        background: 'lightgray',
-                        borderRadius: '0.3rem'
-                    }}>
-                        <input type="button"
-                               onClick={(e)=>diDenThongTinCaNhan(e)}
-                               style={{backgroundColor: '#ebebeb', margin: '0.2rem', width: '10rem', cursor: 'pointer'}}
-                               className="input_1" id="btnQuanLyTaiKhoan" defaultValue="Quản lý tài khoản"/>
-                        <input type="button"
-                               style={{backgroundColor: '#ebebeb', margin: '0.2rem', width: '10rem', cursor: 'pointer'}}
-                               className="input_1" id="btnDangXuat" defaultValue="Đăng xuất"/>
-                    </div>
+                    {/*<div id="DangXuatQuanLy" style={{*/}
+                    {/*    display: 'none',*/}
+                    {/*    position: 'absolute',*/}
+                    {/*    zIndex: 999,*/}
+                    {/*    top: '3rem',*/}
+                    {/*    background: 'lightgray',*/}
+                    {/*    borderRadius: '0.3rem'*/}
+                    {/*}}>*/}
+                    {/*    <input type="button"*/}
+                    {/*           onClick={(e) => diDenThongTinCaNhan(e)}*/}
+                    {/*           style={{backgroundColor: '#ebebeb', margin: '0.2rem', width: '10rem', cursor: 'pointer'}}*/}
+                    {/*           className="input_1" id="btnQuanLyTaiKhoan" defaultValue="Quản lý tài khoản"/>*/}
+                    {/*    <input type="button"*/}
+                    {/*           style={{backgroundColor: '#ebebeb', margin: '0.2rem', width: '10rem', cursor: 'pointer'}}*/}
+                    {/*           onClick={(e) => dangXuat(e)}*/}
+                    {/*           className="input_1" id="btnDangXuat" defaultValue="Đăng xuất"/>*/}
+                    {/*</div>*/}
                 </div>
 
-            </>:<>
-                <a href="dangnhap" className="SignUpAndCreate_item1_item">
-                    <i className="fal fa-user-alt" style={{fontSize: '30px', margin: '0 0.3rem'}} />Đăng nhập</a>
-                <div style={{width: '0.01rem', backgroundColor: 'gray', height: '2rem'}} />
+            </> : <>
+                <Link to={"/app/dangnhap"} className="SignUpAndCreate_item1_item">
+                    <i className="fal fa-user-alt" style={{fontSize: '30px', margin: '0 0.3rem'}}/>Đăng nhập</Link>
+                <div style={{width: '0.01rem', backgroundColor: 'gray', height: '2rem'}}/>
                 <a href="dangky" className="SignUpAndCreate_item1_item" id="btnDangKy" runat="server">
-                    <i className="fal fa-user-plus" style={{fontSize: '30px', margin: '0 0.3rem'}} />
+                    <i className="fal fa-user-plus" style={{fontSize: '30px', margin: '0 0.3rem'}}/>
                     Tạo tài khoản</a>
-                <div style={{width: '0.01rem', backgroundColor: 'gray', height: '2rem', marginRight: '0.7rem'}} />
+                <div style={{width: '0.01rem', backgroundColor: 'gray', height: '2rem', marginRight: '0.7rem'}}/>
             </>}
 
         </div>

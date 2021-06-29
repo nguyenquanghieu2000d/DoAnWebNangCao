@@ -7,7 +7,6 @@ import Footer from "./DungChung/Footer";
 import {Outlet} from "react-router-dom";
 
 function Main() {
-
     const convertRemToPixels = (rem) => {
         return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
     }

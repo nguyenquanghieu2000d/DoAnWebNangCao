@@ -6,9 +6,9 @@ const localstorage = window.localStorage;
 let initialState = ""
 
 try{
-    initialState = JSON.parse(localstorage.getItem(process.env.USERPROFILE));
+    initialState = JSON.parse(localstorage.getItem(process.env.REACT_APP_USER_PROFILE));
 } catch (e){
-    alert(e)
+    console.log(e)
 }
 
 

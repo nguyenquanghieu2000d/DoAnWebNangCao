@@ -61,6 +61,7 @@ source {
     background-size: 10rem;
     position: relative;
     /*z-index: -9;*/
+    background-color: white;
     overflow: hidden;
 }
 
@@ -604,7 +605,7 @@ header {
     /*opacity: 0.5;*/
     background: #ffffff;
     width: 100%;
-    height: 7.875rem;
+    /*height: 7.875rem;*/
     z-index: 2;
 }
 
@@ -625,6 +626,12 @@ header {
 }
 
 /*SHOPPING BAG*/
+
+.gioHangCuaban{
+    text-align: center;
+    font-size: 1rem;
+    padding: 2rem;
+}
 
 .top_header_area {
     height: 150px;
@@ -712,7 +719,7 @@ header {
     -webkit-transition-duration: 750ms;
     transition-duration: 750ms;
     border-radius: 0;
-    display: none;
+    /*display: none;*/
     position: absolute;
     right: -44px;
     top: 50px;
@@ -749,7 +756,8 @@ cart-list li:hover {
 }
 
 .cart-item-desc {
-    padding-left: 55px;
+    padding-left: 1rem;
+    font-size: 1.2rem;
 }
 
 .cart-item-desc > h6 {
@@ -1083,6 +1091,7 @@ nav {
     margin-left: 0.625rem;
     display: flex;
     flex-direction: column;
+
 }
 
 .submenu1item a {
@@ -1245,17 +1254,7 @@ nav {
     /*align-items: center;*/
 }
 
-.sanpham:hover {
-    color: white;
-}
 
-.sanpham:hover .sanpham_gia {
-    background: #282828;
-}
-
-.sanpham:hover .sanpham_img {
-    transform: scale(1.2);
-}
 
 .sanpham_button {
     background-size: 0.5rem 0.5rem;
@@ -1426,6 +1425,8 @@ nav {
 
 
 .button_a {
+    border-style: none;
+    border-width: 0;
     margin: auto 0.625rem;
     color: #111111;
     font-size: 0.8rem;
@@ -1436,6 +1437,7 @@ nav {
     justify-content: center;
     align-items: center;
     width: 100%;
+    cursor: pointer;
     /*padding: 0.625rem 0;*/
     border-radius: 30.625rem;
     text-decoration: none;
@@ -1561,10 +1563,31 @@ nav {
     width: 16.68rem;
     font-family: JosefinSans, serif;
     overflow: hidden;
-    box-shadow: 0.125rem 0.125rem 0.625rem gray;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    /*box-shadow: 0.125rem 0.125rem 0.625rem gray;*/
     border-radius: 1.25rem;
+    transition: 0.3s;
 }
 
+.sanpham:hover{
+    transition: 0.1s;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+}
+
+.sanpham:hover {
+    transition: 0.1s;
+    color: white;
+}
+
+.sanpham:hover .sanpham_gia {
+    transition: 0.1s;
+    background: #282828;
+}
+
+.sanpham:hover .sanpham_img {
+    transition: 0.1s;
+    transform: scale(1.2);
+}
 
 .imagecontainer {
     width: 100%;
@@ -1639,9 +1662,7 @@ nav {
 }
 
 .ThanhCongTruTru {
-    -webkit-box-shadow: -7px -4px 37px -10px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: -7px -4px 37px -10px rgba(0, 0, 0, 0.75);
-    box-shadow: -7px -4px 37px -10px rgba(0, 0, 0, 0.75);
+
     border-style: none;
     width: 2rem;
     font-family: JosefinSans, serif;
@@ -1655,7 +1676,7 @@ nav {
 .ThanhCongTru button {
     background: #FA8CB5;
     width: 33%;
-    border-style: solid;
+    /*border-style: solid;*/
     /*border-color: #282828;*/
     /*border-width: 0.1rem;*/
     /*background: none;*/
@@ -1734,7 +1755,7 @@ hr {
 
 .buttonMuaNgay {
     position: relative;
-    width: 12.5rem;
+    /*width: 12.5rem;*/
     margin: auto;
     border-radius: 3.125rem;
     height: 3.125rem;
@@ -1760,7 +1781,7 @@ hr {
 
 .buttonMuaNgay2 {
     position: relative;
-    width: 12.5rem;
+    /*width: 12.5rem;*/
     margin: auto;
     border-radius: 3.125rem;
     height: 3.125rem;
@@ -1786,6 +1807,7 @@ hr {
 table {
     /*padding: 1.125rem;*/
     border-collapse: collapse;
+    width: 100%;
     /*border-radius: 1rem;*/
     /*border-width: 0.1rem;*/
     /*border-color: #282828;*/
@@ -1800,7 +1822,7 @@ table {
 table td {
     text-align: center;
     /*display: flex;*/
-    padding: 0.5rem;
+    /*padding: 0.5rem;*/
     /*border-width: 0.1rem;*/
     /*border-color: #282828;*/
     /*border-style: solid;*/
@@ -1812,7 +1834,8 @@ table thead tr {
 }
 
 table th {
-    padding: 0.5rem;
+    text-align: center;
+    /*padding: 0.5rem;*/
     height: 3.125rem;
     border-width: 0.1rem;
     border-color: white;
@@ -1820,7 +1843,7 @@ table th {
     /*display: flex;*/
     /*align-items: center;*/
     /*justify-content: center;*/
-    text-align: center;
+
 }
 
 table thead {
@@ -1842,11 +1865,13 @@ table thead {
 }
 
 .product-th {
-    width: 18.75rem;
+    text-align: center;
+    width: 4.75rem;
 }
 
 .size-th {
-    width: 11.25rem;
+    text-align: center;
+    /*width: 11.25rem;*/
 }
 
 .product-col {
@@ -2026,4 +2051,13 @@ table thead {
     .footersecondcontainer {
         width: 90%;
     }
+}
+
+.btn1{
+    border-style: none;
+    border-radius: 1rem;
+    background-color: #282828;
+    padding: 1rem;
+    color: white;
+    text-align: center;
 }

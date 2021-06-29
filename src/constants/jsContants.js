@@ -1,15 +1,14 @@
 import axios from "axios";
 import React from "react";
-import {CircularProgress} from "@material-ui/core";
-import WallpaperIcon from '@material-ui/icons/Wallpaper';
+import {HangAPI} from "../api/hangAPI";
+import * as actions from "./ActionTypes";
 
 
-
-export async function fetchPostList(url, setFunction, setLoading){
-     await axios.get( url)
+export async function fetchPostList(url, setFunction, setLoading) {
+    await axios.get(url)
         .then(result => {
             setFunction(result.data);
-            if (setLoading !== 0)setLoading(true)
+            if (setLoading !== 0) setLoading(true)
             // setLoading(false);
         })
         .catch(error => {
@@ -17,55 +16,28 @@ export async function fetchPostList(url, setFunction, setLoading){
         });
 }
 
+export const getListHangFilter = async (filterTrangPhuc, dispatch) => {
+
+    let data = JSON.parse(JSON.stringify(filterTrangPhuc));
+    // alert(JSON.stringify(data))
+    if (filterTrangPhuc.ma_the_loai && filterTrangPhuc.ma_loai) {
+        const ma_the_loai = data.ma_the_loai
+        const ma_loai = data.ma_loai
+        const numget = data.numget
+        const order = data.order
+        delete data["numget"]
+        delete data['ma_the_loai']
+        delete data['ma_loai']
+        delete data["order"]
+        // alert("snjdfs")
+        // alert(data["order"])
+        const response = await HangAPI.gethangByFilter(data, ma_the_loai, ma_loai, numget, order)
+        dispatch({type: actions.FILTER_LIST_PRODUCT, data: response})
+    }
+}
+
+
 export const url = "http://localhost:8000"
 export const reacturl = "http://localhost:3000"
-export const loading = () => <div style={{height:'100%', width:'100%', display:'flex', alignItems:'center', justifyContent:'center'}}><CircularProgress /></div>
-export const waitingImage = (props) =>
-    <div style={{height:'100%', width:'100%', display:'flex', alignItems:'center', justifyContent:'center', backgroundColor:'darkgray'}}>
-        <div>
-            {props.icon}
-        </div>
-        <div>
 
-        </div>
-    </div>
 
-// Fake data
-
-const error_json = [{
-
-    "thiet_bi_loi": "Cột",
-    "ma_tuyen": "171e39-171e10.2",
-    "toa_do_vi_tri":"35.32424, 102.4235",
-    "mo_ta": "Vết nứt rạn, gỉ sét, sụt lún"
-},
-    {
-        "thiet_bi_loi": "Sứ",
-        "ma_tuyen": "171e39-171e10.2",
-        "toa_do_vi_tri":"35.32424, 102.4235",
-        "mo_ta": "Vết nứt rạn, gỉ sét, sụt lún"
-    },
-    {
-        "thiet_bi_loi": "Cột",
-        "ma_tuyen": "171e39-171e10.2",
-        "toa_do_vi_tri":"35.32424, 102.4235",
-        "mo_ta": "Vết nứt rạn, gỉ sét, sụt lún"
-    },
-    {
-        "thiet_bi_loi": "Cột",
-        "ma_tuyen": "172e10.2-171e24.4",
-        "toa_do_vi_tri":"35.32424, 102.4235",
-        "mo_ta": "Vết nứt rạn, gỉ sét, sụt lún"
-    },
-    {
-        "thiet_bi_loi": "Cột",
-        "ma_tuyen": "172e10.2-171e24.4",
-        "toa_do_vi_tri":"35.32424, 102.4235",
-        "mo_ta": "Vết nứt rạn, gỉ sét, sụt lún"
-    },
-    {
-        "thiet_bi_loi": "Cột",
-        "ma_tuyen": "172e10.2-171e24.4",
-        "toa_do_vi_tri":"35.32424, 102.4235",
-        "mo_ta": "Vết nứt rạn, gỉ sét, sụt lún"
-    }]

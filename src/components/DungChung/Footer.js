@@ -9,14 +9,21 @@ function Footer() {
             <h1>HHNStore</h1>
             <div className="footerfirst">
                 <h4 style={{textAlign: 'center', color: 'white'}}><b>NGƯỜI THỰC HIỆN</b></h4>
-                <div id="footer1" style={{display: 'flex', justifyContent: 'space-around'}}>
-                    <div>
+                <div id="footer1" style={{display: 'flex', justifyContent: 'center'}}>
+                    <div style={{padding:'1rem'}}>
                         <p>Nguyễn Quang Hiếu</p>
                         <p>D13CNPM7</p>
-                        <div id="QuanHieuImageContainer"><img id="helloooo" src="Image/2019-12-03-12-40-50-538.jpg"
+                        <div id="QuanHieuImageContainer"><img id="helloooo" src="Image/Hieu.jpg"
+                                                              alt=""/></div>
+                    </div>
+                    <div style={{padding:'1rem'}}>
+                        <p>Ngô Thị Huệ</p>
+                        <p>D13CNPM5</p>
+                        <div id="QuanHieuImageContainer"><img id="helloooo" src="Image/Hue.jpg"
                                                               alt=""/></div>
                     </div>
                 </div>
+
                 <div id="footer_container">
                     <div className="footer2">
                         <h4><b>CÂU HỎI</b></h4>

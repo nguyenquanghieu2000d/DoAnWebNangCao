@@ -8,9 +8,13 @@ export const TaikhoanApi = {
         )
     },
     getUserbyID: (data) => {
-        const url = "/getUserbyID";
-        return axiosClient.post(url,
-            data
-        )
+        const url = "/getUserbyID?username=" + data;
+        // alert(url)
+        return axiosClient.get(url)
     },
+    putUserById: (username, data) => {
+        const url = "/PutTaiKhoan"
+        return axiosClient.put(url, data)
+    }
+
 }

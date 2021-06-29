@@ -55,7 +55,7 @@ source{
 }
 /* SLIDE TO DUNG O TRANGCHU */
 .slideAnh1{
-    background-image: url("../../Image/cream-pixels.png");
+
     background-size: 10rem;
     position: relative;
     z-index: -9;
