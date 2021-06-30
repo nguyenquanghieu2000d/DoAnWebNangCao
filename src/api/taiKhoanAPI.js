@@ -21,7 +21,7 @@ export const TaiKhoanAPI = {
         return axiosClient.post(url, data)
     },
     puttaikhoan: (data) => {
-        const url = "/PutTaiKhoan";
+        const url = "/PutTaiKhoan?mode=1";
         return axiosClient.put(url, data)
     },
     xoataikhoan(username) {

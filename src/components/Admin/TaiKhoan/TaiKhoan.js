@@ -409,7 +409,7 @@ function TaiKhoan() {
                                 className="thongkeb1button" type="button">Xác nhận
                         </button>
                         <button style={{display: AddOrUpdate === 0 ? "block" : "none"}} onClick={btnXacNhanSua}
-                                className="thongkeb1button" type="button">Xác nhận suawr
+                                className="thongkeb1button" type="button">Xác nhận sửa
                         </button>
 
                     </div>
