@@ -330,7 +330,7 @@ function Banner() {
             <div style={{display: 'flex'}}>
                 <div style={{width: '100%'}} className="quanlyhangcontainer">
                     <div style={{display: 'flex'}}>
-                        <button style={{width: '1%', padding: '1rem 1rem'}} id="btnThemKhachHang"
+                        <button  id="btnThemKhachHang"
                                 className="thongkeb1button"
                                 onClick={btnThemKhachHang}>
                             <i className="far fa-plus"/>
@@ -348,12 +348,12 @@ function Banner() {
                            <option value={"1"} >Slide</option>
                            <option value={"0"} >Banner</option>
                        </select>
-                        <button style={{width: '1.5%', padding: '1rem 1rem'}} id="clear"
+                        <button  id="clear"
                                 onClick={clear}
                                 className="thongkeb1button">
                             <i className="far fa-backspace" style={{fontSize: '1rem'}}/>
                         </button>
-                        <button style={{width: '1.5%', padding: '1rem 1rem'}} id="search" className="thongkeb1button"
+                        <button  id="search" className="thongkeb1button"
                            onClick={search}>
                             <i className="far fa-search" style={{fontSize: '1rem'}}/>
                         </button>
@@ -412,9 +412,15 @@ function Banner() {
                                 <h5>Link:
                                     <input  name={"aLink"} value={aLink} onChange={onChangeaLink} type="text" placeholder="Nhập link"/>
                                 </h5>
-                                <h5>Loại:
-                                    <input  name={"aLink"} value={aisSlide} onChange={onChangeaisSlide} type="text" placeholder="Nhập link"/>
+                                <h5>
+                                    Loại:
+                                    <select value={aisSlide} onChange={onChangeaisSlide}>
+                                        <option value={"1"} >Slide</option>
+                                        <option value={"0"} >Banner</option>
+                                    </select>
                                 </h5>
+
+
 
                                 <div>Hình ảnh:
                                     <Button

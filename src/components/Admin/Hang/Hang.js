@@ -5,7 +5,8 @@ import {convertToVND} from "../../../assets/js/tools";
 import Loading from "../DungChung/Loading";
 import {TheLoaiAPI} from "../../../api/theloaiAPI";
 import ComboBoxTheLoai from "./ComboBoxTheLoai";
-
+import {Fab} from "@material-ui/core";
+import AddIcon from '@material-ui/icons/Add';
 function Hang() {
 
     // Filter
@@ -129,6 +130,9 @@ function Hang() {
         const data = getData2()
         const response = await HangAPI.posthang(data)
         if(response) alert("Thêm hàng thành công")
+        $("#CrudThemSua").css("display", "none");
+        await phanTrang();
+        await preLoad();
     }
 
 
@@ -313,26 +317,29 @@ function Hang() {
             <h1 style={{textAlign: 'center'}}>QUẢN LÝ HÀNG</h1>
             <div style={{}} className="quanlyhangcontainer">
                 <div style={{display: 'flex'}}>
-                    <button style={{width: '1%', padding: '1rem 1rem'}} id="btnThemKhachHang"
+                    {/*<Fab color="primary" aria-label="add" size="medium">*/}
+                    {/*    <AddIcon/>*/}
+                    {/*</Fab>*/}
+                    <button  id="btnThemKhachHang"
                             className="thongkeb1button"
                             onClick={btnThemKhachHang}>
                         <i className="far fa-plus"/>
                     </button>
-                    <input id="tbTimKiemMaHang" name={"fMaHang"} style={{width: '5%'}} className="thongkeb1button" type="text"
+                    <input id="tbTimKiemMaHang" name={"fMaHang"} value={fMaHang} style={{width: '5%'}} className="thongkeb1button" type="text"
                            placeholder="Mã hàng" onChange={onChangefMaHang} />
-                    <input id="tbTimKiemTenHang" name={"fTenHang"} style={{width: '10%'}} className="thongkeb1button" type="text"
+                    <input id="tbTimKiemTenHang" value={fTenHang} name={"fTenHang"} style={{width: '10%'}} className="thongkeb1button" type="text"
                            placeholder="Tên hàng" onChange={onChangefTenHang} />
                     <p>Giá trong khoảng: </p>
                     <input id="tbNhoNhat" name={"fNhoNhat"} style={{width: '10%'}} className="thongkeb1button" type="text"
-                           placeholder="Nhỏ nhất" onChange={onChangefNhoNhat} />
+                           placeholder="Nhỏ nhất" value={fNhoNhat} onChange={onChangefNhoNhat} />
                     <input id="tbLonNhat" name={"fLonNhat"} style={{width: '10%'}} className="thongkeb1button" type="text"
-                           placeholder="Lớn nhất" onChange={onChangefLonNhat} />
-                    <input id="tbThuongHieu" name={"fThuongHieu"} style={{width: '10%'}} className="thongkeb1button" type="text"
+                           placeholder="Lớn nhất" value={fLonNhat} onChange={onChangefLonNhat} />
+                    <input id="tbThuongHieu" value={fThuongHieu} name={"fThuongHieu"} style={{width: '10%'}} className="thongkeb1button" type="text"
                            placeholder="Thương hiệu" onChange={onChangefThuongHieu} />
-                    <button style={{width: '1.5%', padding: '1rem 1rem'}} id="clear" className="thongkeb1button" onClick={clear}>
+                    <button id="clear" className="thongkeb1button" onClick={clear}>
                         <i className="far fa-backspace" style={{fontSize: '1rem'}}/>
                     </button>
-                    <button style={{width: '1.5%', padding: '1rem 1rem'}} onClick={search} id="search" className="thongkeb1button" >
+                    <button onClick={search} id="search" className="thongkeb1button" >
                         <i className="far fa-search" style={{fontSize: '1rem'}}/>
                     </button>
                 </div>
@@ -408,7 +415,7 @@ function Hang() {
                     </div>
                     <div id="btnContainer" className="thongkec1 thongkeb1">
                         <button style={{display:AddOrUpdate === 1 ? "block":"none"}} onClick={btnXacNhanThem} className="thongkeb1button" type="button">Xác nhận</button>
-                        <button style={{display:AddOrUpdate === 0 ? "block":"none"}} onClick={btnXacNhanSua} className="thongkeb1button" type="button">Xác nhận suawr</button>
+                        <button style={{display:AddOrUpdate === 0 ? "block":"none"}} onClick={btnXacNhanSua} className="thongkeb1button" type="button">Xác nhận sửa</button>
                     </div>
                     {/*                <input type="button" onclick="okok()" value="okok">*/}
                 </div>

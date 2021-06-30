@@ -25,7 +25,7 @@ export const HangAPI = {
     },
     xoaHang: (data) => {
         const url = "/DeleteHang"
-        alert(JSON.stringify(data))
+        // alert(JSON.stringify(data))
         return axiosClient.post(url, data)
     }
 }

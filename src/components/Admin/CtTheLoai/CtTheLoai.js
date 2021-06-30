@@ -3,6 +3,7 @@ import $ from "jquery";
 import {TheLoaiAPI} from "../../../api/theloaiAPI";
 import Loading from "../DungChung/Loading";
 import {CtTheLoaiAPI} from "../../../api/ctTheLoaiAPI";
+import {Paper} from "@material-ui/core";
 
 function CtTheLoai() {
     const [fMaHang, setfMaHang] = useState("")
@@ -198,7 +199,7 @@ function CtTheLoai() {
             const num = parseInt(numpage / numrow) + 1
             for (let i = 1; i <= num; i++) {
                 list.push(<button id="btnPhanTrang`+ i + `"
-                                  style={{width: "25%", backgroundColor: currentPage === i ? 'pink' : "gray"}}
+                                  style={{width: "25%", backgroundColor: currentPage === i ? 'pink' : "#f2f2f2"}}
                                   className="thongkeb1button"
                                   onClick={(e) => getHangPhanTrang(e, i)}>{i}</button>)
             }
@@ -252,48 +253,80 @@ function CtTheLoai() {
 
 
     return (
-        <section>
+        <section style={{height: '100%', width: '100%'}}>
             <h1 style={{textAlign: 'center'}}>QUẢN LÝ CHI TIẾT THỂ LOẠI</h1>
-            <div style={{display: 'flex'}}>
-                <div style={{width: '100%'}} className="quanlyhangcontainer">
-                    <div style={{display: 'flex'}}>
-                        <button style={{width: '1%', padding: '1rem 1rem'}} id="btnThemKhachHang"
+            <div  style={{display: 'flex', width: '100%'}}>
+                <Paper id={"filter"} className={"myshadow"} elevation={3} variant="outlined"
+                       style={{display: 'flex', flexDirection: 'column', margin: '1rem', width: '30%'}}>
+                    <h1 style={{textAlign: 'center'}}>Filter</h1>
+                    <div style={{display: 'flex', width: '100%', justifyContent:'center'}}>
+                        <button id="btnThemKhachHang"
                                 className="thongkeb1button"
                                 onClick={btnThemKhachHang}>
                             <i className="far fa-plus"/>
                         </button>
-                        <input id="tbTimKiemMaLoai"
-                               name={"fMaHang"}
-                               value={fMaHang}
-                               onChange={onChangefMaHang}
-                               className="thongkeb1button" type="text" placeholder="Mã loại"/>
-                        <input id="tbTimKiemTenLoai"
-                               name={"fTenHang"}
-                               value={fTenHang}
-                               onChange={onChangefTenHang}
-                               className="thongkeb1button" type="text" placeholder="Tên loại"/>
-                        <input id="tbTimKiemMaTheLoai"
-                               name={"fTheLoai"}
-                               value={fTheLoai}
-                               onChange={onChangefTheLoai}
-                               className="thongkeb1button" type="text"
-                               placeholder="Tên mã thể loại"/>
-                        <button style={{width: '1.5%', padding: '1rem 1rem'}} onClick={clear} id="clear"
+                        <button onClick={clear} id="clear"
                                 className="thongkeb1button">
                             <i className="far fa-backspace" style={{fontSize: '1rem'}}/>
                         </button>
-                        <button style={{width: '1.5%', padding: '1rem 1rem'}} onClick={search} id="search"
+                        <button onClick={search} id="search"
                                 className="thongkeb1button">
                             <i className="far fa-search" style={{fontSize: '1rem'}}/>
                         </button>
                     </div>
+                    <table style={{backgroundColor: 'white'}}>
+                        <tr>
+                            <td>Mã loại:</td>
+                            <td>
+                                <input id="tbTimKiemMaLoai"
+                                       name={"fMaHang"}
+                                       value={fMaHang}
+                                       style={{}}
+                                       onChange={onChangefMaHang}
+                                       className="thongkeb1button" type="text" placeholder="Mã loại"/>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>Tên loại:</td>
+                            <td>
+                                <input id="tbTimKiemTenLoai"
+                                       name={"fTenHang"}
+                                       value={fTenHang}
+                                       style={{}}
+                                       onChange={onChangefTenHang}
+                                       className="thongkeb1button" type="text" placeholder="Tên loại"/>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>Mã thể loại</td>
+                            <td>
+                                <input id="tbTimKiemMaTheLoai"
+                                       name={"fTheLoai"}
+                                       value={fTheLoai}
+                                       style={{}}
+                                       onChange={onChangefTheLoai}
+                                       className="thongkeb1button" type="text"
+                                       placeholder="Mã thể loại"/>
+                            </td>
+
+                        </tr>
+                    </table>
+                </Paper>
+
+
+                <Paper className={"myshadow"} elevation={3} variant={"outlined"}
+                       style={{width: '60%', margin: '1rem', padding: '1rem'}}>
+
                     <div className="tablecontainer" style={{display: 'flex'}}>
-                        <table>
+                        <table style={{width: '100%'}}>
                             <thead>
                             <tr>
-                                <th className="quy-th">Mã thể loại</th>
+                                <th className="quy-th">Mã loại</th>
                                 <th className="size-th">Tên loại</th>
                                 <th className="size-th">Mã thể loại</th>
+                                <th className="size-th" colSpan={2}>Thao tác</th>
                             </tr>
                             </thead>
                             <tbody style={{}} id="tableTaiKhoan">
@@ -302,7 +335,8 @@ function CtTheLoai() {
                         </table>
                     </div>
                     <div style={{display: 'flex', justifyContent: 'center'}}>
-                        <input id="btnPhanTrangPrev" onClick={btnPhanTrangPrev} style={{width: '10%'}}
+                        <input id="btnPhanTrangPrev" onClick={btnPhanTrangPrev}
+                               // style={{width: '10%'}}
                                className="thongkeb1button" type="button"
                                defaultValue="PREV"/>
                         <div id="listbtnPhanTrang" style={{display: 'flex'}}>
@@ -310,15 +344,18 @@ function CtTheLoai() {
                                 phanTrang()
                             }
                         </div>
-                        <input id="btnPhanTrangNext" onClick={btnPhanTrangNext} style={{width: '10%'}}
+                        <input id="btnPhanTrangNext" onClick={btnPhanTrangNext}
+                               // style={{width: '10%'}}
                                className="thongkeb1button" type="button"
                                defaultValue="NEXT"/>
                     </div>
                     <div id="CrudThemSua" style={{
                         display: 'none',
                         position: 'absolute',
-                        margin: '0 28%',
-                        top: '1%',
+                        // margin: '0 28%',
+                        top: '15%',
+                        left: "50%",
+                        transform: 'translate(-50%, 0)',
                         WebkitBoxShadow: '-5px 4px 49px -7px rgba(0,0,0,0.75)',
                         MozBoxShadow: '-5px 4px 49px -7px rgba(0,0,0,0.75)',
                         boxShadow: '-5px 4px 49px -7px rgba(0,0,0,0.75)',
@@ -329,45 +366,59 @@ function CtTheLoai() {
                             fontSize: '1.5rem',
                             cursor: 'pointer'
                         }}/></div>
-                        <h3 id="lbTitle">Thêm khách hàng</h3>
-                        <div style={{display: 'flex'}}>
-                            <div style={{width: '60%'}}>
-                                <div id="lbMaLoai" style={{fontWeight: 'bold'}}/>
-                                {/*                <div style="height:0.5rem; color:red" id="lbThongBao">22</div>*/}
-                                <h5>Tên thể loại: <input id="tbTenTheLoai" name={"aTenHang"} value={aTenHang}
-                                                         onChange={onChangeaTenHang} type="text"
-                                                         placeholder="Nhập Tên thể loại"/>
-                                </h5>
-                                <div>
-                                    Chọn thể loại:
-                                    <select id="selectTheLoai" value={aTheLoai} onChange={onChangeaTheLoai} style={{
-                                        borderRadius: '1rem',
-                                        width: '100%',
-                                        height: '3rem',
-                                        fontFamily: 'JosefinSans,serif'
-                                    }}>
-                                        <option value={""}>Chưa chọn</option>
-                                        {
-                                            ListTheLoai ? ListTheLoai.map((value, index) => {
-                                                return <option value={value.ma_the_loai}>{value.ten_loai}</option>
-                                            }) : <Loading/>
-                                        }
-                                    </select>
-                                </div>
-                                <div style={{height: '2rem', color: 'red'}} id="lbThongBao"/>
-                            </div>
+                        <h2 id="lbTitle">Thêm khách hàng</h2>
+                        <div style={{width: '60%'}}>
+                            <div id="lbMaLoai" style={{fontWeight: 'bold'}}/>
+                            {/*                <div style="height:0.5rem; color:red" id="lbThongBao">22</div>*/}
+                            <table>
+                                <tr>
+                                    <td>
+                                        <h4>Tên thể loại:</h4>
+                                    </td>
+                                    <td>
+                                        <input id="tbTenTheLoai" name={"aTenHang"} className="thongkeb1button"
+                                               value={aTenHang} style={{padding: '0.5rem'}}
+                                               onChange={onChangeaTenHang} type="text"
+                                               placeholder="Nhập Tên thể loại"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Chọn thể loại:</h4>
+                                    </td>
+                                    <td>
+                                        <select id="selectTheLoai" value={aTheLoai} onChange={onChangeaTheLoai}
+                                                style={{
+                                                    borderRadius: '1rem',
+                                                    width: '100%',
+                                                    height: '3rem',
+                                                    fontFamily: 'JosefinSans,serif'
+                                                }}>
+                                            <option value={""}>Chưa chọn</option>
+                                            {
+                                                ListTheLoai ? ListTheLoai.map((value, index) => {
+                                                    return <option
+                                                        value={value.ma_the_loai}>{value.ten_loai}</option>
+                                                }) : <Loading/>
+                                            }
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div style={{height: '2rem', color: 'red'}} id="lbThongBao"/>
                         </div>
+
                         <div id="btnContainer" className="thongkec1 thongkeb1">
                             <button style={{display: AddOrUpdate === 1 ? "block" : "none"}} onClick={btnXacNhanThem}
                                     className="thongkeb1button" type="button">Xác nhận
                             </button>
                             <button style={{display: AddOrUpdate === 0 ? "block" : "none"}} onClick={btnXacNhanSua}
-                                    className="thongkeb1button" type="button">Xác nhận suawr
+                                    className="thongkeb1button" type="button">Xác nhận sửa
                             </button>
                         </div>
                         {/*                <input type="button" onclick="okok()" value="okok">*/}
                     </div>
-                </div>
+                </Paper>
             </div>
         </section>
     );

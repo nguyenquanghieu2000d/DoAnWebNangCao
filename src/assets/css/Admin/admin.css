@@ -1,40 +1,40 @@
 header {
     height: 4.75rem;
     box-shadow: 0.01rem 0.01rem 0.5rem gray;
-    position: fixed;
-    z-index: 1;
+    /*position: fixed;*/
+    z-index: 3;
 }
 
 .section11 {
     height: auto;
     width: 80%;
-    position: relative;
-    left: 20%;
-    top: 4.75rem;
+    /*position: relative;*/
+    /*left: 20%;*/
+    /*top: 4.75rem;*/
 }
 
-    .section11 img {
-        width: 1rem;
-    }
+.section11 img {
+    width: 1rem;
+}
 
 nav {
     z-index: 0;
-    top: 4.75rem;
+    /*top: 4.75rem;*/
     height: 100vh;
     background: white;
     display: flex;
-    position: fixed;
+    /*position: fixed;*/
     flex-direction: column;
-    width: 20%;
-    box-shadow: 0.01rem 0.01rem 0.5rem gray;
+    /*width: 20%;*/
+    /*box-shadow: 0 0.01rem 0.5rem gray;*/
 }
 
-    nav a {
-        position: relative;
-        top: 1rem;
-        margin: 1rem;
-        padding: 0;
-    }
+nav a {
+    position: relative;
+    top: 1rem;
+    margin: 1rem;
+    padding: 0;
+}
 
 .section1item2 {
     /*background: #282828;*/
@@ -72,14 +72,17 @@ nav {
     display: flex;
     flex-direction: row;
     width: 100%;
+    display: flex;
+    justify-content: center;
+
     /*line-height: 2rem;*/
     /*width: 20%;*/
 }
 
 input {
     /*text-align: center;*/
-    font-family: JosefinSans,serif;
-    width: 100%;
+    font-family: JosefinSans, serif;
+    /*width: 100%;*/
     border-radius: 0.5rem;
     border: none;
     background: #f0f0f0;
@@ -89,20 +92,22 @@ input {
 }
 
 .thongkeb1button {
-    font-family: JosefinSans,serif;
-    width: 100%;
+    font-family: JosefinSans, serif;
+    /*width: 100%;*/
     border-radius: 0.5rem;
     border: none;
-    background: darkgray;
+    background: #f2f2f2;
     padding: 1rem;
     margin: 0.2rem;
     cursor: pointer;
 }
 
-    .thongkeb1button:hover {
-        background: #FA8CB5;
-        color: white;
-    }
+.thongkeb1button:hover {
+    /*background: #FA8CB5;*/
+    /*color: white;*/
+    background-color: #e5e5e5;
+
+}
 
 .thongkeb2 img {
     width: 100%;
@@ -112,6 +117,37 @@ input {
 table td {
     padding: 0.2rem;
 }
+
+#filter table td{
+    text-align: left;
+}
+
+#filter table {
+    width: 90%;
+}
+
+
+
+
+
+#CrudThemSua table{
+    background-color: white;
+    width: 100%;
+    padding: 1rem;
+}
+
+#CrudThemSua{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+#CrudThemSua td{
+    text-align: left;
+}
+
 
 .ThanhCongTruSo img {
     width: 100%;
@@ -130,11 +166,28 @@ table td {
     display: block;
 }
 
+.myshadow{
+    box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+}
+
 .tablecontainer {
     width: 100%;
     position: relative;
     /*height: 70vh;*/
     /*overflow: scroll;*/
+}
+
+.tablecontainer table{
+    background-color: white;
+    border-width: 0.01rem;
+    border-color: #e2e3e5;
+    border-style: solid;
+}
+
+.tablecontainer th{
+    padding: 0;
+    border-width:0;
+
 }
 
 table {
@@ -152,7 +205,6 @@ table thead {
 }
 
 
-
 .themsuaxoa {
     width: 30%;
     background: white;
@@ -161,10 +213,10 @@ table thead {
     border-radius: 1rem;
 }
 
-    .themsuaxoa input {
-        height: 2rem;
-        padding: 0;
-    }
+.themsuaxoa input {
+    height: 2rem;
+    padding: 0;
+}
 
 .imageItem {
     width: 2rem;

@@ -5,6 +5,7 @@ import TheLoai from "./components/Admin/TheLoai/TheLoai";
 import CtTheLoai from "./components/Admin/CtTheLoai/CtTheLoai";
 import TaiKhoan from "./components/Admin/TaiKhoan/TaiKhoan";
 import Banner from "./components/Admin/Banner/Banner";
+import DonHang from "./components/Admin/DonHang/DonHang";
 
 const routes = [
     {
@@ -16,7 +17,8 @@ const routes = [
             {path: 'cttheloai', element: <CtTheLoai/>},
             {path: 'test', element: <Test/>},
             {path: 'taikhoan', element: <TaiKhoan/>},
-            {path: 'banner', element: <Banner/>}
+            {path: 'banner', element: <Banner/>},
+            {path: 'donhang', element: <DonHang/>}
         ]
     },
 ];
