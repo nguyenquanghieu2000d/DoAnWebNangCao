@@ -117,7 +117,7 @@ namespace WebAPIEntity.Controllers
 
             if (id != taikhoan.username)
             {
-                return id + "     (id != taikhoan.username)";
+                return id + " (id != taikhoan.username)";
             }
 
             db.Entry(taikhoan).State = EntityState.Modified;
@@ -164,21 +164,27 @@ namespace WebAPIEntity.Controllers
 
         [Route("PutTaiKhoan")]
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutTaiKhoan(taikhoan taiKhoan)
+        public IHttpActionResult PutTaiKhoan(taikhoan taiKhoan, string mode)
         {
             taikhoan a = db.taikhoans.Find(taiKhoan.username);
-            //return Ok(a.password);
-            if (taiKhoan.password == null || taiKhoan.password == "")
+            if (mode == "0")
             {
-                taiKhoan.password = a.password;
-                db.taikhoans.AddOrUpdate(taiKhoan);
+                //return Ok(a.password);
+                if (taiKhoan.password == null || taiKhoan.password == "")
+                {
+                    taiKhoan.password = a.password;
+                    db.taikhoans.AddOrUpdate(taiKhoan);
+                }
+                else
+                {
+                    a.password = taiKhoan.password;
+                    db.taikhoans.AddOrUpdate(a);
+                }
             }
             else
             {
-                a.password = taiKhoan.password;
-                db.taikhoans.AddOrUpdate(a);
+                db.taikhoans.AddOrUpdate(taiKhoan);
             }
-           
             db.SaveChanges();
             return StatusCode(HttpStatusCode.NoContent);
         }

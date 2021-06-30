@@ -19,6 +19,17 @@
           </Key>
           <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="banner">
+          <Key>
+            <PropertyRef Name="ma_banner" />
+          </Key>
+          <Property Name="ma_banner" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ten_banner" Type="nvarchar" MaxLength="50" />
+          <Property Name="mo_ta" Type="nvarchar" MaxLength="1000" />
+          <Property Name="link" Type="nvarchar" MaxLength="1000" />
+          <Property Name="image" Type="text" />
+          <Property Name="isSlide" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="ct_the_loai">
           <Key>
             <PropertyRef Name="ma_loai" />
@@ -36,6 +47,13 @@
           <Property Name="ma_hang" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="so_luong" Type="int" />
           <Property Name="thanh_tien" Type="int" />
+        </EntityType>
+        <EntityType Name="DemoBase64">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="base64" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="donhang">
           <Key>
@@ -175,6 +193,7 @@
           </ReferentialConstraint>
         </Association>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="p_banner" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="p_capnhatthanhtien_donhang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ma_don_hang" Type="nvarchar" Mode="In" />
         </Function>
@@ -182,6 +201,7 @@
         <Function Name="p_donhang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="p_hang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="p_theloai" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="s_banner" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar" />
         <Function Name="s_donhang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar" />
         <Function Name="s_hang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar" />
         <Function Name="s_hinh_anh_mo_ta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar" />
@@ -219,8 +239,10 @@
         <EntityContainer Name="quanlybanhangModelStoreContainer">
           <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="auth" EntityType="Self.auth" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="banner" EntityType="Self.banner" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ct_the_loai" EntityType="Self.ct_the_loai" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ctdonhang" EntityType="Self.ctdonhang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DemoBase64" EntityType="Self.DemoBase64" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="donhang" EntityType="Self.donhang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="hang" EntityType="Self.hang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="hinh_anh_mo_ta" EntityType="Self.hinh_anh_mo_ta" Schema="dbo" store:Type="Tables" />
@@ -503,6 +525,9 @@
           <FunctionImport Name="p_theloai" ReturnType="Collection(String)" />
           <FunctionImport Name="p_ct_the_loai" ReturnType="Collection(String)" />
           <EntitySet Name="auths" EntityType="quanlybanhangModel.auth" />
+          <EntitySet Name="banners" EntityType="quanlybanhangModel.banner" />
+          <EntitySet Name="DemoBase64" EntityType="quanlybanhangModel.DemoBase64" />
+          <FunctionImport Name="p_banner" ReturnType="Collection(String)" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -520,6 +545,24 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="banner">
+          <Key>
+            <PropertyRef Name="ma_banner" />
+          </Key>
+          <Property Name="ma_banner" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ten_banner" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mo_ta" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="link" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isSlide" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DemoBase64">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="base64" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -661,6 +704,27 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="banners">
+            <EntityTypeMapping TypeName="quanlybanhangModel.banner">
+              <MappingFragment StoreEntitySet="banner">
+                <ScalarProperty Name="isSlide" ColumnName="isSlide" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="mo_ta" ColumnName="mo_ta" />
+                <ScalarProperty Name="ten_banner" ColumnName="ten_banner" />
+                <ScalarProperty Name="ma_banner" ColumnName="ma_banner" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DemoBase64">
+            <EntityTypeMapping TypeName="quanlybanhangModel.DemoBase64">
+              <MappingFragment StoreEntitySet="DemoBase64">
+                <ScalarProperty Name="base64" ColumnName="base64" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="p_banner" FunctionName="quanlybanhangModel.Store.p_banner" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

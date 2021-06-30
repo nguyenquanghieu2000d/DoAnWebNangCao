@@ -14,6 +14,17 @@
     </Key>
     <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="banner">
+    <Key>
+      <PropertyRef Name="ma_banner" />
+    </Key>
+    <Property Name="ma_banner" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ten_banner" Type="nvarchar" MaxLength="50" />
+    <Property Name="mo_ta" Type="nvarchar" MaxLength="1000" />
+    <Property Name="link" Type="nvarchar" MaxLength="1000" />
+    <Property Name="image" Type="text" />
+    <Property Name="isSlide" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="ct_the_loai">
     <Key>
       <PropertyRef Name="ma_loai" />
@@ -31,6 +42,13 @@
     <Property Name="ma_hang" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="so_luong" Type="int" />
     <Property Name="thanh_tien" Type="int" />
+  </EntityType>
+  <EntityType Name="DemoBase64">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="base64" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="donhang">
     <Key>
@@ -170,6 +188,7 @@
     </ReferentialConstraint>
   </Association>
   <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="p_banner" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="p_capnhatthanhtien_donhang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ma_don_hang" Type="nvarchar" Mode="In" />
   </Function>
@@ -177,6 +196,7 @@
   <Function Name="p_donhang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="p_hang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="p_theloai" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="s_banner" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar" />
   <Function Name="s_donhang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar" />
   <Function Name="s_hang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar" />
   <Function Name="s_hinh_anh_mo_ta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar" />
@@ -214,8 +234,10 @@
   <EntityContainer Name="quanlybanhangModelStoreContainer">
     <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="auth" EntityType="Self.auth" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="banner" EntityType="Self.banner" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ct_the_loai" EntityType="Self.ct_the_loai" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ctdonhang" EntityType="Self.ctdonhang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DemoBase64" EntityType="Self.DemoBase64" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="donhang" EntityType="Self.donhang" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="hang" EntityType="Self.hang" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="hinh_anh_mo_ta" EntityType="Self.hinh_anh_mo_ta" Schema="dbo" store:Type="Tables" />

@@ -402,10 +402,13 @@
     <Compile Include="auth.cs">
       <DependentUpon>quanlybanhang.tt</DependentUpon>
     </Compile>
+    <Compile Include="banner.cs">
+      <DependentUpon>quanlybanhang.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\adminsController.cs" />
+    <Compile Include="Controllers\bannersController.cs" />
     <Compile Include="Controllers\ctdonhangsController.cs" />
     <Compile Include="Controllers\ct_the_loaiController.cs" />
-    <Compile Include="Controllers\donhangsController.cs" />
     <Compile Include="Controllers\hangsController.cs" />
     <Compile Include="Controllers\hinh_anh_mo_taController.cs" />
     <Compile Include="Controllers\taikhoansController.cs" />
@@ -415,6 +418,9 @@
       <DependentUpon>quanlybanhang.tt</DependentUpon>
     </Compile>
     <Compile Include="ct_the_loai.cs">
+      <DependentUpon>quanlybanhang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DemoBase64.cs">
       <DependentUpon>quanlybanhang.tt</DependentUpon>
     </Compile>
     <Compile Include="donhang.cs">

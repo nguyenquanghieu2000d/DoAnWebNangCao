@@ -135,5 +135,26 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="banners">
+      <EntityTypeMapping TypeName="quanlybanhangModel.banner">
+        <MappingFragment StoreEntitySet="banner">
+          <ScalarProperty Name="isSlide" ColumnName="isSlide" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="mo_ta" ColumnName="mo_ta" />
+          <ScalarProperty Name="ten_banner" ColumnName="ten_banner" />
+          <ScalarProperty Name="ma_banner" ColumnName="ma_banner" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DemoBase64">
+      <EntityTypeMapping TypeName="quanlybanhangModel.DemoBase64">
+        <MappingFragment StoreEntitySet="DemoBase64">
+          <ScalarProperty Name="base64" ColumnName="base64" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="p_banner" FunctionName="quanlybanhangModel.Store.p_banner" />
   </EntityContainerMapping>
 </Mapping>

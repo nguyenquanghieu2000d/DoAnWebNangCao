@@ -21,6 +21,8 @@
         <AssociationConnector Association="quanlybanhangModel.FK_donhang_taikhoan" ManuallyRouted="false" />
         <AssociationConnector Association="quanlybanhangModel.FK_hinh_anh_mo_ta_hang" ManuallyRouted="false" />
         <EntityTypeShape EntityType="quanlybanhangModel.auth" Width="1.5" PointX="2.625" PointY="5.75" />
+        <EntityTypeShape EntityType="quanlybanhangModel.banner" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="quanlybanhangModel.DemoBase64" Width="1.5" PointX="2.75" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

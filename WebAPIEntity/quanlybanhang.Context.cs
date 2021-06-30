@@ -37,6 +37,8 @@ namespace WebAPIEntity
         public virtual DbSet<taikhoan> taikhoans { get; set; }
         public virtual DbSet<theloai> theloais { get; set; }
         public virtual DbSet<auth> auths { get; set; }
+        public virtual DbSet<banner> banners { get; set; }
+        public virtual DbSet<DemoBase64> DemoBase64 { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
@@ -168,6 +170,11 @@ namespace WebAPIEntity
         public virtual ObjectResult<string> p_ct_the_loai()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("p_ct_the_loai");
+        }
+    
+        public virtual ObjectResult<string> p_banner()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("p_banner");
         }
     }
 }
