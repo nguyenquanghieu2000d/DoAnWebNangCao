@@ -7,17 +7,9 @@ function AdminMain() {
         <div>
             <header>
                 <div className="PhanDauTien">
-                    <a className="titlea" href="trangChu.html">
-                        {/*                    <img id="LogoImage" src="Image/logo.png">*/}CuteStore
-                    </a>
-                    <div id="search_container">
-                        <form className="header-search-form">
-                            <input type="text" placeholder="Nhập để tìm kiếm ..."/>
-                            <button><img src="Image/Icon/tools-and-utensils.png" alt=""/></button>
-                        </form>
-                    </div>
-                    <div id="SignUpAndCreate_item1">
-                    </div>
+                    <Link className="titlea" to={"/app/taikhoan"}>
+                     CuteStore
+                    </Link>
                 </div>
             </header>
             <nav>
@@ -32,7 +24,7 @@ function AdminMain() {
                 <Link to={"/app/cttheloai"} style={{cursor: 'pointer'}} ><i className="fas fa-caret-square-down"
                                                                                style={{margin: '0 1rem'}}/> Quản lý chi
                     tiết thể loại</Link>
-                <Link to={"/app/cttheloai"} style={{cursor: 'pointer'}} ><i className="fas fa-caret-square-down"
+                <Link to={"/app/banner"} style={{cursor: 'pointer'}} ><i className="fas fa-caret-square-down"
                                                                                                         style={{margin: '0 1rem'}}/> Quản lý banner</Link>
                 <a style={{cursor: 'pointer'}} ><i className="far fa-chart-line"
                                                                                style={{margin: '0 1rem'}}/> Thống kê</a>
