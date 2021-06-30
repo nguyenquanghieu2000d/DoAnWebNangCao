@@ -1,0 +1,2048 @@
+html{
+    /*-webkit-font-smoothing: antialiased;*/
+    font-size: 16px;
+    width: 100vw;
+    height: 100vh;
+}
+
+input{
+    font-size: 1rem;
+}
+body{
+    background-image: url("../../Image/cream-pixels.png");
+    background-size: 10rem;
+    position: relative;
+    /*background: #ffffff;*/
+    margin: auto;
+    padding: 0;
+    font-size: 1rem;
+    width: 100vw;
+    /*width: 1366px;*/
+    font-family: JosefinSans,serif;
+    z-index: -99999999999999999999;
+}
+
+
+p{
+    font-size: 1rem;
+}
+
+a{
+    font-size: 1rem;
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    color: #F970A3;
+}
+
+/**!*/
+
+video{
+    position: relative;
+    /*bottom: 1rem;*/
+    bottom: 8.875rem;
+    z-index: -19999;
+    width: 100%;
+    /*height: 100%;*/
+    /*height: 100vh;*/
+}
+
+source{
+    width: 100%;
+    height: 100%;
+}
+/* SLIDE TO DUNG O TRANGCHU */
+.slideAnh1{
+    background-image: url("../../Image/cream-pixels.png");
+    background-size: 10rem;
+    position: relative;
+    z-index: -9;
+    overflow: hidden;
+}
+
+.section1{
+    position: relative;
+    /*height: 71.25rem;*/
+    width: 100%;
+    height: 100vh;
+    background-size: auto 100%;
+    z-index: -9999999999999;
+    background-repeat: no-repeat;
+    background-position: top center;
+    font-family: JosefinSans, serif;
+    color: #ffffff;
+}
+
+/*SHOPPING BAG*/
+
+
+
+.top_header_area {
+    height: 150px;
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+}
+
+.cart > a {
+    color: #2e2e2e;
+    font-size: 14px;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+    font-weight: 600;
+}
+
+    .cart > a > i {
+        font-size: 20px;
+        padding-right: 5px;
+    }
+
+.cart_quantity {
+    background-color: #ff084e;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 11px;
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    left: -5px;
+    text-align: center;
+    top: 5px;
+    width: 20px;
+    z-index: 2;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+    font-weight: 600;
+}
+
+.main-menu-area {
+    position: relative;
+    z-index: 500;
+}
+
+.header-right-side-menu > a {
+    width: 60px;
+    display: block;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 24px;
+    background-color: #3a3a3a;
+    color: #fff;
+    border-radius: 50%;
+}
+
+    .header-right-side-menu > a:focus,
+    .header-right-side-menu > a:hover {
+        background-color: #ff084e;
+        color: #fff;
+    }
+
+.hero_meta_area .cart:hover .cart_quantity {
+    background-color: #000000;
+    color: #fff;
+}
+
+.hero_meta_area .cart,
+.hero_meta_area .user_thumb {
+    position: relative;
+    z-index: 999;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+
+.cart {
+    position: relative;
+    z-index: 200;
+}
+
+.cart-list {
+    background-color: #f4f6f8;
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.15);
+    -webkit-transition-duration: 750ms;
+    transition-duration: 750ms;
+    border-radius: 0;
+    display: none;
+    position: absolute;
+    right: -44px;
+    top: 50px;
+    width: 280px;
+    z-index: 120;
+}
+cart-list li:hover {
+    background-color: lightgray;
+}
+
+.cart-data-open .cart-list {
+    display: block;
+}
+
+.cart-list > li {
+    border-bottom: 1px solid #ebebeb;
+    padding: 20px 15px;
+    position: relative;
+    text-align: left;
+    z-index: 1;
+}
+
+.cart-list li .image {
+    left: 15px;
+    position: absolute;
+    top: 20px;
+    z-index: 9;
+}
+
+.cart-list .image > img {
+    width: 40px;
+    height: 40px;
+}
+
+.cart-item-desc {
+    padding-left: 55px;
+}
+
+    .cart-item-desc > h6 {
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+
+.cart-list li .btn-checkout,
+.cart-list li .btn-cart {
+    background-color: #ff084e;
+    border-radius: 0;
+    color: #fff;
+    font-size: 13px;
+}
+
+.cart-list li .btn-cart {
+    background-color: #3a3a3a;
+}
+
+.cart-item-desc > p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.cart-list li span {
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.main_header_area {
+    height: 150px;
+    padding-top: 30px;
+}
+
+.header-social-area a {
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 14px;
+    position: relative;
+    z-index: 1;
+}
+
+.help-line a {
+    width: auto;
+    height: 35px;
+    padding: 0 30px;
+    background-color: #ff084e;
+    color: #fff;
+    display: block;
+    line-height: 35px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+    .help-line a:hover,
+    .help-line a:focus {
+        background-color: #3a3a3a;
+    }
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 15px;
+    padding-left: 15px;
+    position: relative;
+    z-index: 1;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.main-menu-area .navbar {
+    padding: 0;
+}
+
+.dropdown-menu.show {
+    border: none;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-menu .dropdown-item {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.dropdown-menu .dropdown-item:focus,
+.dropdown-menu .dropdown-item:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #ff084e;
+    font-weight: 700;
+}
+
+
+
+/*SHOPPING BAG*/
+
+.tamgiac1{
+    background: #FA8CB5;
+    opacity: 0.6;
+    width: 100%;
+    height: 200%;
+    bottom:110%;
+    right: 20%;
+    animation-duration: 4s;
+    animation-name: tamgiac2s;
+    position: relative;
+    transform: rotate(60deg);
+}
+
+.tamgiac4{
+    background: #FA8CB5;
+    opacity: 0.6;
+    width: 100%;
+    height: 200%;
+    bottom:300%;
+    right: 20%;
+    /*bottom:1500px;*/
+    /*right: 33.125rem;*/
+    /*bottom:43.75rem;*/
+    /*right: 83.125rem;*/
+    animation-duration: 3s;
+    animation-name: tamgiac4s;
+    position: relative;
+    transform: rotate(60deg);
+}
+
+
+.tamgiac2{
+    background: #FA8CB5;
+    opacity: 0.6;
+    width: 100%;
+    height: 200%;
+    /*bottom: 300px;*/
+    left: 0;
+    bottom:190%;
+    /*left: 300px;*/
+    /*top:600px;*/
+    /*left: 83.125rem;*/
+    animation-duration: 4s;
+    animation-name: tamgiac1s;
+    position: relative;
+    transform: rotate(60deg);
+}
+
+.tamgiac3{
+    background: #FA8CB5;
+    opacity: 0.6;
+    width: 100%;
+    height: 200%;
+    left: 0;
+    /*top:30%;*/
+    /*left: 20%;*/
+    /*left: 83.125rem;*/
+    animation-duration: 3s;
+    animation-name: tamgiac3s;
+    position: relative;
+    transform: rotate(60deg);
+}
+
+.TamgiacContainer{
+    background: none;
+    position: absolute;
+    z-index: -1;
+    display: flex;
+
+    justify-content: space-between;
+    width: 100%;
+    /*background: black;*/
+    height: 100%;
+}
+.Left{
+    width: 30%;
+    height: 100%;
+    /*background: yellow;*/
+}
+
+.Right{
+    direction: rtl;
+    /*display: flex;*/
+
+    /*justify-content: right;*/
+    width: 30%;
+    height: 100%;
+    /*background: yellow;*/
+}
+
+@keyframes tamgiac2s {
+    from{right: 125rem}
+    to{}
+}
+
+@keyframes tamgiac1s {
+    from{left: 125rem}
+    to{}
+}
+
+
+@keyframes tamgiac3s {
+    from{left: 125rem}
+    to{}
+}
+
+@keyframes tamgiac4s {
+    from{right: 125rem}
+    to{}
+}
+
+
+@media (min-width: 1366px) {
+
+}
+
+
+
+
+
+
+
+.section1_1{
+
+    background: none;
+    z-index: 1;
+    position: absolute;
+    top: 10%;
+    left: 8%;
+    display: flex;
+    width: 85%;
+    margin: auto;
+}
+.section1_1 div{
+    width: 50%;
+    margin: 0;
+}
+
+.section1_1 div img{
+    float: right;
+    margin-top: 6.25rem;
+}
+
+.section1 h2{
+    text-shadow: 0.1rem 0.1rem 0.5rem black;
+    position: relative;
+    animation-name: h2hienra;
+    animation-duration: 1s;
+    display: block;
+    margin: 0.625rem 0;
+    font-size: 1.5rem;
+}
+
+.section1 h1{
+    text-shadow: 0.1rem 0.1rem 0.5rem black;
+    position: relative;
+    font-size: 3rem;
+    animation-name: h2hienra;
+    animation-duration: 1.5s;
+    margin: 0.625rem 0;
+    font-family: Pacifico, serif;
+}
+
+.section1 p{
+    text-shadow: 0.1rem 0.1rem 0.5rem black;
+    position: relative;
+    animation-name: h2hienra;
+    animation-duration: 2s;
+    margin: 0.625rem 0;
+}
+
+
+
+/*.site-btn:hover {*/
+/*    color: #fff;*/
+/*}*/
+
+/*.site-btn.sb-line {*/
+/*    background: transparent;*/
+/*    color: #fff;*/
+/*    -webkit-box-shadow: inset 0 0 0 0.625rem #fff;*/
+/*    box-shadow: inset 0 0 0 0.625rem #fff;*/
+/*}*/
+
+/*.site-btn.sb-white {*/
+/*    background: #fff;*/
+/*    color: #111111;*/
+/*}*/
+
+.section1_1_btn{
+    box-shadow: 0.125rem 0.125rem 0.125rem gray;
+    position: relative;
+    animation-name: h2hienra;
+    animation-duration: 2.5s;
+    margin-top: 1.25rem;
+    display: inline-block;
+    text-decoration: none;
+    border: 0.1rem solid white;
+    font-size: 0.9rem;
+    padding: 1.125rem 2.9375rem 0.875rem;
+    border-radius: 3.125rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: center;
+}
+
+.white{
+    background: #ffffff;
+    color: black;
+}
+
+.black{
+    color: #fff;
+
+}
+
+@keyframes h2hienra {
+    from {right: 43.75rem; opacity: 0.1;}
+    to{right: 0; opacity: 1;}
+}
+
+.section1_2{
+    position: absolute;
+    bottom: 1.25rem;
+    left: 10.625rem;
+    height: 1.5rem;
+}
+
+/*#section1_2_pre{*/
+/*    width: 40.5rem;*/
+/*    height: 40.5rem;*/
+/*}*/
+
+/*#section1_2_nex{*/
+/*    width: 40.5rem;*/
+/*    height: 40.5rem;*/
+/*}*/
+
+.dot{
+
+    display: inline-block;
+    width: 1rem;
+    height: 0.625rem;
+    border:0.125rem solid white;
+    border-radius:100%;
+    /*z-index: 99999999;*/
+    transition-delay: 0.3s;
+    z-index: 99999999999999;
+}
+.dot:hover{
+    background-color: white;
+    z-index: 99999999999999;
+    cursor: pointer;
+    transition:0.3s;
+}
+/* SLIDE TO DUNG O TRANGCHU */
+
+
+/* SLIDE 1*/
+
+
+
+
+
+
+/* SLIDE 1*/
+
+
+
+
+.input_1{
+    font-family: JosefinSans, serif;
+    border-radius: 3.125rem;
+    border-style: none;
+    background: #ebebeb;
+    height: 2.75rem;
+    text-align: center;
+    display: block;
+}
+
+.input_2{
+    font-family: JosefinSans, serif;
+    border-radius: 3.125rem;
+    border-style: solid;
+    border-width: 0.01rem;
+    border-color: #282828;
+    background: white;
+    height: 2.75rem;
+    text-align: center;
+    display: block;
+}
+
+.input_2::placeholder{
+    font-size: 0.7rem;
+}
+
+
+form input::placeholder{
+    font-family: JosefinSans, serif;
+}
+
+
+
+
+
+
+
+.titlea{
+    font-family: JosefinSans,serif;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: inline-block;
+    /*color: black;*/
+    text-align: center;
+}
+
+#search_container{
+    display: flex;
+    align-items: center;
+}
+
+#SignUpAndCreate{
+    display: flex;
+    align-items: center;
+}
+#SignUpAndCreate_item1{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #282828;
+}
+
+
+.titleaedit{
+    margin-top: 1.25rem;
+}
+
+.titlea:hover{
+    color: #FA8CB5;
+}
+
+.titleb{
+    font-family: JosefinSans,serif;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: inline-block;
+    /*width: 160.125rem;*/
+    /*height: 30.625rem;*/
+    margin:1.625rem 0;
+    color: white;
+    text-align: center;
+}
+
+.titleb:hover{
+    color: #FA8CB5;
+}
+
+#xacnhan{
+    background: #282828;
+    font-size: 1.2rem;
+    color: white;
+    cursor: pointer;
+}
+
+#xacnhan:hover{
+    background: #FA8CB5;
+    color: white;
+    cursor: pointer;
+}
+
+
+footer{
+    font-family: JosefinSans,serif;
+    position: relative;
+    width: 100%;
+    height: 43.75rem;
+}
+
+.footerfirst{
+    background: #282828;
+}
+
+footer h1{
+    margin: 0;
+    padding: 2.5rem;
+    position: relative;
+    /*top:1.875rem;*/
+    color: white;
+    text-align: center;
+}
+footer h1:hover{
+    text-align: center;
+    color: #FA8CB5;
+}
+
+#footer_container{
+    width: 85%;
+    /*overflow: hidden;*/
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+
+#footer_container div{
+    /*width: 25%;*/
+}
+
+#footer_container div h4{
+    margin: 1.875rem auto;
+    text-align: center;
+    display: block;
+    /*margin: auto;*/
+    color: white;
+}
+
+#footer1 p{
+    text-decoration: none;
+    margin: 1.875rem auto;
+    text-align: center;
+    display: block;
+    /*margin: auto;*/
+    color: white;
+}
+
+#footer1 img{
+    width: 100%;
+}
+
+.footer2 a{
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin: 1.875rem auto;
+    /*text-align: center;*/
+    display: block;
+    /*margin: auto;*/
+    color: white;
+}
+
+#footer3{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+}
+
+#footer3 div{
+    margin-bottom: 1.25rem;
+    width: 100%;
+}
+
+#footer3 div img{
+    width: 25%;
+    float: left;
+    margin-right: 1.875rem;
+}
+
+.footer3title{
+    font-size: 0.8rem;
+    text-decoration: none;
+    display: block;
+    /*margin: auto;*/
+    color: white;
+}
+
+.readmore{
+    color: #FA8CB5;
+    text-decoration: none;
+}
+
+#footer3 p{
+    font-size: 0.8rem;
+    margin: 0.1875rem;
+    color: gray;
+}
+
+.footersecond h1{
+    color: #282828;
+}
+
+.footersecondcontainer{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.footersecondcontainer a:hover .imagefootergray{
+    display: none;
+}
+
+.footersecondcontainer a:hover .imagefootercolor{
+    display: block;
+}
+
+
+.imagefootercolor{
+    display: none;
+}
+
+.footersecond a{
+    margin: 0.3125rem;
+    width: 16.66666%;
+}
+
+.footersecond a img{
+    width: 100%;
+}
+
+#QuanHieuImageContainer{
+    width: 12.5rem;
+    margin: auto;
+}
+
+
+
+/*HEADER 1*/
+header{
+    /*opacity: 0.5;*/
+    background: #ffffff;
+    width: 100%;
+    height: 7.875rem;
+
+}
+
+#PhanDauTien a{
+
+}
+
+.PhanDauTien{
+    align-items: center;
+    margin: auto;
+    width: 85%;
+    height: 4.75rem;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+.LogoAndClick{
+    /*margin-left: 20.125rem;*/
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#LogoAndClick_a{
+    /*margin-top: 0.3125rem;*/
+    font-family: JosefinSans,serif;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: inline-block;
+    width: 10.125rem;
+    height: 1.93rem;
+    margin:1.625rem 0;
+    color: black;
+}
+
+#LogoAndClick_a:hover{
+    /*margin-top: 0.3125rem;*/
+    font-family: JosefinSans,serif;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: inline-block;
+    width: 10.125rem;
+    height: 1.93rem;
+    margin:1.625rem 0;
+    color: #FA8CB5;
+}
+
+.tablehoveritem:hover {
+    background-color: gray;
+    color:green;
+}
+
+
+#LogoImage{
+
+}
+
+.search_container{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.header-search-form{
+    display: flex;
+    margin: 0 1.25rem;
+    width: 100%;
+    position: relative;
+    /*padding: 0 0.625rem;*/
+    font-family: JosefinSans, serif;
+    height: 2.75rem;
+}
+
+.header-search-form input{
+
+    margin: 0;
+    border: none;
+    font-size: 0.9rem;
+    padding: 0 1.1875rem;
+    /*border-radius: 3.125rem;*/
+    border-bottom-left-radius: 3.125rem;
+    border-top-left-radius: 3.125rem;
+    background: #f0f0f0;
+    height: 2.75rem;
+    width: 25rem;
+}
+
+.header-search-form input::placeholder{
+    font-family: JosefinSans, serif;
+}
+
+
+
+.header-search-form button{
+
+    width: 3.125rem;
+    /*position: absolute;*/
+    height: 100%;
+    right: 11.25rem;
+    top: 0;
+    font-size: 1.2rem;
+    color: #000;
+    border: none;
+    border-top-right-radius: 3.125rem;
+    border-bottom-right-radius: 3.125rem;
+    margin: 0;
+    background: #f0f0f0;
+}
+
+.header-search-form button:hover{
+    background: #f0f0f0;
+}
+
+.header-search-form button img{
+    width: 1rem;
+}
+
+
+
+.SignUpAndCreate{
+    width: 25rem;
+}
+
+.SignUpAndCreate img{
+    width: 1.5rem;
+}
+
+.SignUpAndCreate div{
+    position: relative;
+    top: 0.3125rem;
+    display: inline-block;
+    margin: 1rem 0.625rem;
+}
+
+.SignUpAndCreate_item1{
+    display: flex;
+}
+
+.SignUpAndCreate_item1_item{
+
+    /*color: #282828;*/
+    /*position: relative;*/
+    /*bottom: 0.125rem;*/
+    font-family: JosefinSans, serif;
+    font-size: 1rem;
+    text-decoration: none;
+    margin: 0.3rem;
+    /*display: inline-block;*/
+
+
+    text-shadow: 0px 0px 6px rgba(255,255,255,0.7);
+}
+.SignUpAndCreate_item1_item2{
+    /*margin: 0.3rem;*/
+}
+
+
+.SignUpAndCreate_item1_item:hover{
+    color: #FA8CB5;
+    /*position: relative;*/
+    /*bottom: 0.125rem;*/
+    font-family: JosefinSans, serif;
+    font-size: 1rem;
+    text-decoration: none;
+    /*display: inline-block;*/
+}
+
+.SignUpAndCreate_item1_item1{
+    font-family: JosefinSans, serif;
+    width: 2rem;
+    /*margin: 0.3rem;*/
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+nav{
+    position: relative;
+    width: 100vw;
+    /*position: fixed;*/
+    z-index: 999999;
+    height: 3.125rem;
+    background: #2c393f;
+}
+
+
+
+#container{
+    display: flex;
+    width: 85%;
+    justify-content: space-between;
+    margin: auto;
+    height: 100%;
+}
+#container div{
+    /*position: relative;*/
+    /*width: 12.5rem;*/
+}
+
+#container ul{
+    text-align: center;
+    width: 100%;
+    position: relative;
+    top:0.625rem;
+    right: 3.125rem;
+    display: none;
+}
+
+#container ul li{
+    list-style-type: none;
+    background: white;
+    font-size: 1rem;
+    height: 3.125rem;
+}
+
+#container ul li a{
+    position: relative;
+    color: black;
+    top:1rem;
+    text-decoration: none;
+}
+
+#container ul li a:hover{
+    position: relative;
+    top:1rem;
+    text-decoration: none;
+    color: #FA8CB5;
+}
+
+.submenu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12.5rem;
+    height: 100%;
+}
+
+.submenu1{
+    z-index: 99999999999999999999;
+    position: absolute;
+    display: none;
+    top: 3.125rem;
+    /*flex-direction: row;*/
+    /*right: 490px;*/
+    left: 0px;
+    /*right: auto;*/
+    width: 100vw;
+    height: 26rem;
+    background: #f0f0f0;
+    box-shadow: 0.125rem 0.125rem 6.25rem gray;
+}
+
+
+
+.submenu1item{
+    width: 15%;
+    margin-left: 0.625rem;
+    display: flex;
+    flex-direction: column;
+}
+.submenu1item a{
+    margin-bottom: 0.3125rem;
+    display: block;
+}
+
+.submenu1item2{
+    /*width: 50%;*/
+    height: 100%;
+}
+#submenu1item2_1{
+    width: 50%;
+}
+#submenu1item2_2{
+    width: 80%;
+}
+#submenu1item2_3{
+}
+
+
+.submenu1item2_item{
+    height: 85%;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.submenu1item2_item div{
+
+}
+.submenu1item2_item a{
+    /*max-height: 286px;*/
+    background: white;
+    height: 100%;
+    box-shadow: 0.2rem 0.2rem 0.3125rem darkgray;
+    margin: auto 0.625rem;
+    overflow: hidden;
+    border-radius: 0.625rem;
+}
+.submenu1item2 h3{
+    margin: 0.625rem 0px 0.625rem;
+    text-align: center;
+    /*height: 5%;*/
+}
+
+.submenu1item2 a h3{
+    /*height: 15%;*/
+    margin:0.625rem auto;
+    /*margin: 0.625rem 0px 0.625rem;*/
+    /*text-align: center;*/
+    /*height: 5%;*/
+}
+
+.submenu1item2_item img{
+    position: relative;
+    /*right: 15%;*/
+    margin-left: 50%;
+    transform: translateX(-50%);
+    height: 87%;
+    /*width: 125%;*/
+    /*height: 100%;*/
+}
+
+
+.submenu:hover .submenu1{
+    display:block;
+    /*top: 3.125rem;*/
+    /*position: absolute;*/
+}
+
+
+
+
+.submenu1container{
+    margin: 1.875rem auto;
+    /*justify-content: unset;*/
+    width: 95%;
+    height: 80%;
+    display: flex;
+}
+
+
+
+
+
+
+.themnua{
+    color: #FA8CB5;
+}
+
+
+.TrangChu{
+    color: white;
+    text-shadow: 0px 0px 20px rgba(255,255,255,0.7);
+    position: relative;
+    /*top:10.1875rem;*/
+    font-family: JosefinSans, serif;
+    font-size: 1.1rem;
+    /*color: #eaffff;*/
+    /*margin: 1rem 2.5rem 1rem 0px;*/
+    text-decoration: none;
+}
+
+.p2{
+    font-weight: bold;
+}
+
+.TrangChu:hover{
+    /*position: relative;*/
+    /*top:10.1875rem;*/
+    /*font-family: JosefinSans, serif;*/
+    /*font-size: 1.25rem;*/
+    color: #FA8CB5;
+    /*margin: 1rem 2.5rem 1rem 0px;*/
+    /*margin: 1rem 0;*/
+    /*text-decoration: none;*/
+}
+
+
+
+
+#QuanAo:hover #QuanAoUL{
+    display: block;
+}
+
+
+#Vay:hover #VayUL{
+    display: block;
+}
+
+#DoNgu:hover #DoNguUL{
+    display: block;
+}
+
+#Giay:hover #GiayUL{
+    display: block;
+}
+
+#PhuKien:hover #PhuKienUL{
+    display: block;
+}
+/* HEADER 1*/
+
+
+/* DANH MUC SAN PHAM */
+
+.timkiemsanphamhangdau{
+    width: 100%;
+    margin: auto auto 6.25rem;
+    font-family: JosefinSans,serif;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.sanpham_container_button{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 5rem;
+    width: 100%;
+    /*align-items: center;*/
+}
+
+.sanpham:hover {
+    color: white;
+}
+
+.sanpham:hover .sanpham_gia{
+    background: #282828;
+}
+
+.sanpham:hover .sanpham_img{
+    transform: scale(1.2);
+}
+
+.sanpham_button{
+    background-size: 0.5rem 0.5rem;
+    display: inline-block;
+    /*animation-name: h2hienra;*/
+    /*animation-duration: 2.5s;*/
+    /*margin-top: 1.25rem;*/
+    border-style: none;
+    font-size: 0.7rem;
+    margin-right: 0.625rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    /*background: white;*/
+    padding: 0.625rem 1.25rem 0.625rem;
+    border-radius: 3.125rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+.sanpham_button a{
+    top:0.3125rem;
+    position: relative;
+    text-decoration: none;
+    color: black;
+}
+
+.tim{
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    /*margin: auto;*/
+    background: white url("../../Image/Icon/love-and-romance.png") no-repeat center;
+    background-size: 1.4rem 1.4rem;
+    /*margin-left: 0.625rem;*/
+}
+
+.tim:hover{
+    background: #FA8CB5 url("../../Image/Icon/love-and-romance.png") no-repeat center;
+
+}
+
+
+.sale{
+    display: flex;
+    font-size: 1.1rem;
+    border-style: none;
+    /*position: absolute;*/
+    width: 2.5rem;
+    height: 2.5rem;
+    /*padding: 0.625rem 0 0 0;*/
+    padding: 0;
+    /*margin:0;*/
+    /*vertical-align: middle;*/
+    /*margin: auto;*/
+    /*left: 90.5rem;*/
+    background: #FA8CB5;
+
+    /*margin-left: 0.625rem;*/
+}
+
+
+
+.sale p{
+    margin: auto;
+}
+
+
+.themsanpham {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    background: white url("../../Image/Icon/love-and-romance.png") no-repeat center;
+    /*background-image: url("../../Image/Icon/business.png");*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: center;*/
+    background-size: 1.4rem 1.4rem;
+    /*margin-left: 0.625rem;*/
+    /*margin-left: 140.3125rem;*/
+}
+
+.themsanpham:hover{
+    /*width: 2.5rem;*/
+    /*height: 2.5rem;*/
+    padding: 0;
+
+    background: #FA8CB5 url("../../Image/Icon/business.png") no-repeat center;
+    background-size: 1.4rem 1.4rem;
+    /*margin-left: 0.625rem;*/
+    /*margin-left: 140.3125rem;*/
+}
+
+
+
+.sanphamhangdau{
+    position: relative;
+    width: 23.125rem;
+    height: 24rem;
+    font-family: JosefinSans,serif;
+}
+
+.sanphamhangdau:hover{
+    color: white;
+    position: relative;
+    width: 23.125rem;
+    height: 24rem;
+    font-family: JosefinSans,serif;
+}
+
+.sanphamhangdau:hover .sanpham_img{
+    transform: scale(1.2);
+}
+
+.sanphamhangdau:hover .sanpham_gia{
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+    right: 20.3125rem;
+    width: 25rem;
+    color: white;
+    background: #282828;
+}
+
+
+
+#DanhMuc{
+    margin:3.125rem auto;
+    width: 85%;
+    display: flex;
+}
+
+#ButtonThemNua{
+    width: 31.125rem;
+    /*height: 10rem;*/
+    /*display: block;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.sanpham_gia{
+    height: 4.375rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /*bottom: 3.125rem;*/
+}
+
+.sanpham_gia p{
+    font-size: 0.8rem;
+    /*width: 45%;*/
+}
+
+.p1{
+    /*padding: 0;*/
+    /*margin: 0;*/
+    width: 55%;
+}
+.p2{
+    /*padding: 0;*/
+    /*margin: 0;*/
+    width: 35%;
+    /*direction: rtl;*/
+}
+
+.sanpham_img{
+    position: center;
+    animation-duration: 2s;
+    /*clip: rect(0px, 2.5rem, 24rem, 0);*/
+    animation-name: slide2start;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+.button_a{
+
+    margin: auto 0.625rem;
+    color: #111111;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: #ebebeb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /*padding: 0.625rem 0;*/
+    border-radius: 30.625rem;
+    text-decoration: none;
+    /*outline: none;*/
+    text-align: center;
+    font-family: JosefinSans,serif;
+}
+
+
+
+.button_a:hover{
+    color: white;
+    background: #282828;
+
+}
+/* DANH MUC SAN PHAM*/
+
+.chitietsptitle{
+
+    margin-right: 0;
+    margin-left: 0;
+}
+/* TITLE CUA MOI MUC */
+.section1shop{
+    margin-top: 3.125rem;
+    margin-bottom: 3.125rem;
+    display: flex;
+    color: white;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    /*display: table;*/
+    /*color: #282828;*/
+    /*position: relative;*/
+    /*z-index: -1;*/
+    width: 100%;
+    height: 12.5rem;
+    background: gray url("../../Image/login/priscilla-du-preez-dlxLGIy-2VU-unsplash.jpg") center;
+    background-size: 100%;
+
+}
+
+.section1shop div{
+    /*text-align: center;*/
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    /*z-index: -1;*/
+    /*background: rgba(0,0,0,0.5);*/
+    opacity: 0.6;
+    width: 50%;
+    height: 5rem;
+    padding: 1.875rem;
+    background: darkgray;
+    /*text-align: center;*/
+    /*margin: auto;*/
+    /*top: 1.875rem;*/
+    /*position: relative;*/
+}
+
+.section1shop h1{
+    text-shadow: 0px 0px 20px rgba(255,255,255,0.7);
+    z-index: 1;
+    /*width: 100%;*/
+    /*margin: 0;*/
+    /*position: absolute;*/
+    /*text-align: center;*/
+
+    /*vertical-align: middle;*/
+    /*display: table-cell;*/
+    /*position: relative;*/
+    font-size: 2.5rem;
+    /*display: block;*/
+    /*text-shadow: 0.625rem 0.625rem 0.625rem black;*/
+    /*z-index: 9999;*/
+    /*margin: 0;*/
+    /*opacity: 1.4;*/
+    /*left: 61.875rem;*/
+    color: white;
+    /*bottom: 60.3125rem;*/
+    /*top:1.25rem;*/
+
+}
+/* TITLE CUA MOI MUC */
+
+
+
+/* SLIDE SALE OFF */
+
+#slide2_1{
+
+    width: 100%;
+    font-family: JosefinSans,serif;
+    display: flex;
+    justify-content: space-between;
+}
+
+.okok{
+    position: relative;
+    top: 10.625rem;
+}
+
+
+
+
+.round {
+    box-shadow: 0.1rem 0.1rem 0.1875rem gray;
+    margin: auto 1.25rem;
+    width: 2.9375rem;
+    height: 2.9375rem;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    font-size: 2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    border-style: none;
+    border-width: 0.625rem;
+    /*border-color: #282828;*/
+    background-color: #FA8CB5;
+    color: white;
+}
+
+
+
+.sanpham{
+    background: white;
+    position: relative;
+    width: 16.68rem;
+    font-family: JosefinSans,serif;
+    overflow: hidden;
+    box-shadow: 0.125rem 0.125rem 0.625rem gray;
+    border-radius: 1.25rem;
+}
+
+
+.imagecontainer{
+    width: 100%;
+    height: 24rem;
+    overflow: hidden;
+}
+
+/* SLIDE SALE OFF */
+
+
+
+/* CHON SIZE */
+
+.size{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.size input{
+    width: 16%;
+    padding-top: 0.1875rem;
+    padding-bottom: 0.1875rem;
+    border-style: none;
+    border-radius: 3.125rem;
+    font-size: 1rem;
+    font-family: JosefinSans,serif;
+    cursor: pointer;
+}
+
+.size input:hover{
+    color: white;
+    background: #F970A3;
+}
+
+/* CHON SIZE */
+
+
+/* THANH CONG TRU */
+.ThanhCongTru{
+    width: 3.75rem;
+    height: 1.875rem;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.2rem;
+    border-style: solid;
+    border-width: 0.01rem;
+    border-color: #282828;
+    border-radius: 0.2rem;
+}
+
+.ThanhCongTruVTKC{
+    width: 5.75rem;
+    height: 1.875rem;
+}
+
+
+.ThanhCongTru p{
+    width: 34%;
+    margin: auto 0;
+    /*padding: 0;*/
+    display: inline-block;
+}
+.ThanhCongTruCong{
+    background: #282828;
+}
+
+.ThanhCongTruTru{
+    background: #282828;
+}
+.ThanhCongTruSo{
+    text-align: center;
+}
+.ThanhCongTru button{
+    background: #FA8CB5;
+    width: 33%;
+    border-style: solid;
+    /*border-color: #282828;*/
+    /*border-width: 0.1rem;*/
+    /*background: none;*/
+}
+
+/* THANH CONG TRU */
+
+hr{
+    border-width: 0.05rem;
+    /*height: 0rem;*/
+    background: gray;
+    /*size: 0.625rem;*/
+}
+
+
+
+
+/* BUTTON TO */
+.button{
+
+}
+
+
+
+
+.bigbutton{
+    position: relative;
+    width: 12.5rem;
+    margin: auto;
+    border-radius: 3.125rem;
+    height: 3.125rem;
+    background: #FA8CB5;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 1.125rem 2.9375rem 0.875rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: center;
+}
+
+.bigbutton:hover{
+    background: #282828;
+}
+
+/* BUTTON TO */
+
+/* BUTTON NHO MAU XANH */
+
+.smallbutton{
+    position: relative;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    width: 12.5rem;
+    margin: auto;
+    border-radius: 3.125rem;
+    height: 3.125rem;
+    background: #385599;
+    color: white;
+}
+
+/* BUTTON NHO MAU DO */
+
+.smallbutton1{
+    position: relative;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    width: 12.5rem;
+    margin: auto;
+    border-radius: 3.125rem;
+    height: 3.125rem;
+    background: #ea4335;
+    color: white;
+}
+
+/* BUTTON NHO MAU DO */
+
+
+/* BUTTON MUA NGAY*/
+
+
+.buttonMuaNgay{
+    position: relative;
+    width: 12.5rem;
+    margin: auto;
+    border-radius: 3.125rem;
+    height: 3.125rem;
+    background: #FA8CB5;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    /*padding: 1.125rem 2.9375rem 0.875rem;*/
+    /*padding-top: 0.3125rem;*/
+    text-transform: uppercase;
+    font-family: JosefinSans,serif;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.buttonMuaNgay:hover{
+    background: #282828;
+}
+
+
+/* BUTTON MUA NGAY 2*/
+
+.buttonMuaNgay2{
+    position: relative;
+    width: 12.5rem;
+    margin: auto;
+    border-radius: 3.125rem;
+    height: 3.125rem;
+    background: #282828;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    /*padding: 1.125rem 2.9375rem 0.875rem;*/
+    /*padding-top: 0.3125rem;*/
+    text-transform: uppercase;
+    font-family: JosefinSans,serif;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.buttonMuaNgay2:hover{
+    background: #FA8CB5;
+}
+
+/* TABLE */
+
+table{
+    /*padding: 1.125rem;*/
+    border-collapse: collapse;
+    /*border-radius: 1rem;*/
+    /*border-width: 0.1rem;*/
+    /*border-color: #282828;*/
+    /*border-style: solid;*/
+    background: #f0f0f0;
+    /*width: 90%;*/
+    margin: auto;
+
+    /*position: relative;*/
+    /*top: 3.125rem;*/
+}
+
+table td{
+    text-align: center;
+    /*display: flex;*/
+    padding: 0.5rem;
+    /*border-width: 0.1rem;*/
+    /*border-color: #282828;*/
+    /*border-style: solid;*/
+}
+table thead tr{
+    /*border-radius: 1rem;*/
+    background: #FA8CB5;
+}
+table th{
+
+    padding: 0.5rem;
+    height: 3.125rem;
+    border-width: 0.1rem;
+    border-color: white;
+    border-style: solid;
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    text-align: center;
+}
+table thead{
+}
+
+
+.quy-col div{
+    margin: auto;
+}
+
+
+
+.size-col a{
+    color: black;
+    /*text-decoration: none   ;*/
+}
+
+.size-col a{
+    color: #FA8CB5;
+}
+
+.product-th{
+    width: 18.75rem;
+}
+
+.size-th{
+    width: 11.25rem;
+}
+
+.product-col{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-col img{
+    position: relative;
+    /*top: 6.25rem;*/
+    /*display: none;*/
+    float: left;
+    width: 25%;
+    /*margin-right: 1.25rem;*/
+
+}
+.pc-title{
+    display: block;
+    width: 50%;
+}
+
+.pc-title a{
+    color: #FA8CB5;
+    text-decoration: none;
+}
+/* TABLE */
+
+@media(max-width: 320px) {
+    html{
+        font-size: 4px;
+    }
+}
+
+@media (max-width: 400px) {
+    html{
+        font-size: 6px;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 800px) {
+    html{
+        font-size: 8px;
+    }
+}
+
+
+@media (min-width: 800px) and (max-width: 960px) {
+    html{
+        font-size: 10px;
+    }
+}
+
+@media (min-width: 960px) and (max-width:1200px) {
+    html{
+        font-size: 12px;
+    }
+    nav{
+        flex-direction: column;
+    }
+}
+
+@media (min-width:1200px) and (max-width: 1600px){
+    html{
+        font-size: 16px;
+    }
+}
+@media (min-width:1600px) and (max-width: 1920px) {
+    html{
+        font-size: 20px;
+    }
+}
+
+
+
+.responsiveNav{
+    display: none;
+}
+
+.responsiveNavItem{
+    display: none;
+}
+
+@media (max-width: 800px) {
+    html{
+        font-size: 15px;
+    }
+    .navFull{
+        display: none;
+    }
+    header{
+        height: auto;
+    }
+    .header-search-form{
+        width: 100%;
+        margin: 0;
+    }
+
+    .header-search-form input{
+        width: 80%;
+        margin: 0;
+    }
+
+    .header-search-form button{
+        margin: 0;
+    }
+    #container2{
+        display: none;
+    }
+    #container1{
+        margin: auto;
+        width: 100%;
+    }
+    .PhanDauTien{
+        flex-direction: column;
+        height: auto;
+    }
+    .PhanDauTien a{
+        margin: 1rem;
+    }
+
+    #SignUpAndCreate_item1{
+        width: 100%;
+    }
+
+
+
+    .responsiveNav{
+        display: block;
+        background: #282828;
+        height: 3.125rem;
+    }
+
+    .responsiveNav button{
+        height: 100%;
+        width: 3.5rem;
+        background: #3D3D3D;
+        border: none;
+    }
+    .responsiveNav button img{
+        height: 100%;
+        width: 100%;
+    }
+
+    .responsiveNavItem {
+        background: #3D3D3D;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .responsiveNavItem a{
+        padding: 1rem;
+        /*margin: auto;*/
+        background: #3D3D3D;;
+        display: flex;
+        flex-direction: column;
+    }
+    #footer_container{
+        flex-direction: column;
+
+
+    }
+
+    #footer3 {
+        width: 100%;
+    }
+    .footersecondcontainer{
+        width: 90%;
+    }
+}

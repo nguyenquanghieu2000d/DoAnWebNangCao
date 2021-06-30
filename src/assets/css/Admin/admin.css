@@ -1,0 +1,172 @@
+header {
+    height: 4.75rem;
+    box-shadow: 0.01rem 0.01rem 0.5rem gray;
+    position: fixed;
+    z-index: 1;
+}
+
+.section11 {
+    height: auto;
+    width: 80%;
+    position: relative;
+    left: 20%;
+    top: 4.75rem;
+}
+
+    .section11 img {
+        width: 1rem;
+    }
+
+nav {
+    z-index: 0;
+    top: 4.75rem;
+    height: 100vh;
+    background: white;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    width: 20%;
+    box-shadow: 0.01rem 0.01rem 0.5rem gray;
+}
+
+    nav a {
+        position: relative;
+        top: 1rem;
+        margin: 1rem;
+        padding: 0;
+    }
+
+.section1item2 {
+    /*background: #282828;*/
+    margin: 1rem auto;
+    width: 95%;
+    color: #282828;
+    /*background: #FA8CB5;*/
+    position: relative;
+}
+
+.ThongKe {
+    /*height: 13rem;*/
+    display: flex;
+    justify-content: space-between;
+}
+
+.thongkea {
+    text-align: center;
+    /*margin: auto;*/
+    width: 22%;
+    height: 100%;
+    background: #FA8CB5;
+    border-radius: 0.5rem;
+    /*box-shadow: 0.01rem 0.01rem 0.5rem gray;*/
+}
+
+.thongkeb1 {
+    display: flex;
+    flex-direction: column;
+    /*line-height: 2rem;*/
+    width: 50%;
+}
+
+.thongkec1 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    /*line-height: 2rem;*/
+    /*width: 20%;*/
+}
+
+input {
+    /*text-align: center;*/
+    font-family: JosefinSans,serif;
+    width: 100%;
+    border-radius: 0.5rem;
+    border: none;
+    background: #f0f0f0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin: 0.2rem auto;
+}
+
+.thongkeb1button {
+    font-family: JosefinSans,serif;
+    width: 100%;
+    border-radius: 0.5rem;
+    border: none;
+    background: darkgray;
+    padding: 1rem;
+    margin: 0.2rem;
+    cursor: pointer;
+}
+
+    .thongkeb1button:hover {
+        background: #FA8CB5;
+        color: white;
+    }
+
+.thongkeb2 img {
+    width: 100%;
+    height: 100%;
+}
+
+table td {
+    padding: 0.2rem;
+}
+
+.ThanhCongTruSo img {
+    width: 100%;
+}
+
+
+.product-th {
+    width: 5rem;
+}
+
+.quy-th {
+    width: 3rem;
+}
+
+.quanlyhangcontainer {
+    display: block;
+}
+
+.tablecontainer {
+    width: 100%;
+    position: relative;
+    /*height: 70vh;*/
+    /*overflow: scroll;*/
+}
+
+table {
+    width: 100%;
+    /*width: 50%;*/
+}
+
+tr {
+    height: 2rem;
+}
+
+table thead {
+    /*position: fixed;*/
+    /*top: 0;*/
+}
+
+
+
+.themsuaxoa {
+    width: 30%;
+    background: white;
+    margin: auto 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+    .themsuaxoa input {
+        height: 2rem;
+        padding: 0;
+    }
+
+.imageItem {
+    width: 2rem;
+    height: 2rem;
+}

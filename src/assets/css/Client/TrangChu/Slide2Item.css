@@ -1,0 +1,9 @@
+.center_child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide2ItemContainer{
+    width: 100%;
+}
