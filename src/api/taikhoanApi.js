@@ -13,7 +13,7 @@ export const TaikhoanApi = {
         return axiosClient.get(url)
     },
     putUserById: (username, data) => {
-        const url = "/PutTaiKhoan"
+        const url = "/PutTaiKhoan?mode=0"
         return axiosClient.put(url, data)
     }
 
