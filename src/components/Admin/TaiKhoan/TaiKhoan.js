@@ -125,18 +125,30 @@ function TaiKhoan() {
 
     const btnThemKhachHang = async (e) => {
         e.preventDefault();
-        await setaTaiKhoan("")
-        await setaTenKhachHang("")
+
         $("#CrudThemSua").css("display", "flex");
         $("#lbTitle").text("Thêm khách hàng");
         $("#tbUsername").css("display", "block");
         await setAddOrUpdate(1)
         $("#lbMaTheLoai").css("display", "none");
+        clear1();
+    }
+
+    const clear1 = () => {
+        setaTaiKhoan("")
+
+        setaDiaChi("")
+        setaGioiTinh("")
+        setaMatKhauXacNhan("")
+        setaMatKhau("")
+        setasdt("")
+        setaTenKhachHang("")
     }
 
 
     const btnExit = () => {
         $("#CrudThemSua").hide();
+        clear1()
     }
 
     const Edit = async (username) => {
@@ -207,7 +219,6 @@ function TaiKhoan() {
         return (
             <>
                 {
-
                     table ? table.map((value, index) => {
                         return <>
                             <tr>
@@ -215,7 +226,7 @@ function TaiKhoan() {
                                     <p className="ThanhCongTruSo">{value.username}</p>
                                 </td>
                                 <td style={{width: "10rem"}}>
-                                    <p style={{textAlign: 'center'}}>{value.password}</p>
+                                    <p style={{textAlign: 'center'}}>*******</p>
                                 </td>
                                 <td style={{width: "10rem"}}>
                                     <p style={{textAlign: 'center'}}>{value.hoten}</p>
@@ -340,7 +351,7 @@ function TaiKhoan() {
                             <td>
                                 <input id="btnTimKiemTaiKhoan" name={"fTaiKhoan"} value={fTaiKhoan}
                                        onChange={onChangefTaiKhoan} className="thongkeb1button" type="text"
-                                       placeholder="Tìm kiếm theo tài khoản"/>
+                                       placeholder="Tìm kiếm tài khoản"/>
                             </td>
 
                         </tr>
@@ -349,7 +360,7 @@ function TaiKhoan() {
                             <td>
                                 <input id="btnTimKiemTenKhachHang" name={"fTenKhachHang"} value={fTenKhachHang}
                                        onChange={onChangefTenKhachHang} className="thongkeb1button" type="text"
-                                       placeholder="Tìm kiếm theo tên khách hàng"/>
+                                       placeholder="Tìm kiếm khách hàng"/>
                             </td>
 
                         </tr>
@@ -358,7 +369,7 @@ function TaiKhoan() {
                             <td>
                                 <input id="btnTimKiemSoDienThoai" name={"fsdt"} value={fsdt} onChange={onChangefsdt}
                                        className="thongkeb1button" type="text"
-                                       placeholder="Tìm kiếm theo số điện thoại"/>
+                                       placeholder="Tìm kiếm số điện thoại"/>
                             </td>
                         </tr>
                         <tr>
@@ -366,7 +377,7 @@ function TaiKhoan() {
                             <td>
                                 <input id="btnTimKiemDiaChi" name={"fDiaChi"} value={fDiaChi} onChange={onChangefDiaChi}
                                        className="thongkeb1button" type="text"
-                                       placeholder="Tìm kiếm theo địa chỉ"/>
+                                       placeholder="Tìm kiếm địa chỉ"/>
                             </td>
                         </tr>
                     </table>
@@ -417,12 +428,14 @@ function TaiKhoan() {
                                         <h4>Tài khoản</h4>
                                     </td>
                                     <td>
-                                        <h4 id="lbTaiKhoan">{aTaiKhoan}</h4>
-                                        <input id="tbUsername" name={"aTaiKhoan"}
-                                               className={"thongkeb1button"}
-                                               style={{padding: '0.5rem', display: 'none'}}
-                                               value={aTaiKhoan} onChange={onChangeaTaiKhoan} type="text"
-                                               placeholder="Nhập tên tài khoản"/>
+                                        {
+                                            aTaiKhoan ? <h4 id="lbTaiKhoan">{aTaiKhoan}</h4> :<input id="tbUsername" name={"aTaiKhoan"}
+                                                                                                     className={"thongkeb1button"}
+                                                                                                     style={{padding: '0.5rem', display: 'none'}}
+                                                                                                     value={aTaiKhoan} onChange={onChangeaTaiKhoan} type="text"
+                                                                                                     placeholder="Nhập tên tài khoản"/>
+                                        }
+
                                     </td>
                                 </tr>
 

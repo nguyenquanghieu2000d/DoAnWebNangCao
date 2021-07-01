@@ -6,6 +6,7 @@ import CtTheLoai from "./components/Admin/CtTheLoai/CtTheLoai";
 import TaiKhoan from "./components/Admin/TaiKhoan/TaiKhoan";
 import Banner from "./components/Admin/Banner/Banner";
 import DonHang from "./components/Admin/DonHang/DonHang";
+import DangNhap from "./components/Admin/DangNhap/DangNhap";
 
 const routes = [
     {
@@ -20,6 +21,10 @@ const routes = [
             {path: 'banner', element: <Banner/>},
             {path: 'donhang', element: <DonHang/>}
         ]
+    },
+    {
+        path: 'dangnhap',
+        element: <DangNhap/>,
     },
 ];
 

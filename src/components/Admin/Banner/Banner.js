@@ -108,8 +108,7 @@ function Banner() {
 
     const btnThemKhachHang = async (e) => {
         e.preventDefault();
-        await setaMaHang("")
-        await setaTenHang("")
+        clear1();
         $("#CrudThemSua").css("display", "flex");
         $("#lbTitle").text("Thêm banner");
         await setAddOrUpdate(1)
@@ -155,6 +154,17 @@ function Banner() {
     const clear = () => {
         setfMaHang("")
         setfTenHang("")
+        setfisSlide("")
+        setfLink("")
+        setfMota("")
+    }
+
+    const clear1 = () => {
+        setaMaHang("")
+        setaTenHang("")
+        setaisSlide("")
+        setaLink("")
+        setaMota("")
     }
 
     const btnXacNhanThem = async () => {
@@ -181,6 +191,7 @@ function Banner() {
             setUploadImage("")
             await phanTrang();
             await preLoad();
+            clear1()
         }
     }
 
@@ -480,6 +491,8 @@ function Banner() {
                                     <td>
                                         <select value={aisSlide} className={"thongkeb1button"}
                                                 onChange={onChangeaisSlide}>
+
+                                            <option value={""}>Chưa chọn</option>
                                             <option value={"1"}>Slide</option>
                                             <option value={"0"}>Banner</option>
                                         </select></td>

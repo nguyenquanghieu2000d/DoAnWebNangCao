@@ -116,6 +116,7 @@ function Hang() {
 
     const btnThemKhachHang = async (e) => {
         e.preventDefault();
+        clear1()
         $("#lbMaHang").text("");
         $("#tbTenHang").val("");
         $("#tbGiaCu").val("");
@@ -137,6 +138,7 @@ function Hang() {
         $("#CrudThemSua").css("display", "none");
         await phanTrang();
         await preLoad();
+        clear1()
     }
 
 
@@ -172,6 +174,7 @@ function Hang() {
             $("#CrudThemSua").css("display", "none");
             await getHangPhanTrang(undefined, 1);
         }
+        clear1()
     }
 
     const Del = async (ma_hang) => {
@@ -304,6 +307,16 @@ function Hang() {
         setfNhoNhat("")
         setfLonNhat("")
         setfThuongHieu("")
+    }
+
+    const clear1 = () => {
+        setaMaHang("")
+        setaTenHang("")
+        setaTheLoai("")
+        setaGiaCu("")
+        setaGiaMoi("")
+        setaMoTa("")
+        setaThuongHieu("")
     }
 
     const search = async () => {
