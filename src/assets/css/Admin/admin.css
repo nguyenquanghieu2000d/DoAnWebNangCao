@@ -100,6 +100,7 @@ input {
     padding: 1rem;
     margin: 0.2rem;
     cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .thongkeb1button:hover {
@@ -124,11 +125,43 @@ table td {
 
 #filter table {
     width: 90%;
+    margin: 1rem;
 }
 
+#filter .listButton{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
 
+.hang table tr{
+    width: 50%;
+}
 
+.hang input {
+    width: 75%;
+}
 
+#CrudThemSua h3 {
+    text-align: center;
+}
+
+#CrudThemSua {
+    display: none;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    -webkit-box-shadow: -5px 4px 49px -7px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -5px 4px 49px -7px rgba(0, 0, 0, 0.75);
+    box-shadow: -5px 4px 49px -7px rgba(0, 0, 0, 0.75);
+    width: 40%;
+}
+
+#CrudThemSua .tableCrudThemSua {
+    width: 80%;
+    /*display: none;*/
+}
 
 #CrudThemSua table{
     background-color: white;
@@ -137,17 +170,28 @@ table td {
 }
 
 #CrudThemSua{
-    display: flex;
+    /*display: flex;*/
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
+#CrudThemSua input {
+    width: 100%;
+}
+
+#CrudThemSua select {
+    width: 100%;
+    font-size: 1rem;
+}
 
 #CrudThemSua td{
     text-align: left;
 }
 
+#btnExit{
+    align-self: flex-end;
+}
 
 .ThanhCongTruSo img {
     width: 100%;
@@ -167,12 +211,12 @@ table td {
 }
 
 .myshadow{
-    box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .tablecontainer {
     width: 100%;
-    position: relative;
+    /*position: relative;*/
     /*height: 70vh;*/
     /*overflow: scroll;*/
 }

@@ -4,7 +4,7 @@ import Loading from "../DungChung/Loading";
 import {HangAPI} from "../../../api/hangAPI";
 import {TheLoaiAPI} from "../../../api/theloaiAPI";
 import {BannerAPI} from "../../../api/bannerAPI";
-import {Button} from "@material-ui/core";
+import {Button, Paper} from "@material-ui/core";
 import SaveIcon from "@material-ui/icons/Save"
 
 function Banner() {
@@ -50,7 +50,7 @@ function Banner() {
     const onChangeaisSlide = (e) => {
         setaisSlide(e.target.value)
     }
-    
+
     const onChangefMaHang = (e) => {
         setfMaHang(e.target.value)
     }
@@ -110,7 +110,7 @@ function Banner() {
         e.preventDefault();
         await setaMaHang("")
         await setaTenHang("")
-        $("#CrudThemSua").toggle();
+        $("#CrudThemSua").css("display", "flex");
         $("#lbTitle").text("Thêm banner");
         await setAddOrUpdate(1)
 
@@ -124,7 +124,7 @@ function Banner() {
     }
 
     const Edit = async (ma_the_loai) => {
-        $("#CrudThemSua").toggle();
+        $("#CrudThemSua").css("display", "flex");
         $("#lbTitle").text("Sửa banner");
         $("#lbMaTheLoai").css("display", "block");
         $("#lbThongBao").text("");
@@ -171,7 +171,7 @@ function Banner() {
 
     const btnXacNhanSua = async (ma_hang) => {
         const data = getData2()
-        
+
         // alert(JSON.stringify(data))
         const response = await BannerAPI.putBanner(data)
         if (response) {
@@ -199,13 +199,13 @@ function Banner() {
                                     <p style={{textAlign: 'center'}}>{value.ten_banner}</p>
                                 </td>
                                 <td style={{width: "10rem"}}>
-                                    <p style={{textAlign: 'center'}}>{value.mo_ta}</p>
+                                    <p style={{textAlign: 'center'}}>{value.mo_ta.length < 30 ? value.mo_ta : value.mo_ta.substr(0,30) + "..." }</p>
                                 </td>
                                 <td style={{width: "10rem"}}>
                                     <p style={{textAlign: 'center'}}>{value.link}</p>
                                 </td>
                                 <td style={{width: "10rem"}}>
-                                    <img style={{width:'100%'}} src={"./" + value.image} />
+                                    <img style={{width: '100%'}} src={"./" + value.image}/>
                                     {/*<p style={{textAlign: 'center'}}>{value.image}</p>*/}
                                 </td>
                                 <td style={{width: "10rem"}}>
@@ -244,7 +244,7 @@ function Banner() {
             const num = parseInt(numpage / numrow) + 1
             for (let i = 1; i <= num; i++) {
                 list.push(<button id="btnPhanTrang`+ i + `"
-                                  style={{width: "25%", backgroundColor: currentPage === i ? 'pink' : "gray"}}
+                                  style={{ backgroundColor: currentPage === i ? 'pink' : "#f2f2f2"}}
                                   className="thongkeb1button"
                                   onClick={(e) => getHangPhanTrang(e, i)}>{i}</button>)
             }
@@ -273,7 +273,7 @@ function Banner() {
 
     const search = async () => {
         await preLoad()
-        await getHangPhanTrang(undefined,1);
+        await getHangPhanTrang(undefined, 1);
     }
 
     const getHangPhanTrang = async (e, num) => {
@@ -298,7 +298,6 @@ function Banner() {
             fileReader.onload = () => {
                 resolve(fileReader.result);
             };
-
             fileReader.onerror = (error) => {
                 reject(error);
             };
@@ -306,16 +305,12 @@ function Banner() {
     };
 
     const uploadImage = async (e) => {
-
         const file = e.target.files[0];
         if (file) {
             const base64 = await convertBase64(file);
             setUploadImage(base64);
         }
-
-
     };
-
 
 
     useEffect(() => {
@@ -326,38 +321,77 @@ function Banner() {
     return (
         <section>
             <h1 style={{textAlign: 'center'}}>QUẢN LÝ BANNER</h1>
-
-            <div style={{display: 'flex'}}>
-                <div style={{width: '100%'}} className="quanlyhangcontainer">
-                    <div style={{display: 'flex'}}>
-                        <button  id="btnThemKhachHang"
+            <div style={{display: 'flex', width: '100%'}}>
+                <Paper id={"filter"} className={"myshadow"} elevation={3} variant="outlined"
+                       style={{display: 'flex', flexDirection: 'column', margin: '1rem', width: '30%'}}>
+                    <h1 style={{textAlign: 'center'}}>Filter</h1>
+                    <div style={{display: 'flex', width: '100%', justifyContent: 'center'}}>
+                        <button id="btnThemKhachHang"
                                 className="thongkeb1button"
                                 onClick={btnThemKhachHang}>
                             <i className="far fa-plus"/>
                         </button>
-                        <input  name={"fMaHang"} value={fMaHang} onChange={onChangefMaHang}
-                               className="thongkeb1button" type="text" placeholder="Mã banner"/>
-                        <input name={"fTenHang"} value={fTenHang} onChange={onChangefTenHang}
-                               className="thongkeb1button" type="text" placeholder="Tên banner"/>
-                        <input  name={"fMoTa"} value={fMoTa} onChange={onChangefMota}
-                               className="thongkeb1button" type="text" placeholder="Mô tả"/>
-                        <input  name={"fLink"} value={fLink} onChange={onChangefLink}
-                               className="thongkeb1button" type="text" placeholder="Link"/>
-                       <select value={fisSlide} onChange={onChangefisSlide}>
-                           <option value={""}> Tất cả</option>
-                           <option value={"1"} >Slide</option>
-                           <option value={"0"} >Banner</option>
-                       </select>
-                        <button  id="clear"
+
+
+                        <button id="clear"
                                 onClick={clear}
                                 className="thongkeb1button">
                             <i className="far fa-backspace" style={{fontSize: '1rem'}}/>
                         </button>
-                        <button  id="search" className="thongkeb1button"
-                           onClick={search}>
+                        <button id="search" className="thongkeb1button"
+                                onClick={search}>
                             <i className="far fa-search" style={{fontSize: '1rem'}}/>
                         </button>
                     </div>
+                    <table style={{backgroundColor: 'white'}}>
+                        <tr>
+                            <td>Mã banner:</td>
+                            <td>
+                                <input name={"fMaHang"} value={fMaHang} onChange={onChangefMaHang}
+                                       className="thongkeb1button" type="text" placeholder="Mã banner"/>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>Tên banner:</td>
+                            <td>
+                                <input name={"fTenHang"} value={fTenHang} onChange={onChangefTenHang}
+                                       className="thongkeb1button" type="text" placeholder="Tên banner"/>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>Mô tả</td>
+                            <td>
+                                <input name={"fMoTa"} value={fMoTa} onChange={onChangefMota}
+                                       className="thongkeb1button" type="text" placeholder="Mô tả"/>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>Link</td>
+                            <td>
+                                <input name={"fLink"} value={fLink} onChange={onChangefLink}
+                                       className="thongkeb1button" type="text" placeholder="Link"/>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td>Loại</td>
+                            <td>
+                                <select value={fisSlide} className="thongkeb1button" onChange={onChangefisSlide}>
+                                    <option value={""}> Tất cả</option>
+                                    <option value={"1"}>Slide</option>
+                                    <option value={"0"}>Banner</option>
+                                </select>
+                            </td>
+
+                        </tr>
+                    </table>
+                </Paper>
+                <Paper className={"myshadow"} elevation={3} variant={"outlined"}
+                       style={{width: '60%', margin: '1rem', padding: '1rem'}}>
                     <div className="tablecontainer" style={{display: 'flex'}}>
                         <table>
                             <thead>
@@ -368,6 +402,7 @@ function Banner() {
                                 <th style={{width: '10rem'}} className="size-th">Link</th>
                                 <th style={{width: '10rem'}} className="size-th">Hình ảnh</th>
                                 <th style={{width: '10rem'}} className="size-th">Loại</th>
+                                <th className="size-th" colSpan={2}>Thao tác</th>
                             </tr>
                             </thead>
                             <tbody style={{}} id="tableTaiKhoan">
@@ -376,84 +411,125 @@ function Banner() {
                         </table>
                     </div>
                     <div style={{display: 'flex', justifyContent: 'center'}}>
-                        <button id="btnPhanTrangPrev" onClick={btnPhanTrangPrev} style={{width: '10%'}} className="thongkeb1button">PREV</button>
+                        <button id="btnPhanTrangPrev" onClick={btnPhanTrangPrev} className="thongkeb1button">PREV
+                        </button>
                         <div id="listbtnPhanTrang" style={{display: 'flex'}}>
                             {
                                 phanTrang()
                             }
                         </div>
-                        <button id="btnPhanTrangNext" onClick={btnPhanTrangNext} style={{width: '10%'}} className="thongkeb1button">NEXT</button>
+                        <button id="btnPhanTrangNext" onClick={btnPhanTrangNext} className="thongkeb1button">NEXT
+                        </button>
                     </div>
-                    <div id="CrudThemSua" style={{
-                        display: 'none',
-                        position: 'absolute',
-                        margin: '0 28%',
-                        top: '1%',
-                        WebkitBoxShadow: '-5px 4px 49px -7px rgba(0,0,0,0.75)',
-                        MozBoxShadow: '-5px 4px 49px -7px rgba(0,0,0,0.75)',
-                        boxShadow: '-5px 4px 49px -7px rgba(0,0,0,0.75)',
-                        width: '40%'
-                    }} className="themsuaxoa">
+                    <div id="CrudThemSua" className="themsuaxoa">
                         <div id="btnExit" onClick={btnExit} style={{direction: 'rtl'}}><i
                             className="far fa-times-circle" style={{
                             fontSize: '1.5rem',
                             cursor: 'pointer'
                         }}/></div>
                         <h3 id="lbTitle">Thêm banner</h3>
-                        <div style={{display: 'flex'}}>
-                            <div style={{width: '100%'}}>
-                                <div id="lbMaTheLoai" style={{fontWeight: 'bold'}}>{aMaHang? aMaHang : "Mã mã banner:"}</div>
-                                <h5>Tên banner:
-                                    <input id="tbTenTheLoai" name={"aTenHang"} value={aTenHang} onChange={onChangeaTenHang} type="text" placeholder="Nhập tên banner"/>
-                                </h5>
-                                <h5>Mô tả:
-                                    <input  name={"aMoTa"} value={aMoTa} onChange={onChangeaMota} type="text" placeholder="Nhập mô tả"/>
-                                </h5>
-                                <h5>Link:
-                                    <input  name={"aLink"} value={aLink} onChange={onChangeaLink} type="text" placeholder="Nhập link"/>
-                                </h5>
-                                <h5>
-                                    Loại:
-                                    <select value={aisSlide} onChange={onChangeaisSlide}>
-                                        <option value={"1"} >Slide</option>
-                                        <option value={"0"} >Banner</option>
-                                    </select>
-                                </h5>
+                        <div className={"tableCrudThemSua"}>
+
+                            <table>{
+                                aMaHang ? <tr>
+                                    <td>
+                                        <h4>Mã banner:</h4>
+                                    </td>
+                                    <td>
+                                        <div id="lbMaTheLoai"
+                                             style={{fontWeight: 'bold'}}>{aMaHang ? aMaHang : ""}</div>
+                                    </td>
+                                </tr> : ""
+                            }
+
+                                <tr>
+                                    <td>
+                                        <h4>Tên banner:</h4>
+                                    </td>
+                                    <td>
+                                        <input id="tbTenTheLoai" className={"thongkeb1button"}
+                                               style={{padding: '0.5rem'}} name={"aTenHang"} value={aTenHang}
+                                               onChange={onChangeaTenHang} type="text"
+                                               placeholder="Nhập tên banner"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Mô tả:</h4>
+                                    </td>
+                                    <td>
+                                        <input name={"aMoTa"} className={"thongkeb1button"}
+                                               style={{padding: '0.5rem'}} value={aMoTa} onChange={onChangeaMota}
+                                               type="text" placeholder="Nhập mô tả"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Link:</h4>
+                                    </td>
+                                    <td>
+                                        <input name={"aLink"} className={"thongkeb1button"}
+                                               style={{padding: '0.5rem'}} value={aLink} onChange={onChangeaLink}
+                                               type="text" placeholder="Nhập link"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Loại:</h4>
+                                    </td>
+                                    <td>
+                                        <select value={aisSlide} className={"thongkeb1button"}
+                                                onChange={onChangeaisSlide}>
+                                            <option value={"1"}>Slide</option>
+                                            <option value={"0"}>Banner</option>
+                                        </select></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Hình ảnh:</h4>
+                                    </td>
+                                    <td>
+                                        <Button
+                                            variant="contained"
+                                            color="primary"
+                                            size="small"
+                                            component="label"
+                                            htmlFor="files"
+                                            startIcon={<SaveIcon/>}
+                                        >
+                                            Select Image
+                                            <input id="files" accept="image/*" style={{display: 'none'}}
+                                                   onChange={(e) => {
+                                                       uploadImage(e);
+                                                   }} type="file"/>
+                                        </Button>
+                                    </td>
+                                </tr>
+                            </table>
 
 
+                            <div style={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                width: '100%',
+                                padding: '0.5rem'
+                            }}>
 
-                                <div>Hình ảnh:
-                                    <Button
-                                        variant="contained"
-                                        color="primary"
-                                        size="small"
-                                        component="label"
-                                        htmlFor="files"
-                                        startIcon={<SaveIcon/>}
-                                    >
-                                        Select Image
-                                        <input id="files" accept="image/*" style={{display: 'none'}} onChange={(e) => {
-                                            uploadImage(e);
-                                        }} type="file"/>
-                                    </Button>
+                                <div hidden={!openAnhHienTai} style={{width: '40%'}}>
+                                    <div>Ảnh hiện tại</div>
+                                    <img style={{width: '100%'}} src={"./" + aImage}/>
                                 </div>
-                                <div style={{display:'flex',justifyContent:'space-between', width:'100%',padding:'0.5rem'}}>
-
-                                    <div  hidden={!openAnhHienTai} style={{width:'40%'}}>
-                                        <div>Ảnh hiện tại</div>
-                                        <img style={{width:'100%'}} src={"./" + aImage} />
-                                    </div>
-                                    {
-                                        upUploadImage ? <div style={{width:'40%'}}><div>Ảnh vừa upload</div><img style={{width:'100%'}}  src={upUploadImage} />  </div>: <div></div>
-                                    }
+                                {
+                                    upUploadImage ? <div style={{width: '40%'}}>
+                                        <div>Ảnh vừa upload</div>
+                                        <img style={{width: '100%'}} src={upUploadImage}/></div> : <div></div>
+                                }
 
 
-                                </div>
-
-
-
-                                <div style={{height: '2rem', color: 'red'}} id="lbThongBao"/>
                             </div>
+
+
+                            <div style={{height: '2rem', color: 'red'}} id="lbThongBao"/>
                         </div>
                         <div id="btnContainer" className="thongkec1 thongkeb1">
                             <button style={{display: AddOrUpdate === 1 ? "block" : "none"}} onClick={btnXacNhanThem}
@@ -464,7 +540,7 @@ function Banner() {
                             </button>
                         </div>
                     </div>
-                </div>
+                </Paper>
             </div>
         </section>
     );

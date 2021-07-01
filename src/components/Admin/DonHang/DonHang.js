@@ -12,6 +12,7 @@ import {
 } from '@material-ui/pickers';
 import {DonHangAPI} from "../../../api/DonHangAPI";
 import {CtTheLoaiAPI} from "../../../api/ctTheLoaiAPI";
+import {convertToVND} from "../../../assets/js/tools";
 
 function DonHang() {
     const [fMaDonHang, setfMaDonHang] = useState("")
@@ -19,7 +20,7 @@ function DonHang() {
     const [fDiaChi, setfDiaChi] = useState("")
     const [fGiaThap, setfGiaThap] = useState(0)
     const [fGiaCao, setfGiaCao] = useState(300000000)
-    const [fNgayBatDau, setfNgayBatDau] = useState(new Date('2014-08-18T21:11:54'))
+    const [fNgayBatDau, setfNgayBatDau] = useState(new Date('2019-08-18T21:11:54'))
     const [fNgayKetThuc, setfNgayKetThuc] = useState(new Date('2030-08-18T21:11:54'))
     const [fSdt, setfSdt] = useState("")
     const [fHoTen, setfHoTen] = useState("")
@@ -81,7 +82,7 @@ function DonHang() {
         setfNgayKetThuc(e.target.value)
     }
 
-    const onChasetfSdt = (e) => {
+    const onChangefSdt = (e) => {
         setfSdt(e.target.value)
     }
 
@@ -212,7 +213,9 @@ function DonHang() {
                                     <p style={{textAlign: 'center'}}>{value.username}</p>
                                 </td>
                                 <td style={{width: "10rem"}}>
-                                    <p style={{textAlign: 'center'}}>{value.dia_chi}</p>
+                                    <p style={{textAlign: 'center'}}>{
+                                        value.dia_chi.length < 30 ? value.dia_chi : value.dia_chi.substr(0,30) + "..."
+                                        }</p>
                                 </td>
                                 <td style={{width: "10rem"}}>
                                     <p style={{textAlign: 'center'}}>{value.hoten_dh}</p>
@@ -224,18 +227,8 @@ function DonHang() {
                                     <p style={{textAlign: 'center'}}>{value.ngay_thanh_toan}</p>
                                 </td>
                                 <td style={{width: "10rem"}}>
-                                    <p style={{textAlign: 'center'}}>{value.thanhtien}</p>
+                                    <p style={{textAlign: 'center'}}>{convertToVND(value.thanhtien)}</p>
                                 </td>
-                                {/*<td style={{width: "5%"}} className="total-col">*/}
-                                {/*    <button style={{width: "4rem"}} className="thongkeb1button"*/}
-                                {/*            onClick={e => Edit(value.ma_loai)}>Sửa*/}
-                                {/*    </button>*/}
-                                {/*</td>*/}
-                                {/*<td style={{width: "5%"}} className="total-col">*/}
-                                {/*    <button style={{width: "4rem"}} className="thongkeb1button"*/}
-                                {/*            onClick={e => Del(value.ma_loai)}>Xóa*/}
-                                {/*    </button>*/}
-                                {/*</td>*/}
                             </tr>
                         </>
                     }) : <Loading/>
@@ -260,7 +253,7 @@ function DonHang() {
             const num = parseInt(numpage / numrow) + 1
             for (let i = 1; i <= num; i++) {
                 list.push(<button id="btnPhanTrang`+ i + `"
-                                  style={{width: "25%", backgroundColor: currentPage === i ? 'pink' : "gray"}}
+                                  style={{width: "25%", backgroundColor: currentPage === i ? 'pink' : "#f2f2f2"}}
                                   className="thongkeb1button"
                                   onClick={(e) => getHangPhanTrang(e, i)}>{i}</button>)
             }
@@ -295,9 +288,9 @@ function DonHang() {
         // alert(JSON.stringify(getData()))
 
 
-        convert(selectedDate)
-        // await preLoad()
-        // await getHangPhanTrang(undefined, 1);
+        
+        await preLoad()
+        await getHangPhanTrang(undefined, 1);
     }
 
     const getHangPhanTrang = async (e, num) => {
@@ -330,64 +323,100 @@ function DonHang() {
     return (
         <section>
             <h1 style={{textAlign: 'center'}}>QUẢN LÝ CHI TIẾT THỂ LOẠI</h1>
-            <div style={{display: 'flex'}}>
-                <Paper style={{padding: '1rem'}} variant="outlined">
-                    <table style={{width: '100%', backgroundColor: 'white'}}>
+
+            <div style={{display: 'flex', width: '100%'}}>
+                <Paper id={"filter"} className={"myshadow "} elevation={3} variant="outlined"
+                       style={{display: 'flex', flexDirection: 'column', margin: '1rem', width: '30%', height:'70%'}}>
+                    <h1 style={{textAlign: 'center'}}>Filter</h1>
+                    <div
+                        className={"listButton"}
+                        style={{display: 'flex'}}>
+                        <button  onClick={clear} id="clear"
+                                 className="thongkeb1button">
+                            <i className="far fa-backspace" style={{fontSize: '1rem'}}/>
+                        </button>
+                        <button  onClick={search} id="search"
+                                 className="thongkeb1button">
+                            <i className="far fa-search" style={{fontSize: '1rem'}}/>
+                        </button>
+                    </div>
+                    <table style={{ backgroundColor: 'white'}}>
 
                         <tr>
                             <td>Mã đơn hàng</td>
-                            <input id="tbTimKiemMaLoai"
-                                   style={{width: '80%'}}
-                                   name={"fMaDonHang"}
-                                   value={fMaDonHang}
-                                   onChange={onChangefMaDonHang}
-                                   className="thongkeb1button" type="text" placeholder="Mã loại"/>
-
-
+                            <td>
+                                <input id="tbTimKiemMaLoai"
+                                       name={"fMaDonHang"}
+                                       value={fMaDonHang}
+                                       onChange={onChangefMaDonHang}
+                                       className="thongkeb1button" type="text" placeholder="Mã đơn hàng"/>
+                            </td>
                         </tr>
                         <tr>
                             <td>Username</td>
+                            <td>
                             <input id="tbTimKiemTenLoai"
-                                   style={{width: '80%'}}
+                                   // style={{width: '80%'}}
                                    name={"fUsername"}
                                    value={fUsername}
                                    onChange={onChangefUsername}
-                                   className="thongkeb1button" type="text" placeholder="Tên loại"/>
+                                   className="thongkeb1button" type="text" placeholder="Username"/>
+                            </td>
                         </tr>
                         <tr>
                             <td>Địa chỉ</td>
-                            <input id="tbTimKiemMaTheLoai"
-                                   style={{width: '80%'}}
-                                   name={"fDiaChi"}
-                                   value={fDiaChi}
-                                   onChange={onChangefDiaChi}
-                                   className="thongkeb1button" type="text"
-                                   placeholder="Tên mã thể loại"/>
-                        </tr>
-                        <tr>
-                            <td>Địa chỉ</td>
-                            <input id="tbTimKiemMaTheLoai"
-                                   style={{width: '80%'}}
-                                   name={"fDiaChi"}
-                                   value={fDiaChi}
-                                   onChange={onChangefDiaChi}
-                                   className="thongkeb1button" type="text"
-                                   placeholder="Tên mã thể loại"/>
-                        </tr>
-                        <tr>
-                            <td>Địa chỉ</td>
-                            <input id="tbTimKiemMaTheLoai"
-                                   style={{width: '80%'}}
-                                   name={"fDiaChi"}
-                                   value={fDiaChi}
-                                   onChange={onChangefDiaChi}
-                                   className="thongkeb1button" type="text"
-                                   placeholder="Tên mã thể loại"/>
+                            <td>
+                                <input id="tbTimKiemMaTheLoai"
+                                    // style={{width: '80%'}}
+                                       name={"fDiaChi"}
+                                       value={fDiaChi}
+                                       onChange={onChangefDiaChi}
+                                       className="thongkeb1button" type="text"
+                                       placeholder="Địa chỉ"/>
+                            </td>
+
                         </tr>
 
                         <tr>
-                            <td>Ngày bắt đầu</td>
+                            <td>Số điện thoại</td>
                             <td>
+                                <input id="tbTimKiemMaTheLoai"
+                                    // style={{width: '80%'}}
+                                       name={"fSdt"}
+                                       value={fSdt}
+                                       onChange={onChangefSdt}
+                                       className="thongkeb1button" type="text"
+                                       placeholder="Số điện thoại"/>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>Giá tiền trong khoảng</td>
+                            <td>
+                                <input id="tbTimKiemMaTheLoai"
+                                    // style={{width: '80%'}}
+                                       name={"fGiaThap"}
+                                       value={fGiaThap}
+                                       onChange={onChangefGiaThap}
+                                       className="thongkeb1button" type="text"
+                                       placeholder="Giá thấp"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Giá tiền trong khoảng</td>
+                            <td>
+                                <input id="tbTimKiemMaTheLoai"
+                                    // style={{width: '80%'}}
+                                       name={"fGiaCao"}
+                                       value={fGiaCao}
+                                       onChange={onChangefGiaCao}
+                                       className="thongkeb1button" type="text"
+                                       placeholder="Giá cao"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            {/*<td>Ngày bắt đầu</td>*/}
+                            <td colSpan={2}>
                                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
                                     <KeyboardDatePicker
                                         disableToolbar
@@ -395,8 +424,9 @@ function DonHang() {
                                         format="MM/dd/yyyy"
                                         margin="normal"
                                         id="date-picker-inline"
-                                        label="Date picker inline"
-                                        value={selectedDate}
+                                        label="Ngày bắt đầu"
+                                        value={fNgayBatDau}
+
                                         onChange={handleDateChange}
                                         KeyboardButtonProps={{
                                             'aria-label': 'change date',
@@ -407,10 +437,7 @@ function DonHang() {
                         </tr>
 
                         <tr>
-                            <td>
-                                Ngày kết thúc
-                            </td>
-                            <td>
+                            <td colSpan={2}>
                                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
                                     <KeyboardDatePicker
                                         disableToolbar
@@ -418,8 +445,8 @@ function DonHang() {
                                         format="MM/dd/yyyy"
                                         margin="normal"
                                         id="date-picker-inline"
-                                        label="Date picker inline"
-                                        value={selectedDate}
+                                        label="Ngày kết thúc"
+                                        value={fNgayKetThuc}
                                         onChange={handleDateChange}
                                         KeyboardButtonProps={{
                                             'aria-label': 'change date',
@@ -432,24 +459,9 @@ function DonHang() {
 
 
                 </Paper>
-                <div style={{width: '100%'}} className="quanlyhangcontainer">
-                    <div style={{display: 'flex'}}>
-                        {/*<button style={{width: '1%', padding: '1rem 1rem'}} id="btnThemKhachHang"*/}
-                        {/*        className="thongkeb1button"*/}
-                        {/*        onClick={btnThemKhachHang}>*/}
-                        {/*    <i className="far fa-plus"/>*/}
-                        {/*</button>*/}
+                <Paper className={"myshadow"} elevation={3} variant={"outlined"}
+                       style={{width: '60%', margin: '1rem', padding: '1rem'}}>
 
-
-                        <button style={{width: '1.5%', padding: '1rem 1rem'}} onClick={clear} id="clear"
-                                className="thongkeb1button">
-                            <i className="far fa-backspace" style={{fontSize: '1rem'}}/>
-                        </button>
-                        <button style={{width: '1.5%', padding: '1rem 1rem'}} onClick={search} id="search"
-                                className="thongkeb1button">
-                            <i className="far fa-search" style={{fontSize: '1rem'}}/>
-                        </button>
-                    </div>
                     <div className="tablecontainer" style={{display: 'flex'}}>
                         <table>
                             <thead>
@@ -469,7 +481,7 @@ function DonHang() {
                         </table>
                     </div>
                     <div style={{display: 'flex', justifyContent: 'center'}}>
-                        <input id="btnPhanTrangPrev" onClick={btnPhanTrangPrev} style={{width: '10%'}}
+                        <input id="btnPhanTrangPrev" onClick={btnPhanTrangPrev}
                                className="thongkeb1button" type="button"
                                defaultValue="PREV"/>
                         <div id="listbtnPhanTrang" style={{display: 'flex'}}>
@@ -477,7 +489,7 @@ function DonHang() {
                                 phanTrang()
                             }
                         </div>
-                        <input id="btnPhanTrangNext" onClick={btnPhanTrangNext} style={{width: '10%'}}
+                        <input id="btnPhanTrangNext" onClick={btnPhanTrangNext}
                                className="thongkeb1button" type="button"
                                defaultValue="NEXT"/>
                     </div>
@@ -534,7 +546,7 @@ function DonHang() {
                     {/*    </div>*/}
                     {/*    /!*                <input type="button" onclick="okok()" value="okok">*!/*/}
                     {/*</div>*/}
-                </div>
+                </Paper>
             </div>
         </section>
     );

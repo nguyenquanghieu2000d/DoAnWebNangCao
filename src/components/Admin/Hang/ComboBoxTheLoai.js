@@ -28,13 +28,12 @@ function ComboBoxTheLoai(props) {
 
     return (
         <div>
-            Chọn thể loại:
-            <select value={value} onChange={selectOnChange} id="selectTheLoai" style={{
-                borderRadius: '1rem',
-                width: '100%',
-                height: '3rem',
-                fontFamily: 'JosefinSans,serif'
-            }}>
+            <h4>Chọn thể loại:</h4>
+            <select value={value} onChange={selectOnChange} id="selectTheLoai"
+                    className={"thongkeb1button"}
+                    style={{
+                        fontFamily: 'JosefinSans,serif'
+                    }}>
                 <option value={""}>Chưa chọn</option>
                 {
                     ListTheLoai ? ListTheLoai.map((value, index) => {

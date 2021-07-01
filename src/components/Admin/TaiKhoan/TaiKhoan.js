@@ -3,6 +3,7 @@ import $ from "jquery";
 import {TheLoaiAPI} from "../../../api/theloaiAPI";
 import Loading from "../DungChung/Loading";
 import {TaiKhoanAPI} from "../../../api/taiKhoanAPI";
+import {Paper} from "@material-ui/core";
 
 function TaiKhoan() {
     const [fTaiKhoan, setfTaiKhoan] = useState("")
@@ -30,9 +31,6 @@ function TaiKhoan() {
     const onChangefDiaChi = (e) => {
         setfDiaChi(e.target.value)
     }
-
-
-
 
 
     const [aTaiKhoan, setaTaiKhoan] = useState("")
@@ -68,13 +66,6 @@ function TaiKhoan() {
     }
 
 
-
-
-
-
-
-
-
     const [numrow, setNumrow] = useState(4);
     const [currentPage, setCurrentPage] = useState(1);
     const [numpage, setNumpage] = useState(0)
@@ -99,7 +90,7 @@ function TaiKhoan() {
             "password": "",
             "hoten": "",
             "gioitinh": "",
-            "diachi":"",
+            "diachi": "",
             "sdt": ""
         }
         return result_data
@@ -111,7 +102,7 @@ function TaiKhoan() {
             "password": aMatKhau,
             "hoten": aTenKhachHang,
             "gioitinh": aGioiTinh,
-            "diachi":aDiaChi,
+            "diachi": aDiaChi,
             "sdt": asdt
         }
 
@@ -124,7 +115,7 @@ function TaiKhoan() {
             "password": fMatKhau,
             "hoten": fTenKhachHang,
             "gioitinh": fGioiTinh,
-            "diachi":fDiaChi,
+            "diachi": fDiaChi,
             "sdt": fsdt
 
         }
@@ -136,8 +127,8 @@ function TaiKhoan() {
         e.preventDefault();
         await setaTaiKhoan("")
         await setaTenKhachHang("")
-        $("#CrudThemSua").toggle();
-        $("#lbTitle").text("Thêm thể loại");
+        $("#CrudThemSua").css("display", "flex");
+        $("#lbTitle").text("Thêm khách hàng");
         $("#tbUsername").css("display", "block");
         await setAddOrUpdate(1)
         $("#lbMaTheLoai").css("display", "none");
@@ -149,7 +140,7 @@ function TaiKhoan() {
     }
 
     const Edit = async (username) => {
-        $("#CrudThemSua").toggle();
+        $("#CrudThemSua").css("display", "flex");
         $("#lbTitle").text("Sửa tài khoản");
         $("#lbTaiKhoan").css("display", "block");
         $("#lbThongBao").text("");
@@ -191,11 +182,10 @@ function TaiKhoan() {
         // alert(JSON.stringify(data))
         const response = await TaiKhoanAPI.posttaikhoan(data)
         if (response.status === 1) {
-            alert("Thêm thể loại thành công");
+            alert("Thêm khách hàng thành công");
             $("#CrudThemSua").css("display", "none");
             await preLoad()
-        }
-        else{
+        } else {
             alert("Tài khoản trùng");
         }
     }
@@ -269,9 +259,9 @@ function TaiKhoan() {
             const num = parseInt(numpage / numrow) + 1
             for (let i = 1; i <= num; i++) {
                 list.push(<button
-                                  style={{width: "25%", backgroundColor: currentPage === i ? 'pink' : "gray"}}
-                                  className="thongkeb1button"
-                                  onClick={(e) => getHangPhanTrang(e, i)}>{i}</button>)
+                    style={{width: "25%", backgroundColor: currentPage === i ? 'pink' : "#f2f2f2"}}
+                    className="thongkeb1button"
+                    onClick={(e) => getHangPhanTrang(e, i)}>{i}</button>)
             }
             return list;
         }
@@ -296,7 +286,7 @@ function TaiKhoan() {
 
     const search = async () => {
         await preLoad()
-        await getHangPhanTrang(undefined,1);
+        await getHangPhanTrang(undefined, 1);
     }
 
     const getHangPhanTrang = async (e, num) => {
@@ -322,98 +312,203 @@ function TaiKhoan() {
     }, []);
 
 
-
     return (
         <section>
             <h1 style={{textAlign: 'center'}}>QUẢN LÝ KHÁCH HÀNG</h1>
-            <div style={{}} className="quanlyhangcontainer">
+            <div style={{display: 'flex', width: '100%'}}>
+                <Paper id={"filter"} className={"myshadow"} elevation={3} variant="outlined"
+                       style={{display: 'flex', flexDirection: 'column', margin: '1rem', width: '30%'}}>
+                    <h1 style={{textAlign: 'center'}}>Filter</h1>
+                    <div
+                        className={"listButton"}
+                        style={{display: 'flex', width: '100%', justifyContent: 'center'}}>
+                        <button id="btnThemKhachHang" className="thongkeb1button"
+                                onClick={btnThemKhachHang}>
+                            <i className="far fa-plus"/>
+                        </button>
 
-                <button style={{width: '10%', padding: '1rem 1rem'}} id="btnThemKhachHang" className="thongkeb1button"
-                   onClick={btnThemKhachHang}>
-                    <i className="far fa-plus"/>
-                </button>
-                <input id="btnTimKiemTaiKhoan" style={{width: '15%'}} name={"fTaiKhoan"} value={fTaiKhoan} onChange={onChangefTaiKhoan} className="thongkeb1button" type="text"
-                       placeholder="Tìm kiếm theo tài khoản" />
-                <input id="btnTimKiemTenKhachHang" style={{width: '20%'}} name={"fTenKhachHang"} value={fTenKhachHang} onChange={onChangefTenKhachHang} className="thongkeb1button" type="text"
-                       placeholder="Tìm kiếm theo tên khách hàng" />
-                <input id="btnTimKiemSoDienThoai" style={{width: '15%'}} name={"fsdt"} value={fsdt} onChange={onChangefsdt} className="thongkeb1button" type="text"
-                       placeholder="Tìm kiếm theo số điện thoại" />
-                <input id="btnTimKiemDiaChi" style={{width: '20%'}} name={"fDiaChi"} value={fDiaChi} onChange={onChangefDiaChi} className="thongkeb1button" type="text"
-                       placeholder="Tìm kiếm theo địa chỉ" />
-                <button style={{width: '10%', padding: '1rem 1rem'}} id="clear" className="thongkeb1button" onClick = {clear}>
-                    <i className="far fa-backspace" style={{fontSize: '1rem'}}/>
-                </button>
-                <button style={{width: '10%', padding: '1rem 1rem'}} id="search" className="thongkeb1button" onClick = {search}>
-                    <i className="far fa-search" style={{fontSize: '1rem'}}/>
-                </button>
-                <div className="tablecontainer">
-                    <table>
-                        <thead>
+                        <button id="clear" className="thongkeb1button" onClick={clear}>
+                            <i className="far fa-backspace" style={{fontSize: '1rem'}}/>
+                        </button>
+                        <button id="search" className="thongkeb1button" onClick={search}>
+                            <i className="far fa-search" style={{fontSize: '1rem'}}/>
+                        </button>
+                    </div>
+                    <table style={{backgroundColor: 'white'}}>
                         <tr>
-                            <th className="quy-th">Tài khoản</th>
-                            <th className="size-th">Mật khẩu</th>
-                            <th className="kichco size-th">Tên khách hàng</th>
-                            <th className="dongia size-th">Số điện thoại</th>
-                            <th className="total-th size-th">Địa chỉ</th>
+                            <td>Tài khoản:</td>
+                            <td>
+                                <input id="btnTimKiemTaiKhoan" name={"fTaiKhoan"} value={fTaiKhoan}
+                                       onChange={onChangefTaiKhoan} className="thongkeb1button" type="text"
+                                       placeholder="Tìm kiếm theo tài khoản"/>
+                            </td>
+
                         </tr>
-                        </thead>
-                        <tbody style={{}} id="tableTaiKhoan">
-                        <Table/>
-                        </tbody>
+                        <tr>
+                            <td>Tên khách hàng:</td>
+                            <td>
+                                <input id="btnTimKiemTenKhachHang" name={"fTenKhachHang"} value={fTenKhachHang}
+                                       onChange={onChangefTenKhachHang} className="thongkeb1button" type="text"
+                                       placeholder="Tìm kiếm theo tên khách hàng"/>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>Số điện thoại</td>
+                            <td>
+                                <input id="btnTimKiemSoDienThoai" name={"fsdt"} value={fsdt} onChange={onChangefsdt}
+                                       className="thongkeb1button" type="text"
+                                       placeholder="Tìm kiếm theo số điện thoại"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Địa chỉ</td>
+                            <td>
+                                <input id="btnTimKiemDiaChi" name={"fDiaChi"} value={fDiaChi} onChange={onChangefDiaChi}
+                                       className="thongkeb1button" type="text"
+                                       placeholder="Tìm kiếm theo địa chỉ"/>
+                            </td>
+                        </tr>
                     </table>
-                </div>
-                <div style={{display: 'flex', justifyContent: 'center'}}>
-                    <button id="btnPhanTrangPrev" onClick={btnPhanTrangPrev} style={{width: '5%'}} className="thongkeb1button">PREV</button>
-                    <div id="listbtnPhanTrang" style={{display: 'flex'}}>
-                        {
-                            phanTrang()
-                        }
-                    </div>
-                    <button id="btnPhanTrangNext" onClick={btnPhanTrangNext} style={{width: '5%'}} className="thongkeb1button">NEXT</button>
-                </div>
-                <div id="CrudThemSua" style={{
-                    display: 'none',
-                    position: 'absolute',
-                    margin: '0 28%',
-                    top: '1%',
-                    WebkitBoxShadow: '-5px 4px 49px -7px rgba(0,0,0,0.75)',
-                    MozBoxShadow: '-5px 4px 49px -7px rgba(0,0,0,0.75)',
-                    boxShadow: '-5px 4px 49px -7px rgba(0,0,0,0.75)',
-                    width: '40%'
-                }} className="themsuaxoa">
-                    <div id="btnExit" onClick={btnExit} style={{direction: 'rtl'}}><i className="far fa-times-circle"
-                                                                    style={{fontSize: '1.5rem', cursor: 'pointer'}}/>
-                    </div>
-                    <h3 id="lbTitle">Thêm khách hàng</h3>
-                    <div style={{fontWeight: 'bold'}}>Tài khoản: <h4 id="lbTaiKhoan">{aTaiKhoan}</h4>
-                    <input style={{display: 'none'}} id="tbUsername" name={"aTaiKhoan"} value={aTaiKhoan} onChange={onChangeaTaiKhoan} type="text" placeholder="Nhập tên tài khoản"/>
-                    </div>
-                    <h5>Mật khẩu: <input id="tbMatKhau" name={aMatKhau} value={aMatKhau} onChange={onChangeaMatKhau} type="password" placeholder="Nhập mật khẩu"/></h5>
-                    <h5>Xác nhận mật khẩu: <input id="tbMatKhauValid" type="password" name={"aMatKhauXacNhan"} value={aMatKhauXacNhan} onChange={onChangeaMatKhauXacNhan}
-                                                  placeholder="Nhập mật khẩu xác nhận"/></h5>
-                    <h5>Tên khách hàng: <input id="tbTenKhachHang" type="text" name={"aTenKhachHang"} value={aTenKhachHang} onChange={onChangeaTenKhachHang} placeholder="Nhập tên khách hàng"/></h5>
-                    <h5>Số điện thoại: <input id="tbSdt" type="text" name={"asdt"} value={asdt} onChange={onChangeasdt} placeholder="Nhập số điện thoại"/></h5>
-                    <h5>Giới tính:
-                        <select value={aGioiTinh} onChange={onChangeaGioiTinh}>
-                            <option value={""}>Chưa chọn</option>
-                            <option value={"Nam"}>Nam</option>
-                            <option value={"Nu"}>Nữ</option>
-                        </select>
 
-                    </h5>
 
-                    <h5>Địa chỉ: <input id="tbDiaChi" type="text" name={"aDiaChi"} value={aDiaChi} onChange={onChangeaDiaChi} placeholder="Nhập địa chỉ"/></h5>
-                    <div style={{height: '2rem', color: 'red'}} id="lbThongBao"/>
-                    <div id="btnContainer" className="thongkec1 thongkeb1">
-                        <button style={{display: AddOrUpdate === 1 ? "block" : "none"}} onClick={btnXacNhanThem}
-                                className="thongkeb1button" type="button">Xác nhận
+                </Paper>
+                <Paper className={"myshadow"} elevation={3} variant={"outlined"}
+                       style={{width: '60%', margin: '1rem', padding: '1rem'}}>
+
+                    <div className="tablecontainer">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th className="quy-th">Tài khoản</th>
+                                <th className="size-th">Mật khẩu</th>
+                                <th className="kichco size-th">Tên khách hàng</th>
+                                <th className="dongia size-th">Số điện thoại</th>
+                                <th className="total-th size-th">Địa chỉ</th>
+                                <th className="size-th" colSpan={2}>Thao tác</th>
+                            </tr>
+                            </thead>
+                            <tbody style={{}} id="tableTaiKhoan">
+                            <Table/>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style={{display: 'flex', justifyContent: 'center'}}>
+                        <button id="btnPhanTrangPrev" onClick={btnPhanTrangPrev} className="thongkeb1button">PREV
                         </button>
-                        <button style={{display: AddOrUpdate === 0 ? "block" : "none"}} onClick={btnXacNhanSua}
-                                className="thongkeb1button" type="button">Xác nhận sửa
+                        <div id="listbtnPhanTrang" style={{display: 'flex'}}>
+                            {
+                                phanTrang()
+                            }
+                        </div>
+                        <button id="btnPhanTrangNext" onClick={btnPhanTrangNext} className="thongkeb1button">NEXT
                         </button>
-
                     </div>
-                </div>
+                    <div id="CrudThemSua" className="themsuaxoa">
+                        <div id="btnExit" onClick={btnExit} style={{direction: 'rtl'}}><i
+                            className="far fa-times-circle"
+                            style={{fontSize: '1.5rem', cursor: 'pointer'}}/>
+                        </div>
+                        <h3 id="lbTitle">Thêm khách hàng</h3>
+                        <div className={"tableCrudThemSua"}>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <h4>Tài khoản</h4>
+                                    </td>
+                                    <td>
+                                        <h4 id="lbTaiKhoan">{aTaiKhoan}</h4>
+                                        <input id="tbUsername" name={"aTaiKhoan"}
+                                               className={"thongkeb1button"}
+                                               style={{padding: '0.5rem', display: 'none'}}
+                                               value={aTaiKhoan} onChange={onChangeaTaiKhoan} type="text"
+                                               placeholder="Nhập tên tài khoản"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <h4>Mật khẩu:</h4>
+                                    </td>
+                                    <td>
+                                        <input id="tbMatKhau" name={aMatKhau} value={aMatKhau}
+                                               className={"thongkeb1button"} style={{padding: '0.5rem'}}
+                                               onChange={onChangeaMatKhau} type="password" placeholder="Nhập mật khẩu"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Xác nhận mật khẩu:</h4>
+                                    </td>
+                                    <td>
+                                        <input id="tbMatKhauValid" type="password" name={"aMatKhauXacNhan"}
+                                               className={"thongkeb1button"} style={{padding: '0.5rem'}}
+                                               value={aMatKhauXacNhan} onChange={onChangeaMatKhauXacNhan}
+                                               placeholder="Nhập mật khẩu xác nhận"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Tên khách hàng:</h4>
+                                    </td>
+                                    <td>
+                                        <input id="tbTenKhachHang" type="text" name={"aTenKhachHang"}
+                                               className={"thongkeb1button"} style={{padding: '0.5rem'}}
+                                               value={aTenKhachHang} onChange={onChangeaTenKhachHang}
+                                               placeholder="Nhập tên khách hàng"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Số điện thoại: </h4>
+                                    </td>
+                                    <td>
+                                        <input id="tbSdt" type="text" name={"asdt"} value={asdt}
+                                               className={"thongkeb1button"} style={{padding: '0.5rem'}}
+                                               onChange={onChangeasdt}
+                                               placeholder="Nhập số điện thoại"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Giới tính: </h4>
+                                    </td>
+                                    <td>
+                                        <select value={aGioiTinh}
+                                                className={"thongkeb1button"}
+                                                onChange={onChangeaGioiTinh}>
+                                            <option value={""}>Chưa chọn</option>
+                                            <option value={"Nam"}>Nam</option>
+                                            <option value={"Nu"}>Nữ</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Địa chỉ: </h4>
+                                    </td>
+                                    <td>
+                                        <input id="tbDiaChi" type="text" name={"aDiaChi"} value={aDiaChi}
+                                               className={"thongkeb1button"} style={{padding: '0.5rem'}}
+                                               onChange={onChangeaDiaChi} placeholder="Nhập địa chỉ"/>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </div>
+
+                        <div style={{height: '2rem', color: 'red'}} id="lbThongBao"/>
+                        <div id="btnContainer" className="thongkec1 thongkeb1">
+                            <button style={{display: AddOrUpdate === 1 ? "block" : "none"}} onClick={btnXacNhanThem}
+                                    className="thongkeb1button" type="button">Xác nhận
+                            </button>
+                            <button style={{display: AddOrUpdate === 0 ? "block" : "none"}} onClick={btnXacNhanSua}
+                                    className="thongkeb1button" type="button">Xác nhận sửa
+                            </button>
+
+                        </div>
+                    </div>
+                </Paper>
             </div>
         </section>
     );

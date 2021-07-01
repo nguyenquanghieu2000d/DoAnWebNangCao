@@ -259,7 +259,9 @@ function CtTheLoai() {
                 <Paper id={"filter"} className={"myshadow"} elevation={3} variant="outlined"
                        style={{display: 'flex', flexDirection: 'column', margin: '1rem', width: '30%'}}>
                     <h1 style={{textAlign: 'center'}}>Filter</h1>
-                    <div style={{display: 'flex', width: '100%', justifyContent:'center'}}>
+                    <div
+                        className={"listButton"}
+                        style={{display: 'flex', width: '100%', justifyContent:'center'}}>
                         <button id="btnThemKhachHang"
                                 className="thongkeb1button"
                                 onClick={btnThemKhachHang}>
@@ -349,28 +351,27 @@ function CtTheLoai() {
                                className="thongkeb1button" type="button"
                                defaultValue="NEXT"/>
                     </div>
-                    <div id="CrudThemSua" style={{
-                        display: 'none',
-                        position: 'absolute',
-                        // margin: '0 28%',
-                        top: '15%',
-                        left: "50%",
-                        transform: 'translate(-50%, 0)',
-                        WebkitBoxShadow: '-5px 4px 49px -7px rgba(0,0,0,0.75)',
-                        MozBoxShadow: '-5px 4px 49px -7px rgba(0,0,0,0.75)',
-                        boxShadow: '-5px 4px 49px -7px rgba(0,0,0,0.75)',
-                        width: '40%'
-                    }} className="themsuaxoa">
+                    <div id="CrudThemSua"  className="themsuaxoa">
                         <div id="btnExit" onClick={btnExit} style={{direction: 'rtl'}}><i
                             className="far fa-times-circle" style={{
                             fontSize: '1.5rem',
                             cursor: 'pointer'
                         }}/></div>
                         <h2 id="lbTitle">Thêm khách hàng</h2>
-                        <div style={{width: '60%'}}>
+                        <div className={"tableCrudThemSua"}>
                             <div id="lbMaLoai" style={{fontWeight: 'bold'}}/>
-                            {/*                <div style="height:0.5rem; color:red" id="lbThongBao">22</div>*/}
                             <table>
+                                {
+                                    aMaHang ? <tr>
+                                        <td>
+                                            <h4>Tên thể loại:</h4>
+                                        </td>
+                                        <td>
+                                            <p>{aMaHang}</p>
+                                        </td>
+                                    </tr> : ""
+                                }
+
                                 <tr>
                                     <td>
                                         <h4>Tên thể loại:</h4>
@@ -388,12 +389,7 @@ function CtTheLoai() {
                                     </td>
                                     <td>
                                         <select id="selectTheLoai" value={aTheLoai} onChange={onChangeaTheLoai}
-                                                style={{
-                                                    borderRadius: '1rem',
-                                                    width: '100%',
-                                                    height: '3rem',
-                                                    fontFamily: 'JosefinSans,serif'
-                                                }}>
+                                               className={"thongkeb1button"}>
                                             <option value={""}>Chưa chọn</option>
                                             {
                                                 ListTheLoai ? ListTheLoai.map((value, index) => {
