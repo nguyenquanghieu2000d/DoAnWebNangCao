@@ -107,55 +107,38 @@ function TrangChu() {
                     <ListCategory gridItemPerColumn={4}/>
                 </div>
 
-                <div id="showshowcontainer2" className="showshowcontainer">
-                    <div>
-                        <a href="#">
-                            <img src="Image/1200x630-3.jpg"/>
-                            <h3>MỪNG SINH NHẬT - TRAO TRI ÂN</h3>
-                            <p>Mừng tuổi lên 4 (10/6/2016 - 10/6/2020), HHNStore quyết định dành cả tháng 6 này để "chơi
-                                lớn" và ăn mừng bữa tiệc sinh nhật...</p>
-                            <h1>Xem thêm</h1>
-                        </a>
-                        <a href="#">
-                            <img src="Image/1200x630-2.jpg"/>
-                            <h3>MỪNG CHẶNG ĐƯỜNG 4 NĂM CỦA HHNStore </h3>
-                            <p>Tháng 6 này, HHNStore hạnh phúc chào đón cột mốc tuổi lên 4 của mình với nhiều những câu
-                                chuyện thành - bại, xúc cảm...</p>
-                            <h1>Xem thêm</h1>
-                        </a>
-                    </div>
-                </div>
+
             </section>
-            <section id="section5">
-                <div className="section5_container">
-                    {/*            <div ><button class="section4button previous round">&#8249;</button></div>*/}
-                    <img id="brand1" className="brandImage" src="./Image/Brand/fila.png" alt=""/>
-                    <img id="brand2" className="brandImage" src="./Image/Brand/0.jpg"/>
-                    <img id="brand3" className="brandImage" src="./Image/Brand/00000001542.png"/>
-                    <img id="brand4" className="brandImage" src="./Image/Brand/Gucci-Logo-500x300.png"/>
-                    <img id="brand5" className="brandImage"
-                         src="Image/Brand/How-brand-licensing-hurt-the-Calvin-Klein-brand.jpg"/>
-                    <img id="brand6" className="brandImage" src="./Image/Brand/louis-vuitton-1-1200x643.jpg"/>
-                    <img id="brand7" className="brandImage" src="./Image/Brand/unnamed.jpg"/>
-                    <img id="brand8" className="brandImage" src="./Image/Brand/VS.jpg"/>
-                    {/*            <div ><button class="section4button round next">&#8250;</button></div>*/}
-                </div>
-                <div id="DangKyEmail">
-                    <h1>
-                        ĐĂNG KÝ VỚI HHNStore
-                    </h1>
-                    <h2>
-                        Cập nhật thông tin các mặt hàng chất lượng mỗi ngày nhé
-                    </h2>
-                    <div className="fromDangKy">
-                        <input className="input_1" type="text" placeholder="Nhập email tại đây nhé !!"/>
-                        <button onClick={() => {
-                            alert("Hello")
-                        }}>Subcribe
-                        </button>
-                    </div>
-                </div>
-            </section>
+            {/*<section id="section5">*/}
+            {/*    <div className="section5_container">*/}
+            {/*        /!*            <div ><button class="section4button previous round">&#8249;</button></div>*!/*/}
+            {/*        <img id="brand1" className="brandImage" src="./Image/Brand/fila.png" alt=""/>*/}
+            {/*        <img id="brand2" className="brandImage" src="./Image/Brand/0.jpg"/>*/}
+            {/*        <img id="brand3" className="brandImage" src="./Image/Brand/00000001542.png"/>*/}
+            {/*        <img id="brand4" className="brandImage" src="./Image/Brand/Gucci-Logo-500x300.png"/>*/}
+            {/*        <img id="brand5" className="brandImage"*/}
+            {/*             src="Image/Brand/How-brand-licensing-hurt-the-Calvin-Klein-brand.jpg"/>*/}
+            {/*        <img id="brand6" className="brandImage" src="./Image/Brand/louis-vuitton-1-1200x643.jpg"/>*/}
+            {/*        <img id="brand7" className="brandImage" src="./Image/Brand/unnamed.jpg"/>*/}
+            {/*        <img id="brand8" className="brandImage" src="./Image/Brand/VS.jpg"/>*/}
+            {/*        /!*            <div ><button class="section4button round next">&#8250;</button></div>*!/*/}
+            {/*    </div>*/}
+            {/*    <div id="DangKyEmail">*/}
+            {/*        <h1>*/}
+            {/*            ĐĂNG KÝ VỚI HHNStore*/}
+            {/*        </h1>*/}
+            {/*        <h2>*/}
+            {/*            Cập nhật thông tin các mặt hàng chất lượng mỗi ngày nhé*/}
+            {/*        </h2>*/}
+            {/*        <div className="fromDangKy">*/}
+            {/*            <input className="input_1" type="text" placeholder="Nhập email tại đây nhé !!"/>*/}
+            {/*            <button onClick={() => {*/}
+            {/*                alert("Hello")*/}
+            {/*            }}>Subcribe*/}
+            {/*            </button>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</section>*/}
 
             {TrangChuNavStyle()}
         </>
