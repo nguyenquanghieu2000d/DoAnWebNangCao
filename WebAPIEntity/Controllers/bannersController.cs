@@ -16,15 +16,8 @@ namespace WebAPIEntity.Controllers
 {
     public class bannersController : ApiController
     {
-
-        
-
-        private string rootPathImage1 = @"C:\hieu\DoAnWebNangCao\Frontend\public\app\Image";
-        private string rootPathImage2 = @"C:\hieu\DoAnWebNangCao\admin\public\app\Image";
-
-        
-
-
+        public string rootPathImage1 = @"C:\hieu\DoAnWebNangCao\Frontend\public\app\Image";
+        public string rootPathImage2 = @"C:\hieu\DoAnWebNangCao\admin\public\app\Image";
         private quanlybanhangEntities db = new quanlybanhangEntities();
 
         // GET: api/banners
@@ -72,18 +65,6 @@ namespace WebAPIEntity.Controllers
                          isSlide = s.isSlide
                      }).OrderBy(p => p.ma_banner).ToList().Skip(skip).Take(numget);
 
-            //List<banner> result = new List<banner>();
-            //foreach(var i in xxx)
-            //{
-            //    banner a = new banner();
-            //    a.ma_banner = i.ma_banner;
-            //    a.ten_banner = i.ten_banner;
-            //    a.mo_ta = i.mo_ta;
-            //    a.link = i.link;
-            //    a.image = i.image.Replace(i.image, func(i.image));
-            //    result.Add(a);
-            //}
-
             return Ok(xxx);
 
         }
@@ -112,7 +93,7 @@ namespace WebAPIEntity.Controllers
         }
 
 
-        public Image Base64ToImage(string base64String)
+        public static Image Base64ToImage(string base64String)
         {
             // Convert Base64 String to byte[]
             byte[] imageBytes = Convert.FromBase64String(base64String.Split(',')[1]);

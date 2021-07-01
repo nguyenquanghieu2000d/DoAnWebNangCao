@@ -17,24 +17,26 @@ namespace WebAPIEntity.Controllers
     public class hangsController : ApiController
     {
         private quanlybanhangEntities db = new quanlybanhangEntities();
-
+        public string rootPathImage1 = @"C:\hieu\DoAnWebNangCao\Frontend\public\app\Image";
+        public string rootPathImage2 = @"C:\hieu\DoAnWebNangCao\admin\public\app\Image";
         // GET: api/hangs
 
         [Route("get")]
         public IHttpActionResult okok()
         {
-            return Ok((from s in db.hangs select new
-            {
-                ma_hang = s.ma_hang
-            }).ToList());
+            return Ok((from s in db.hangs
+                       select new
+                       {
+                           ma_hang = s.ma_hang
+                       }).ToList());
         }
 
 
         [Route("getHangNoPaging")]
         public IHttpActionResult PostHangKoPhanTrang(hang hang)
         {
-            if(hang != null)
-            //return Ok(hang);
+            if (hang != null)
+                //return Ok(hang);
                 return Ok((from s in db.hangs
                            where s.ma_hang.Contains(hang.ma_hang)
                            && s.ten_hang.Contains(hang.ten_hang)
@@ -102,24 +104,24 @@ namespace WebAPIEntity.Controllers
             //var truyvan = (Object)null;
             if (hang == null)
             {
-                
+
                 if (order == 0)
                 {
                     return Ok((from s in db.hangs
-                             select new
-                             {
-                                 ma_hang = s.ma_hang,
-                                 ten_hang = s.ten_hang,
-                                 gia_cu = s.gia_cu,
-                                 gia_moi = s.gia_moi,
-                                 thuong_hieu = s.thuong_hieu,
-                                 hinh_dai_dien = s.hinh_dai_dien,
-                                 trang_thai = s.trang_thai,
-                                 mo_ta = s.mo_ta,
-                                 ma_loai = s.ma_loai
-                             }).OrderBy(p => p.ma_hang).ToList().Skip(skip).Take(numget));
+                               select new
+                               {
+                                   ma_hang = s.ma_hang,
+                                   ten_hang = s.ten_hang,
+                                   gia_cu = s.gia_cu,
+                                   gia_moi = s.gia_moi,
+                                   thuong_hieu = s.thuong_hieu,
+                                   hinh_dai_dien = s.hinh_dai_dien,
+                                   trang_thai = s.trang_thai,
+                                   mo_ta = s.mo_ta,
+                                   ma_loai = s.ma_loai
+                               }).OrderBy(p => p.ma_hang).ToList().Skip(skip).Take(numget));
                 }
-                else if(order == 1)
+                else if (order == 1)
                 {
                     return Ok((from s in db.hangs
                                select new
@@ -179,7 +181,7 @@ namespace WebAPIEntity.Controllers
                                    ma_loai = s.ma_loai
                                }).OrderBy(p => p.ma_hang).ToList().Skip(skip).Take(numget));
                 }
-                else if(order == 1)
+                else if (order == 1)
                 {
                     return Ok((from s in db.hangs
                                where
@@ -230,13 +232,13 @@ namespace WebAPIEntity.Controllers
                                }).OrderByDescending(p => p.gia_moi).ToList().Skip(skip).Take(numget));
                 }
             }
-     
-            
+
+
         }
 
         [Route("Counthang")]
 
-        public IHttpActionResult PostCountHang(hang hang) 
+        public IHttpActionResult PostCountHang(hang hang)
         {
             var x = (from s in db.hangs
                      where
@@ -301,7 +303,7 @@ namespace WebAPIEntity.Controllers
             return Ok(x);
         }
 
-        
+
 
         // GET: api/hangs/5
         [ResponseType(typeof(hang))]
@@ -323,11 +325,23 @@ namespace WebAPIEntity.Controllers
         public IHttpActionResult Puthang(hang hang)
         {
             var x = (from s in db.hangs where s.ma_hang == hang.ma_hang select s).SingleOrDefault();
+            string path = "";
+           
+            if (hang.hinh_dai_dien.Length > 10)
+            {
+                Image image = bannersController.Base64ToImage(hang.hinh_dai_dien);
+                string imagePath = x.hinh_dai_dien.Replace("Image\\", "");
+                imagePath = imagePath.Replace("Image/", "");
+                imagePath = imagePath.Replace("Image", "");
+                //return Ok(Path.Combine(rootPathImage1, imagePath));
+                image.Save(Path.Combine(rootPathImage1, imagePath));
+                image.Save(Path.Combine(rootPathImage2, imagePath));
+            }
+
             x.ten_hang = hang.ten_hang;
             x.gia_cu = hang.gia_cu;
             x.gia_moi = hang.gia_moi;
             x.thuong_hieu = hang.thuong_hieu;
-            x.hinh_dai_dien = hang.hinh_dai_dien;
             x.mo_ta = hang.mo_ta;
             x.ma_loai = hang.ma_loai;
             db.SaveChanges();
@@ -342,7 +356,28 @@ namespace WebAPIEntity.Controllers
         [ResponseType(typeof(hang))]
         public IHttpActionResult Posthang(hang hang)
         {
+
+            //if (Directory.Exists(path))
+            //{
+                //Console.WriteLine("That path exists already.");
+                //return;
+            //}
+
+            // Try to create the directory.
+            //DirectoryInfo di = Directory.CreateDirectory(path);
+
+            
+
+            //banner.image = @"Image\banner\" + banner.ma_banner + ".jpg";
+
             hang.ma_hang = db.p_hang().FirstOrDefault();
+            if (hang.hinh_dai_dien.Length > 10)
+            {
+                Image image = bannersController.Base64ToImage(hang.hinh_dai_dien);
+                image.Save(Path.Combine(rootPathImage1, "hang", hang.ma_hang + ".jpg"));
+                image.Save(Path.Combine(rootPathImage2, "hang", hang.ma_hang + ".jpg"));
+            }
+            hang.hinh_dai_dien = @"Image\hang\" + hang.ma_hang + ".jpg";
             string a = hang.ma_loai;
             hang.ma_loai = "";
 
@@ -418,7 +453,7 @@ namespace WebAPIEntity.Controllers
 
 
 
-        
+
 
 
         private bool hangExists(string id)

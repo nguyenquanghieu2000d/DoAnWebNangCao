@@ -409,6 +409,7 @@
     <Compile Include="Controllers\bannersController.cs" />
     <Compile Include="Controllers\ctdonhangsController.cs" />
     <Compile Include="Controllers\ct_the_loaiController.cs" />
+    <Compile Include="Controllers\donhangsController.cs" />
     <Compile Include="Controllers\hangsController.cs" />
     <Compile Include="Controllers\hinh_anh_mo_taController.cs" />
     <Compile Include="Controllers\taikhoansController.cs" />
